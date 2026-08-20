@@ -3,72 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A secure package delivery verification experience." />
+    <meta
+      name="description"
+      content="A secure package delivery verification experience."
+    />
     <title>Package Delivery</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
     <main class="delivery-site">
-      <section id="page1" class="page page--delivery" aria-labelledby="deliveryTitle">
-        <div class="background-layer background-layer--gradient" aria-hidden="true"></div>
-        <div class="background-layer background-layer--sparkles" aria-hidden="true"></div>
+      <section
+        id="page1"
+        class="page page--delivery"
+        aria-labelledby="deliveryTitle"
+      >
+        <div
+          class="background-layer background-layer--gradient"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          class="background-layer background-layer--sparkles"
+          aria-hidden="true"
+        ></div>
+
         <div class="fairy-lights" aria-hidden="true"></div>
         <div class="floating-decor" aria-hidden="true"></div>
 
         <article class="delivery-card">
           <div class="delivery-card__glow" aria-hidden="true"></div>
+
           <header class="delivery-card__header">
-            <p class="eyebrow">Package delivery update</p>
+            <p class="eyebrow">Delivery update</p>
+
             <div class="shipping-label" aria-hidden="true">
               <span class="status-badge">OUT FOR DELIVERY</span>
               <span class="package-box">📦</span>
             </div>
-            <h1 id="deliveryTitle">Package awaiting verification</h1>
-            <p class="delivery-card__intro">Your package has reached its final destination. Confirm the recipient to complete delivery.</p>
-            <div class="order-id"><span>Tracking ID</span> PKG-LTCH-0828</div>
-            <div class="shipping-info">
-              <div><strong>Status</strong><span>Out for delivery</span></div>
-              <div><strong>Destination</strong><span>Recipient address 📍</span></div>
+
+            <h1 id="deliveryTitle">Your package is arriving today</h1>
+
+            <p class="delivery-card__intro">
+              Your package has reached the final delivery stage. Please confirm
+              that you are available to receive it.
+            </p>
+
+            <div class="order-id">
+              <span>Tracking ID</span>
+              PKG-2808-4721
             </div>
-            <div class="delivery-progress" aria-label="Delivery progress">
-              <span class="done">✓ Packed</span><span class="done">✓ Shipped</span><span class="active">📦 Verification</span>
+
+            <div class="shipping-info">
+              <div>
+                <strong>STATUS</strong>
+                <span>Out for delivery</span>
+              </div>
+
+              <div>
+                <strong>DELIVERING TO</strong>
+                <span>Auraiya, Uttar Pradesh 📍</span>
+              </div>
+            </div>
+
+            <div class="delivery-meta">
+              <div>
+                <span>Estimated delivery</span>
+                <strong>Today, by 8:00 PM</strong>
+              </div>
+
+              <div>
+                <span>Package</span>
+                <strong>1 item</strong>
+              </div>
+
+              <div>
+                <span>Payment</span>
+                <strong>Paid</strong>
+              </div>
+            </div>
+
+            <div class="delivery-note">
+              <strong>Important delivery information</strong>
+              <p>
+                The recipient may be asked to confirm the delivery before the
+                package can be handed over.
+              </p>
             </div>
           </header>
 
-          <div class="delivery-summary" aria-live="polite">
-            <span class="summary-icon">🔒</span>
-            <div><strong>Recipient verification required</strong><p>The delivery partner needs confirmation before handing over this parcel.</p></div>
-          </div>
-          <div id="statusMessage" class="status-message" aria-live="polite"></div>
           <div id="buttonArea"></div>
-          <p class="delivery-card__hint">Secure delivery verification is required.</p>
         </article>
-
-        <div id="verificationPopup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-          <div class="popup-content">
-            <p id="popupStep" class="popup-step">STEP 1 OF 4</p>
-            <div id="popupIcon" class="popup-icon" aria-hidden="true">📦</div>
-            <h2 id="popupTitle">Verify Recipient</h2>
-            <p id="popupText">This package can only be handed over to the intended recipient.</p>
-            <div id="popupDetails" class="popup-details"></div>
-            <button id="popupBtn" class="button button--accept" type="button">Verify recipient</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="page2" class="page page--complete" hidden aria-hidden="true" aria-labelledby="completeTitle">
-        <div class="complete-card">
-          <div class="complete-check" aria-hidden="true">✓</div>
-          <p class="eyebrow">Delivery completed</p>
-          <h2 id="completeTitle">Package delivered</h2>
-          <p>Your recipient verification was successful. This delivery is now complete.</p>
-          <div class="complete-id">PKG-LTCH-0828</div>
-        </div>
       </section>
     </main>
+
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Package Verification</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/verification.css" />
+  </head>
+
+  <body>
+    <main class="verification-page">
+      <!-- Your chosen background will go here -->
+      <div class="verification-background"></div>
+
+      <!-- Background music will be added here -->
+      <audio id="backgroundMusic" loop>
+        <source src="../assets/music/be-my-baby.mp3" type="audio/mpeg" />
+      </audio>
+
+      <!-- Existing verification popup -->
+      <div
+        id="verificationPopup"
+        class="popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popupTitle"
+      >
+        <div class="popup-content">
+          <p id="popupStep" class="popup-step">SECURE VERIFICATION</p>
+
+          <div id="popupIcon" class="popup-icon" aria-hidden="true">🔐</div>
+
+          <h2 id="popupTitle">Verifying recipient</h2>
+
+          <p id="popupText">Checking recipient details...</p>
+
+          <div class="verification-progress">
+            <div class="progress-header">
+              <span>Processing</span>
+              <strong id="progressPercent">0%</strong>
+            </div>
+
+            <div class="progress-track">
+              <div id="progressBar" class="progress-bar"></div>
+            </div>
+          </div>
+
+          <div id="popupDetails" class="popup-details" aria-live="polite"></div>
+
+          <p id="verificationStatus" class="verification-status">
+            Initializing...
+          </p>
+        </div>
+      </div>
+      <section id="cakeCelebration" class="cake-celebration" hidden>
+        <div class="cake-celebration-background" aria-hidden="true"></div>
+
+        <div class="cake-celebration-content">
+          <img
+            id="birthdayGraphic"
+            class="birthday-graphic"
+            src="../assets/images/happy-bday.png"
+            alt="Happy Birthday Kuchupuchu"
+          />
+
+          <p id="cakeMessage" class="cake-message">Make a wish, Kaju ❤️</p>
+
+          <video
+            id="cakeLitVideo"
+            class="cake-video"
+            muted
+            playsinline
+            preload="auto"
+          >
+            <source src="../assets/videos/cake-lit.mp4" type="video/mp4" />
+          </video>
+
+          <video
+            id="cakeBlownVideo"
+            class="cake-video cake-video--blown"
+            muted
+            playsinline
+            preload="auto"
+          >
+            <source src="../assets/videos/cake-blown.mp4" type="video/mp4" />
+          </video>
+
+          <button id="blowCandlesBtn" class="cake-action-button" type="button">
+            Blow the candles 💨
+          </button>
+
+          <div id="cakeComplete" class="cake-complete" hidden>
+            <div class="cake-complete-icon">✨</div>
+
+            <h3>Wish made ❤️</h3>
+
+            <p>I hope it comes true.</p>
+
+            <button
+              id="continueCakeBtn"
+              class="cake-continue-button"
+              type="button"
+            >
+              Continue ✨
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/verification.js"></script>
+  </body>
+</html>

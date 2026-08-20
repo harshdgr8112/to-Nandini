@@ -1,0 +1,806 @@
+:root {
+    --pink: #d95d88;
+    --pink-dark: #a93e64;
+    --pink-soft: #f3b2c9;
+
+    --plum: #542544;
+    --cream: #fffaf7;
+
+    --cake: #f3a9b9;
+    --cake-dark: #d87996;
+    --icing: #fff2f5;
+
+    --shadow:
+        0 28px 70px rgba(84, 37, 68, 0.20);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    color: var(--plum);
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.cake-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7f9,
+            #fde4ed 48%,
+            #fff3e6
+        );
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.cake-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    background-image:
+        url("../assets/images/cake1.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* =========================================
+   GLOW
+========================================= */
+
+.cake-glow {
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(242, 146, 182, 0.14);
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   SCENE
+========================================= */
+
+.cake-scene {
+    position: relative;
+
+    z-index: 3;
+
+    width: min(720px, 94vw);
+
+    text-align: center;
+
+    animation:
+        cakeSceneEnter
+        0.8s
+        ease
+        both;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.cake-eyebrow {
+    margin: 0 0 12px;
+
+    color: var(--pink-dark);
+
+    font-size: 0.64rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.17em;
+
+    text-transform: uppercase;
+}
+
+.cake-scene h1 {
+    margin: 0;
+
+    color: var(--plum);
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            2.6rem,
+            7vw,
+            4.7rem
+        );
+
+    line-height: 1;
+
+    letter-spacing: -0.035em;
+}
+
+.cake-scene h1 span {
+    color: var(--pink);
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.cake-intro {
+    width: min(460px, 100%);
+
+    margin: 18px auto 0;
+
+    color: #7b6270;
+
+    font-size: 0.92rem;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   PARTY GUESTS
+========================================= */
+
+.party-guests {
+    position: relative;
+
+    width: min(520px, 88vw);
+
+    height: 120px;
+
+    margin: 25px auto -5px;
+}
+
+.party-animal {
+    position: absolute;
+
+    display: grid;
+
+    width: 68px;
+    height: 68px;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    box-shadow:
+        0 12px 24px
+        rgba(84, 37, 68, 0.10);
+
+    font-size: 2.6rem;
+
+    animation:
+        animalFloat
+        3.3s
+        ease-in-out
+        infinite;
+}
+
+.party-animal--rabbit {
+    left: 3%;
+    bottom: 10px;
+
+    animation-delay: -0.4s;
+}
+
+.party-animal--bear {
+    left: 20%;
+    top: 0;
+
+    animation-delay: -1.2s;
+}
+
+.party-animal--cat {
+    right: 20%;
+    top: 3px;
+
+    animation-delay: -1.9s;
+}
+
+.party-animal--penguin {
+    right: 3%;
+    bottom: 7px;
+
+    animation-delay: -2.6s;
+}
+
+
+/* =========================================
+   CAKE
+========================================= */
+
+.cake {
+    position: relative;
+
+    width: min(360px, 82vw);
+
+    height: 260px;
+
+    margin: -3px auto 0;
+}
+
+
+/* Plate */
+
+.cake-plate {
+    position: absolute;
+
+    left: 50%;
+    bottom: 8px;
+
+    width: 100%;
+    height: 28px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            #f8dfe7,
+            #e8c1cf
+        );
+
+    box-shadow:
+        0 14px 24px
+        rgba(84, 37, 68, 0.12);
+}
+
+
+/* Cake base */
+
+.cake-base {
+    position: absolute;
+
+    left: 50%;
+    bottom: 28px;
+
+    width: 76%;
+    height: 130px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        16px 16px 20px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--cake),
+            var(--cake-dark)
+        );
+
+    box-shadow:
+        0 15px 30px
+        rgba(170, 65, 100, 0.18);
+}
+
+
+/* Icing */
+
+.cake-icing {
+    position: absolute;
+
+    top: -17px;
+    left: -1%;
+
+    width: 102%;
+    height: 42px;
+
+    border-radius:
+        18px 18px 12px 12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8fa,
+            var(--icing)
+        );
+
+    box-shadow:
+        0 5px 10px
+        rgba(84, 37, 68, 0.08);
+}
+
+
+/* Little icing drips */
+
+.cake-icing::before,
+.cake-icing::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -9px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 0 0 12px 12px;
+
+    background: var(--icing);
+}
+
+.cake-icing::before {
+    left: 22%;
+}
+
+.cake-icing::after {
+    right: 25%;
+}
+
+
+/* Cake decoration */
+
+.cake-decoration {
+    position: absolute;
+
+    top: 48px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 1.4rem;
+}
+
+
+/* Cake name */
+
+.cake-text {
+    position: absolute;
+
+    left: 50%;
+    bottom: 28px;
+
+    transform:
+        translateX(-50%);
+
+    color: #fff8fb;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+}
+
+
+/* =========================================
+   CANDLES
+========================================= */
+
+.candles {
+    position: absolute;
+
+    top: 20px;
+    left: 50%;
+
+    width: 58%;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    transform:
+        translateX(-50%);
+}
+
+.candle {
+    position: relative;
+
+    width: 14px;
+    height: 55px;
+
+    border-radius: 5px 5px 3px 3px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #fff,
+            #fff 7px,
+            #f3a4bc 7px,
+            #f3a4bc 13px
+        );
+
+    box-shadow:
+        0 5px 10px
+        rgba(84, 37, 68, 0.10);
+}
+
+
+/* Flame */
+
+.flame {
+    position: absolute;
+
+    left: 50%;
+    top: -22px;
+
+    width: 15px;
+    height: 22px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%
+        50%
+        50%
+        50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #fff8a7 0 25%,
+            #ffc43d 26% 58%,
+            #f17848 59% 100%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(255, 173, 68, 0.65)
+        );
+
+    animation:
+        flameFlicker
+        0.65s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+/* =========================================
+   BUTTON / INSTRUCTION
+========================================= */
+
+.cake-instruction {
+    margin-top: -8px;
+}
+
+.cake-instruction p {
+    margin: 0 0 15px;
+
+    color: #795f6e;
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
+}
+
+.blow-button {
+    min-width: 200px;
+
+    padding: 13px 23px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dd668d,
+            #b74466
+        );
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 0.88rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 25px
+        rgba(183, 68, 102, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.blow-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 16px 30px
+        rgba(183, 68, 102, 0.30);
+}
+
+.blow-button:focus-visible {
+    outline:
+        3px solid
+        rgba(201, 79, 120, 0.32);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   COMPLETE
+========================================= */
+
+.cake-complete {
+    width: min(420px, 90vw);
+
+    margin: 18px auto 0;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    box-shadow:
+        0 18px 40px
+        rgba(84, 37, 68, 0.10);
+
+    animation:
+        completeEnter
+        0.7s
+        ease
+        both;
+}
+
+.cake-complete-icon {
+    font-size: 2rem;
+}
+
+.cake-complete h2 {
+    margin: 7px 0;
+
+    color: var(--plum);
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 1.7rem;
+}
+
+.cake-complete p {
+    margin: 0 auto 18px;
+
+    color: #735967;
+
+    font-size: 0.84rem;
+
+    line-height: 1.6;
+}
+
+.continue-button {
+    min-width: 150px;
+
+    padding: 11px 19px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: #f1aec4;
+
+    color: #6b2946;
+
+    cursor: pointer;
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes cakeSceneEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(24px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes animalFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(2deg);
+    }
+}
+
+
+@keyframes flameFlicker {
+
+    from {
+        transform:
+            translateX(-50%)
+            scale(0.92);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.08);
+    }
+}
+
+
+@keyframes completeEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .cake-page {
+        padding: 16px;
+    }
+
+    .cake-scene h1 {
+        font-size: 3rem;
+    }
+
+    .cake-intro {
+        font-size: 0.86rem;
+    }
+
+    .party-guests {
+        height: 90px;
+    }
+
+    .party-animal {
+        width: 54px;
+        height: 54px;
+
+        font-size: 2rem;
+    }
+
+    .cake {
+        width: min(330px, 88vw);
+
+        height: 235px;
+    }
+
+    .cake-base {
+        height: 118px;
+    }
+
+    .candle {
+        width: 12px;
+        height: 48px;
+    }
+
+    .blow-button {
+        width: 100%;
+
+        max-width: 280px;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,1125 @@
+:root {
+    --ink: #493044;
+    --muted: #866f81;
+
+    --berry: #bc526f;
+    --berry-dark: #96394f;
+
+    --cream: #fffaf5;
+
+    --glass: rgba(255, 255, 255, 0.90);
+    --glass-border: rgba(255, 255, 255, 0.78);
+
+    --shadow:
+        0 30px 80px rgba(80, 40, 80, 0.24);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-width: 320px;
+
+    color: var(--ink);
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.verification-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   VERIFICATION BACKGROUND
+========================================= */
+
+.verification-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    background-image:
+        url("../assets/images/vb.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transform: scale(1.01);
+}
+
+.verification-background::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================
+   POPUP
+========================================= */
+
+.popup {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(500px, 92vw);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    position: relative;
+
+    width: min(430px, 88vw);
+
+    padding: 30px 28px 24px;
+
+    border:
+        1px solid
+        rgba(255, 190, 215, 0.35);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(74, 35, 65, 0.96),
+            rgba(46, 24, 48, 0.96)
+        );
+
+    box-shadow:
+        0 28px 70px
+        rgba(48, 20, 45, 0.38);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: #fff8fb;
+
+    text-align: center;
+
+    animation:
+        popupEnter
+        0.55s
+        ease
+        both;
+}
+
+
+/* =========================================
+   POPUP HEADER
+========================================= */
+
+.popup-step {
+    margin: 0 0 8px;
+
+    color: #f4a7c4;
+
+    font-size: 0.62rem;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+}
+
+.popup-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.18);
+
+    font-size: 2rem;
+}
+
+.popup h2 {
+    margin: 8px 0 7px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            1.3rem,
+            3.5vw,
+            1.65rem
+        );
+
+    line-height: 1.2;
+}
+
+.popup p {
+    margin: 0 auto;
+
+    max-width: 390px;
+
+    color: #e7d5df;
+
+    font-size: 0.94rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   VERIFICATION DETAILS
+========================================= */
+
+.popup-details {
+    min-height: 74px;
+
+    margin-top: 22px;
+}
+
+
+/* =========================================
+   VERIFICATION PROGRESS
+========================================= */
+
+.verification-progress {
+    width: 100%;
+
+    margin-top: 24px;
+}
+
+.progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 8px;
+}
+
+.progress-header span {
+    display: none;
+}
+
+.progress-header strong {
+    color: #ffffff;
+
+    font-size: 2.45rem;
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+}
+
+.progress-track {
+    width: 100%;
+    height: 6px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d86887,
+            #f4a7c4
+        );
+
+    box-shadow:
+        0 0 16px
+        rgba(244, 167, 196, 0.38);
+
+    transition:
+        width 0.55s ease;
+}
+
+.verification-status {
+    margin: 16px 0 0;
+
+    color:
+        rgba(255, 255, 255, 0.58);
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.04em;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   VERIFICATION ROW
+========================================= */
+
+.popup-row {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    padding: 14px 16px;
+
+    margin: 18px 0 0;
+
+    border:
+        1px solid
+        rgba(255, 190, 215, 0.15);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.075);
+
+    color: #fff4f8;
+
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0, 0, 0, 0.08);
+}
+
+.popup-row strong {
+    flex-shrink: 0;
+
+    color: #8ff0bf;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.05em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   RESULT
+========================================= */
+
+.popup-result {
+    padding: 17px 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(235, 250, 240, 0.92);
+
+    color: #269653;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px
+        rgba(38, 150, 83, 0.08);
+
+    animation:
+        fadeIn
+        0.45s
+        ease
+        both;
+}
+
+
+/* =========================================
+   SENDER REVEAL
+========================================= */
+
+.sender-reveal {
+    border-color:
+        rgba(244, 167, 196, 0.32);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 8px 24px
+        rgba(244, 167, 196, 0.08);
+}
+
+.sender-reveal strong {
+    color: #f4a7c4;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0;
+
+    text-transform: none;
+}
+
+
+/* =========================================
+   VERIFY ANIMATION
+========================================= */
+
+.verify-animate {
+    animation:
+        verificationIn
+        0.45s
+        ease
+        both;
+}
+
+.fade-out {
+    animation:
+        verificationOut
+        0.35s
+        ease
+        forwards;
+}
+
+@keyframes verificationIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes verificationOut {
+
+    from {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translateY(-12px)
+            scale(0.98);
+    }
+}
+
+
+/* =========================================
+   POPUP BUTTON
+========================================= */
+
+.popup .button {
+    min-width: 190px;
+
+    margin-top: 24px;
+
+    padding: 13px 24px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d86887,
+            #af3e5c
+        );
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            166,
+            48,
+            79,
+            0.25
+        );
+
+    cursor: pointer;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.popup .button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 14px 28px
+        rgba(
+            166,
+            48,
+            79,
+            0.32
+        );
+}
+
+.popup .button:disabled {
+    opacity: 0.75;
+
+    cursor: default;
+
+    transform: none;
+}
+
+
+/* =========================================
+   ENTRY ANIMATION
+========================================= */
+
+@keyframes popupEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   GENERAL FADE
+========================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+.confetti-piece {
+    position: fixed;
+
+    top: -20px;
+
+    width: 9px;
+    height: 14px;
+
+    z-index: 9999;
+
+    border-radius: 2px;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall
+        2.2s
+        ease-out
+        forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+
+/* =========================================
+   CAKE CELEBRATION
+========================================= */
+
+.cake-celebration {
+    position: fixed;
+    inset: 0;
+
+    z-index: 50;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+
+    background: #fff5f8;
+}
+
+.cake-celebration[hidden] {
+    display: none;
+}
+
+
+/* =========================================
+   CAKE BACKGROUND
+========================================= */
+
+.cake-celebration-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    background:
+        url("../assets/images/cake1.jpg")
+        center / cover
+        no-repeat;
+}
+
+
+/* =========================================
+   CAKE CONTENT
+========================================= */
+
+.cake-celebration-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   BIRTHDAY GRAPHIC
+========================================= */
+
+.birthday-graphic {
+    position: absolute;
+
+    top: 5%;
+    left: 17%;
+
+    z-index: 6;
+
+    width: min(330px, 31vw);
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 10px 18px
+            rgba(84, 37, 68, 0.12)
+        );
+
+    pointer-events: none;
+
+    animation:
+        birthdayGraphicEnter
+        0.8s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        both;
+}
+
+@keyframes birthdayGraphicEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-25px)
+            rotate(-4deg)
+            scale(0.90);
+    }
+
+    70% {
+        opacity: 1;
+
+        transform:
+            translateY(4px)
+            rotate(1deg)
+            scale(1.03);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(-1.5deg)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   MAKE A WISH
+========================================= */
+
+.cake-message {
+    position: absolute;
+
+   top: 53%;
+    left: 43%;
+
+    z-index: 6;
+
+    width: 220px;
+
+    margin: 0;
+
+    color: #000000;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    text-align: center;
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* =========================================
+   CAKE VIDEO
+========================================= */
+
+.cake-video {
+    position: absolute;
+
+    z-index: 4;
+
+    width: min(330px, 24vw);
+
+    max-height: none;
+
+    height: auto;
+
+    top: 29%;
+    left: 58%;
+
+    transform:
+        translate(-50%, -50%);
+
+    margin: 0;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+
+    filter:
+        drop-shadow(
+            0 18px 30px
+            rgba(84, 37, 68, 0.18)
+        );
+
+    pointer-events: none;
+}
+
+.cake-video--blown {
+    display: none;
+}
+
+.cake-video--blown.is-visible {
+    display: block;
+}
+
+
+/* =========================================
+   BLOW CANDLES BUTTON
+========================================= */
+
+.cake-action-button {
+    position: absolute;
+
+    top: 58%;
+    left: 58.5%;
+
+    z-index: 6;
+
+    min-width: 210px;
+
+    margin: 0;
+
+    padding: 13px 23px;
+
+    transform:
+        translateX(-50%);
+
+    border: none;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #db668a,
+            #b84364
+        );
+
+    color: #fff;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 0.88rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 25px
+        rgba(184, 67, 100, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.cake-action-button:hover {
+    transform:
+        translateX(-50%)
+        translateY(-2px);
+
+    box-shadow:
+        0 16px 30px
+        rgba(184, 67, 100, 0.30);
+}
+
+.cake-action-button:disabled {
+    opacity: 0.65;
+
+    cursor: default;
+}
+
+
+/* =========================================
+   CAKE COMPLETE
+========================================= */
+
+.cake-complete {
+    position: absolute;
+
+    left: 50%;
+    bottom: 7%;
+
+    z-index: 7;
+
+    width: min(380px, 88vw);
+
+    padding: 18px 20px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    box-shadow:
+        0 16px 35px
+        rgba(84, 37, 68, 0.12);
+
+    pointer-events: auto;
+}
+
+.cake-complete[hidden] {
+    display: none;
+}
+
+.cake-complete-icon {
+    font-size: 1.8rem;
+}
+
+.cake-complete h3 {
+    margin: 5px 0;
+
+    color: #542544;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 1.6rem;
+}
+
+.cake-complete p {
+    margin: 0;
+
+    color: #765d6b;
+
+    font-size: 0.82rem;
+}
+
+.cake-continue-button {
+    min-width: 150px;
+
+    margin-top: 16px;
+
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #db668a,
+            #b84364
+        );
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 0.85rem;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .verification-page {
+        padding: 16px;
+    }
+
+    .popup {
+        width: min(
+            100%,
+            94vw
+        );
+    }
+
+    .popup-content {
+        padding: 28px 18px;
+
+        border-radius: 22px;
+    }
+
+    .popup-icon {
+        width: 56px;
+        height: 56px;
+
+        font-size: 1.7rem;
+    }
+
+    .popup h2 {
+        font-size: 1.45rem;
+    }
+
+    .popup p {
+        font-size: 0.87rem;
+    }
+
+    .popup-row {
+        padding: 13px 14px;
+
+        font-size: 0.84rem;
+    }
+
+    .popup .button {
+        width: 100%;
+
+        margin-top: 20px;
+    }
+
+
+    /* Cake graphic */
+
+    .birthday-graphic {
+        top: 4%;
+        left: 3%;
+
+        width: min(
+            190px,
+            42vw
+        );
+    }
+
+
+    /* Cake video */
+
+    .cake-video {
+        width:
+            min(
+                260px,
+                55vw
+            );
+
+        top: 40%;
+        left: 58%;
+    }
+
+
+    /* Wish */
+
+    .cake-message {
+        top: 49%;
+        left: 40%;
+
+        width: 180px;
+
+        font-size: 0.78rem;
+    }
+
+
+    /* Blow button */
+
+    .cake-action-button {
+        top: auto;
+
+        bottom: 8%;
+        left: 60%;
+
+        min-width: 175px;
+    }
+
+
+    /* Complete */
+
+    .cake-complete {
+        width:
+            min(
+                90vw,
+                340px
+            );
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}

@@ -1,0 +1,384 @@
+:root {
+    --deep: #071820;
+    --deep-blue: #0d2530;
+    --card: #102d37;
+
+    --accent: #ff6f91;
+    --accent-soft: #ffb0c3;
+
+    --cream: #fffaf5;
+    --text-soft: #d7e4e6;
+
+    --green: #79c9a2;
+
+    --shadow: 0 28px 80px rgba(0, 0, 0, 0.48);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    background: var(--deep);
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.reject-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+
+    padding: 22px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(38, 94, 99, 0.42),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(255, 111, 145, 0.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #06141b,
+            #0b2029 55%,
+            #07171e
+        );
+
+    color: var(--cream);
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.reject-bg-glow {
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(96, 190, 179, 0.10);
+
+    filter: blur(100px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.reject-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(450px, 92vw);
+
+    padding: 29px 24px 27px;
+
+    border:
+        1px solid
+        rgba(150, 210, 211, 0.18);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 45, 55, 0.97),
+            rgba(8, 29, 37, 0.97)
+        );
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    text-align: center;
+
+    animation:
+        rejectEnter 0.7s ease both;
+}
+
+
+/* =========================================
+   WARNING
+========================================= */
+
+.reject-warning {
+    margin: 0 0 14px;
+
+    color: var(--accent-soft);
+
+    font-size: 0.58rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   GIF
+========================================= */
+
+.reject-gif {
+    width: min(290px, 74vw);
+
+    margin: 0 auto 16px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background: #f7f0e9;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.reject-gif img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    border-radius: 16px;
+}
+
+
+/* =========================================
+   HOW DARE YOU
+========================================= */
+
+.reject-card h1 {
+    margin: 7px 0 10px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            2rem,
+            7vw,
+            3.25rem
+        );
+
+    font-weight: 900;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.035em;
+
+    text-shadow:
+        0 7px 24px
+        rgba(255, 111, 145, 0.18);
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.reject-message {
+    margin: 0;
+
+    color: var(--text-soft);
+
+    font-size: 0.84rem;
+
+    line-height: 1.55;
+}
+
+.reject-submessage {
+    margin: 9px 0 18px;
+
+    color: #ff8eaa;
+
+    font-size: 1.05rem;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   ACCEPT AGAIN
+========================================= */
+
+.accept-again {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff7093,
+            #e94a78
+        );
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 10px 26px
+        rgba(255, 91, 125, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.accept-again:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 32px
+        rgba(255, 91, 125, 0.32);
+}
+
+.accept-again:focus-visible {
+    outline: 3px solid rgba(255, 180, 195, 0.9);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   ENTRY
+========================================= */
+
+@keyframes rejectEnter {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .reject-page {
+        padding: 16px;
+    }
+
+    .reject-card {
+        width: min(100%, 420px);
+
+        padding:
+            24px
+            17px
+            22px;
+
+        border-radius: 20px;
+    }
+
+    .reject-gif {
+        width: min(270px, 76vw);
+    }
+
+    .reject-card h1 {
+        font-size: 2.25rem;
+    }
+
+    .reject-message {
+        font-size: 0.82rem;
+    }
+
+    .reject-submessage {
+        font-size: 1rem;
+    }
+
+    .accept-again {
+        width: 100%;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
