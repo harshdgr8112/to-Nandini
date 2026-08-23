@@ -1282,3 +1282,30 @@ body {
     transform: translateX(-50%) scale(1);
   }
 }
+
+/* =========================================
+   CONFETTI BOMB VIDEO
+========================================= */
+
+.confetti-bomb-video {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: cover;
+
+  z-index: 9999;
+
+  pointer-events: none;
+
+  display: none;
+
+  /*
+   * Black becomes visually transparent.
+   * Bright confetti remains visible.
+   */
+  mix-blend-mode: screen;
+}

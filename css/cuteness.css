@@ -1,0 +1,727 @@
+:root {
+    --bg-top: #160a1c;
+    --bg-bottom: #09050d;
+
+    --pink: #ec709c;
+    --pink-soft: #ff9fbe;
+    --pink-glow: rgba(236, 112, 156, 0.45);
+
+    --text: #f9edf4;
+    --muted: rgba(249, 237, 244, 0.68);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    background:
+        var(--bg-bottom);
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.cuteness-page {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(112, 48, 100, 0.28),
+            transparent 43%
+        ),
+        linear-gradient(
+            180deg,
+            var(--bg-top),
+            var(--bg-bottom)
+        );
+}
+
+
+/* =========================================
+   AMBIENT GLOW
+========================================= */
+
+.ambient-glow {
+    position: absolute;
+
+    left: 50%;
+    top: 42%;
+
+    width: 430px;
+    height: 430px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(236, 112, 156, 0.18) 0%,
+            rgba(193, 76, 132, 0.07) 35%,
+            transparent 70%
+        );
+
+    filter:
+        blur(22px);
+
+    animation:
+        ambientPulse
+        4s
+        ease-in-out
+        infinite
+        alternate;
+
+    pointer-events: none;
+}
+
+@keyframes ambientPulse {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            scale(0.96);
+
+        opacity: 0.7;
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   MAIN ANALYSIS
+========================================= */
+
+.cuteness-analysis {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(440px, 86vw);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    animation:
+        analysisEnter
+        0.7s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        both;
+}
+
+
+/* =========================================
+   HEART
+========================================= */
+
+.analysis-heart {
+    position: relative;
+
+    width: 110px;
+    height: 110px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 28px;
+
+    color:
+        var(--pink-soft);
+
+    font-size: 5.2rem;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 16px
+        rgba(255, 150, 188, 0.78),
+
+        0 0 45px
+        rgba(236, 112, 156, 0.48);
+
+    animation:
+        heartPulse
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+.analysis-heart::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(236, 112, 156, 0.22),
+            transparent 70%
+        );
+
+    filter:
+        blur(12px);
+
+    z-index: -1;
+}
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(0.96);
+    }
+
+    50% {
+        transform:
+            scale(1.08);
+    }
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.analysis-label {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            1rem,
+            2.5vw,
+            1.15rem
+        );
+
+    font-weight: 600;
+
+    letter-spacing:
+        0.01em;
+}
+
+
+/* =========================================
+   PERCENTAGE
+========================================= */
+
+.analysis-percent {
+    margin-top: 19px;
+
+    color:
+        var(--pink-soft);
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            3.4rem,
+            9vw,
+            5rem
+        );
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 25px
+        rgba(236, 112, 156, 0.24);
+
+    transition:
+        transform 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+.analysis-percent.is-updating {
+    transform:
+        scale(1.08);
+
+    text-shadow:
+        0 0 34px
+        rgba(236, 112, 156, 0.45);
+}
+
+.analysis-percent.is-updating {
+    transform:
+        scale(1.08);
+
+    text-shadow:
+        0 0 30px
+        rgba(236, 112, 156, 0.42);
+}
+
+
+/* =========================================
+   THIN PROGRESS BAR
+========================================= */
+
+/* =========================================
+   CUTENESS METER
+========================================= */
+
+.analysis-progress {
+    position: relative;
+
+    width: min(360px, 78vw);
+
+    height: 8px;
+
+    margin-top: 24px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255, 255, 255, 0.05);
+
+    /*
+     * IMPORTANT:
+     * Keep the left edge fixed.
+     */
+    transform-origin: left center;
+
+    transition:
+        width 0.25s
+        cubic-bezier(
+            0.1,
+            0.9,
+            0.2,
+            1
+        );
+}
+.analysis-progress.is-overload {
+    transform: scaleX(1.2);
+    transform-origin: left center;
+
+    transition:
+        transform 0.25s
+        cubic-bezier(
+            0.1,
+            0.9,
+            0.2,
+            1
+        );
+}
+.analysis-progress-bar {
+    position: relative;
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d95784,
+            #f47aa6,
+            #ff9abb
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(236, 112, 156, 0.38);
+
+    transition:
+        width 0.45s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+/* =========================================
+   TRAVELLING METER HEART
+========================================= */
+
+.meter-heart {
+    position: absolute;
+
+    left: 0%;
+
+    top: 50%;
+
+    z-index: 10;
+
+    color: #ffd4e3;
+
+    font-size: 1.35rem;
+
+    line-height: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.75);
+
+    transform-origin: center;
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 153, 190, 0.95),
+
+        0 0 18px
+        rgba(236, 112, 156, 0.55);
+
+    transition:
+        left 0.45s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+
+        transform 0.35s ease;
+
+    pointer-events: none;
+
+    animation:
+        meterHeartPulse
+        1.2s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes meterHeartPulse {
+
+    from {
+        filter:
+            brightness(0.95);
+
+        transform:
+            translate(-50%, -50%)
+            scale(
+                calc(
+                    var(--heart-scale, 0.75) * 0.92
+                )
+            );
+    }
+
+    to {
+        filter:
+            brightness(1.15);
+
+        transform:
+            translate(-50%, -50%)
+            scale(
+                calc(
+                    var(--heart-scale, 0.75) * 1.08
+                )
+            );
+    }
+}
+
+.meter-heart.is-overload {
+    left: 100% !important;
+
+    /*
+     * Stay at the new end of the
+     * visually-extended bar.
+     */
+    transform:
+        translate(-50%, -50%)
+        scale(2);
+
+    animation:
+        heartExplosion
+        0.42s
+        cubic-bezier(
+            0.15,
+            0.85,
+            0.25,
+            1
+        )
+        forwards;
+}
+
+@keyframes heartExplosion {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(2);
+    }
+
+    20% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(2.1);
+    }
+
+    45% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(3);
+    }
+
+    70% {
+        opacity: 0.9;
+
+        transform:
+            translate(-50%, -50%)
+            scale(5);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(8);
+        
+        filter: blur(6px);
+    }
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.analysis-status {
+    margin-top: 11px;
+
+    color: var(--muted);
+
+    font-size: 0.7rem;
+
+    font-weight: 500;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =========================================
+   MEME
+========================================= */
+
+.analysis-meme {
+    width: min(390px, 82vw);
+
+    max-height: 0;
+
+    margin-top: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(12px)
+        scale(0.96);
+
+    transition:
+        max-height 0.45s ease,
+        margin-top 0.45s ease,
+        opacity 0.35s ease,
+        transform 0.4s ease;
+}
+
+.analysis-meme.is-visible {
+    max-height: 330px;
+
+    margin-top: 24px;
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.analysis-meme img {
+    display: block;
+
+    width: auto;
+    max-width: 100%;
+
+    max-height: 300px;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================
+   KISS LAYER
+========================================= */
+
+.kiss-layer {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   HEART COMPLIMENT LAYER
+========================================= */
+
+.compliment-layer {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 30;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ENTRY
+========================================= */
+
+@keyframes analysisEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .analysis-heart {
+        width: 90px;
+        height: 90px;
+
+        font-size: 4.4rem;
+
+        margin-bottom: 22px;
+    }
+
+    .analysis-percent {
+        font-size: 3.2rem;
+    }
+
+    .analysis-progress {
+        width: 82vw;
+    }
+
+    .analysis-meme {
+        width: 84vw;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .analysis-heart,
+    .ambient-glow,
+    .cuteness-analysis {
+        animation: none !important;
+    }
+}

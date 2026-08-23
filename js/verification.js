@@ -272,80 +272,34 @@ document.addEventListener("DOMContentLoaded", () => {
        CONFETTI
     ========================================= */
 
-  function launchConfetti() {
-    const colors = [
-      "#FF2D75", // hot pink
-      "#7B2CFF", // vivid purple
-      "#00C2A8", // teal
-      "#FF6A00", // orange
-      "#FFD23F", // gold
-      "#E91E63", // pink
-      "#3F51FF", // blue
-    ];
+function launchConfetti() {
+  const confettiBombVideo =
+    document.getElementById("confettiBombVideo");
 
-    const pieces = 280;
-
-    for (let i = 0; i < pieces; i++) {
-      const piece = document.createElement("span");
-
-      piece.className = "confetti-piece";
-
-      /*
-       * Keep the confetti spread wide.
-       * Avoid creating a heavy column directly
-       * over the cake.
-       */
-      const left = Math.random() * 100;
-
-      const width = 5 + Math.random() * 6;
-
-      const height = 8 + Math.random() * 9;
-
-      const drift = -150 + Math.random() * 300;
-
-      const rotation = Math.random() * 720 - 360;
-
-      const delay = Math.random() * 0.35;
-
-      const duration = 2.2 + Math.random() * 0.8;
-
-      piece.style.position = "fixed";
-
-      piece.style.top = "-25px";
-
-      piece.style.left = `${left}%`;
-
-      piece.style.width = `${width}px`;
-
-      piece.style.height = `${height}px`;
-
-      piece.style.zIndex = "9999";
-
-      piece.style.pointerEvents = "none";
-
-      piece.style.borderRadius = `${1 + Math.random() * 2}px`;
-
-      piece.style.background =
-        colors[Math.floor(Math.random() * colors.length)];
-
-      piece.style.setProperty("--confetti-drift", `${drift}px`);
-
-      piece.style.setProperty("--confetti-rotation", `${rotation}deg`);
-
-      piece.style.animation = `confettiFall ${duration}s ease-out forwards`;
-
-      piece.style.animationDelay = `${delay}s`;
-
-      document.body.appendChild(piece);
-
-      window.setTimeout(
-        () => {
-          piece.remove();
-        },
-        (duration + delay) * 1000 + 300,
-      );
-    }
+  if (!confettiBombVideo) {
+    return;
   }
+
+  /* Reset */
+  confettiBombVideo.pause();
+  confettiBombVideo.currentTime = 0;
+
+  /* Show */
+  confettiBombVideo.style.display = "block";
+
+  /* Silent — Be My Baby continues */
+  confettiBombVideo.muted = true;
+  confettiBombVideo.volume = 0;
+
+  /* Keep playing until page switch */
+  confettiBombVideo.loop = true;
+
+  confettiBombVideo.play().catch(() => {
+    console.log(
+      "Confetti bomb autoplay was blocked."
+    );
+  });
+}
 
   /* =========================================
        SHOW CAKE CELEBRATION
@@ -604,24 +558,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   blowCandlesBtn?.addEventListener("click", blowCandles);
 
-  continueCakeBtn?.addEventListener(
-    "click",
-    () => {
+continueCakeBtn?.addEventListener(
+  "click",
+  () => {
 
-        if (cakeCelebration) {
+    const confettiBombVideo =
+      document.getElementById(
+        "confettiBombVideo"
+      );
 
-            cakeCelebration.classList.add(
-                "cake-exit"
-            );
-        }
-
-        window.setTimeout(() => {
-
-            window.location.href =
-                "funny.html";
-
-        }, 800);
+    /* Stop confetti immediately */
+    if (confettiBombVideo) {
+      confettiBombVideo.pause();
+      confettiBombVideo.currentTime = 0;
+      confettiBombVideo.style.display = "none";
     }
+
+    /* Existing cake exit */
+    if (cakeCelebration) {
+      cakeCelebration.classList.add(
+        "cake-exit"
+      );
+    }
+
+    /* Existing page switch */
+    window.setTimeout(() => {
+
+      window.location.href =
+        "funny.html";
+
+    }, 800);
+  }
 );
 
   /* =========================================

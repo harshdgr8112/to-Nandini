@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Measuring Kaju's Cuteness</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/cuteness.css" />
+  </head>
+
+  <body>
+    <main class="cuteness-page">
+      <!-- Soft ambient glow -->
+      <div class="ambient-glow" aria-hidden="true"></div>
+
+      <!-- Analysis -->
+      <section id="cutenessAnalysis" class="cuteness-analysis">
+        <!-- Reference-style glowing heart -->
+        <div class="analysis-heart" aria-hidden="true">♥</div>
+
+        <div id="analysisLabel" class="analysis-label">
+          Measuring Kaju's cuteness...
+        </div>
+
+        <div id="analysisPercent" class="analysis-percent">0%</div>
+
+        <div class="analysis-progress">
+          <div id="analysisProgressBar" class="analysis-progress-bar"></div>
+
+          <span id="meterHeart" class="meter-heart" aria-hidden="true">
+            ♥
+          </span>
+        </div>
+
+        <div id="analysisStatus" class="analysis-status">Calculating...</div>
+
+        <!-- Meme appears here during analysis -->
+        <div id="analysisMeme" class="analysis-meme" aria-live="polite">
+          <img id="analysisMemeImage" src="" alt="" />
+        </div>
+      </section>
+
+      <!-- Kiss layer - added later in JS -->
+      <div id="kissLayer" class="kiss-layer" aria-hidden="true"></div>
+
+      <!-- Heart compliment layer - added later -->
+      <div id="complimentLayer" class="compliment-layer"></div>
+    </main>
+
+    <script src="../js/cuteness.js"></script>
+  </body>
+</html>

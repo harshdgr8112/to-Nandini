@@ -1,0 +1,274 @@
+:root {
+    --stage-image:
+        url("../assets/images/podium-stage.png");
+}
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+
+    background: #12070a;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.funny-page {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #12070a;
+}
+
+
+/* =========================================
+   STAGE BACKGROUND
+========================================= */
+
+.stage-background {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background-image:
+        var(--stage-image);
+
+    background-position:
+        center center;
+
+    background-size:
+        cover;
+
+    background-repeat:
+        no-repeat;
+
+    transform:
+        scale(1.01);
+
+    filter:
+        saturate(1.02);
+}
+
+
+/*
+ * Very subtle darkening at the edges.
+ * Keeps the video as the focus.
+ */
+
+.stage-background::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0, 0, 0, 0.20) 100%
+        );
+
+    pointer-events: none;
+}
+
+/* =========================================
+   FUNNY → CUTENESS TRANSITION
+========================================= */
+
+body {
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+body.funny-leaving {
+    opacity: 0;
+
+    transform:
+        scale(1.02);
+}
+
+
+/* =========================================
+   VIDEO AREA
+========================================= */
+
+.funny-stage {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(670px, 67vw);
+    height: min(560px, 77vh);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(3%);
+}
+
+.funny-stage::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -25px;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 225, 235, 0.16) 0%,
+            rgba(255, 210, 225, 0.07) 45%,
+            transparent 72%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.funny-video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border: none;
+    border-radius: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    outline: none;
+
+    opacity: 0;
+
+    animation:
+        funnyVideoEnter
+        0.55s
+        ease
+        0.05s
+        forwards;
+}
+
+
+/* =========================================
+   ENTRY
+========================================= */
+
+@keyframes funnyVideoEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.975);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .stage-background {
+        background-position:
+            center center;
+    }
+
+    .funny-stage {
+
+        width: 82vw;
+
+        height: 68vh;
+
+        transform:
+            translateY(-3%);
+    }
+
+    .funny-video {
+        border-radius: 10px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 430px) {
+
+    .funny-stage {
+
+        width: 88vw;
+
+        height: 62vh;
+
+        transform:
+            translateY(-4%);
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .funny-video {
+        animation:
+            none;
+
+        opacity: 1;
+    }
+}
