@@ -508,7 +508,7 @@ function launchConfetti() {
             "cake-complete-enter"
         );
 
-    }, 2400);
+    }, 3200);
 }
 
   /* =========================================
@@ -587,7 +587,7 @@ continueCakeBtn?.addEventListener(
       window.location.href =
         "funny.html";
 
-    }, 800);
+    }, 1200);
   }
 );
 

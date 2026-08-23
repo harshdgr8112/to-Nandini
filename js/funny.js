@@ -45,7 +45,7 @@ document.addEventListener(
                     window.location.href =
                         "cuteness.html";
 
-                }, 500);
+                }, 900);
 
             }
         );

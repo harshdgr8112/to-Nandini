@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Hottie ❤️‍🔥</title>
+
+    <link rel="stylesheet" href="../css/hottie.css" />
+  </head>
+
+  <body>
+    <main class="hottie-page">
+      <!-- Kisses video = BACKGROUND -->
+      <video
+        id="kissBackgroundVideo"
+        class="kiss-background-video"
+        muted
+        playsinline
+        autoplay
+        loop
+        preload="auto"
+      >
+        <source src="../assets/videos/kisses.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Bargad = MAIN STAGE -->
+      <section class="bargad-stage">
+        <video
+          id="bargadVideo"
+          class="bargad-video"
+          playsinline
+          autoplay
+          preload="auto"
+        >
+          <source src="../assets/videos/Bargad-Edit.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      <!-- Random kiss PNGs -->
+      <div id="kissLayer" class="kiss-layer" aria-hidden="true"></div>
+
+      <!-- Floating compliment hearts -->
+      <div id="complimentLayer" class="compliment-layer"></div>
+
+      <!-- Post-Bargad meme -->
+      <div id="postBargadMeme" class="post-bargad-meme" aria-hidden="true">
+        <img src="../assets/images/cutie-hot-meme.png" alt="" />
+      </div>
+
+      <!-- Continue / unlock popup -->
+      <div id="heartUnlock" class="heart-unlock" aria-hidden="true">
+        <div class="heart-unlock-card">
+          <p class="heart-unlock-kicker">Ab asli wala part 👀</p>
+
+          <h2>Kaju, har dil ki baat padhni hai ❤️</h2>
+
+          <p class="heart-unlock-text">
+            Ek-ek heart kholo, jo likha hai padho... phir hi aage badhenge 😌
+          </p>
+
+          <div id="heartProgress" class="heart-progress">
+            0 / 12 hearts opened
+          </div>
+
+          <button
+            id="continueAfterHearts"
+            class="heart-continue"
+            type="button"
+            disabled
+          >
+            Abhi sab hearts baaki hain 💗
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/hottie.js"></script>
+  </body>
+</html>
