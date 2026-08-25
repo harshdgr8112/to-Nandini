@@ -7,25 +7,46 @@
 
     <title>Hottie ❤️‍🔥</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="../css/hottie.css" />
   </head>
 
   <body>
     <main class="hottie-page">
-      <!-- Kisses video = BACKGROUND -->
+      <!-- BLUE MUSIC -->
+      <audio
+        id="blueMusic"
+        src="../assets/music/blue.mp3"
+        preload="auto"
+        loop
+      ></audio>
+
+      <!--
+        KISSES BACKGROUND
+
+        IMPORTANT:
+        Actual file is Kisses.mp4
+        and starts only after Bargad ends.
+      -->
       <video
         id="kissBackgroundVideo"
         class="kiss-background-video"
         muted
         playsinline
-        autoplay
         loop
-        preload="auto"
+        preload="none"
       >
-        <source src="../assets/videos/kisses.mp4" type="video/mp4" />
+        <source src="../assets/videos/Kisses.mp4" type="video/mp4" />
       </video>
 
-      <!-- Bargad = MAIN STAGE -->
+      <!-- BARGAD -->
       <section class="bargad-stage">
         <video
           id="bargadVideo"
@@ -38,30 +59,108 @@
         </video>
       </section>
 
-      <!-- Random kiss PNGs -->
+      <!--
+        FIRST 7 SECOND FLOATING KISSES
+
+        These are lightweight PNGs only,
+        confined by CSS to the centered 4:3 area.
+      -->
       <div id="kissLayer" class="kiss-layer" aria-hidden="true"></div>
 
-      <!-- Floating compliment hearts -->
+      <!-- FLOATING HEARTS -->
       <div id="complimentLayer" class="compliment-layer"></div>
 
-      <!-- Post-Bargad meme -->
+      <!-- POST-BARGAD MEME -->
       <div id="postBargadMeme" class="post-bargad-meme" aria-hidden="true">
         <img src="../assets/images/cutie-hot-meme.png" alt="" />
       </div>
 
-      <!-- Continue / unlock popup -->
+      <!-- =========================================
+           HEART MESSAGE
+      ========================================== -->
+
+      <div id="heartMessage" class="heart-message" aria-hidden="true">
+        <div id="heartMessageCard" class="heart-message-card">
+          <img
+            id="heartMessageBackground"
+            class="heart-message-background"
+            src="../assets/images/8.png"
+            alt=""
+            draggable="false"
+          />
+
+          <div class="heart-message-content">
+            <div id="heartMessageIcon" class="heart-message-icon">🥺</div>
+
+            <p id="heartMessageTitle" class="heart-message-title"></p>
+
+            <p id="heartMessageText" class="heart-message-text"></p>
+
+            <button
+              id="heartMessageDone"
+              class="heart-message-done"
+              type="button"
+            >
+              I know baby 🥺
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================
+     I MISS US → HARANDINI TRANSITION
+========================================= -->
+
+      <div id="usTransition" class="us-transition" aria-hidden="true">
+        <div class="us-transition-card">
+          <div class="us-transition-heart">❤️</div>
+
+          <!-- <div class="us-transition-kicker">one last thing...</div> -->
+
+          <h2>Wanna see us? 🥺</h2>
+
+          <p>Let's see us together ❤️</p>
+
+          <button id="seeUsButton" type="button">Let's see us 💗</button>
+        </div>
+      </div>
+
+      <!-- =========================================
+           HEART INSTRUCTION POPUP
+      ========================================== -->
+
       <div id="heartUnlock" class="heart-unlock" aria-hidden="true">
         <div class="heart-unlock-card">
-          <p class="heart-unlock-kicker">Ab asli wala part 👀</p>
+          <div class="unlock-heart">♥</div>
 
-          <h2>Kaju, har dil ki baat padhni hai ❤️</h2>
+          <div class="unlock-kicker">ab fun part</div>
 
-          <p class="heart-unlock-text">
-            Ek-ek heart kholo, jo likha hai padho... phir hi aage badhenge 😌
+          <h2>Words On your Special day from your Special one 💗</h2>
+
+          <p class="unlock-main-text">
+            <strong> tumahare end k reply bhi isme already hai 😌 </strong>
+          </p>
+
+          <p class="unlock-sub-text">
+            Har dil ke andar tumhare liye ek chhoti si baat hai...
+            <br />
+            Ek-ek karke sab kholo, phir hi aage badhenge
           </p>
 
           <div id="heartProgress" class="heart-progress">
-            0 / 12 hearts opened
+            <span>♡</span>
+            <span>0 / 12</span>
+            <span>hearts opened</span>
+          </div>
+
+          <div class="unlock-hint">
+            <span class="hint-line"></span>
+
+            <span> Tap a heart to open it </span>
+
+            <span class="hint-heart"> 💕 </span>
+
+            <span class="hint-line"></span>
           </div>
 
           <button
