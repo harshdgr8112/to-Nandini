@@ -28,9 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const heartProgress =
     document.getElementById("heartProgress");
 
-  const continueAfterHearts =
-    document.getElementById("continueAfterHearts");
-
 
   /* =====================================
      HEART MESSAGE ELEMENTS
@@ -1899,7 +1896,7 @@ document.addEventListener("DOMContentLoaded", () => {
       false;
 
     bargadVideo.volume =
-      1;
+      0.40;
 
 
     launchKissesForSevenSeconds();

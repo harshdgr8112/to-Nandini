@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function runAnalysis() {
     if (cutenessMusic) {
       cutenessMusic.currentTime = 0;
-      cutenessMusic.volume = 1;
+      cutenessMusic.volume = 0.25;
 
       cutenessMusic.play().catch(() => {
         console.log("Cuteness music autoplay was blocked.");
@@ -151,15 +151,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateMeter(0);
 
-   await wait(1500);
+    await wait(1500);
 
-const firstSteps = [
-  [5, 1100],
-  [10, 1100],
-  [15, 1100],
-  [20, 1100],
-  [25, 1400],
-];
+    const firstSteps = [
+      [5, 1100],
+      [10, 1100],
+      [15, 1100],
+      [20, 1100],
+      [25, 1400],
+    ];
 
     for (const [value, delay] of firstSteps) {
       await updatePercentage(value, delay);
@@ -174,15 +174,15 @@ const firstSteps = [
 
     status.textContent = "Still calculating...";
 
-   await wait(1000);
+    await wait(1000);
 
-const secondSteps = [
-  [30, 1100],
-  [35, 1100],
-  [40, 1100],
-  [45, 1100],
-  [50, 1400],
-];
+    const secondSteps = [
+      [30, 1100],
+      [35, 1100],
+      [40, 1100],
+      [45, 1100],
+      [50, 1400],
+    ];
 
     for (const [value, delay] of secondSteps) {
       await updatePercentage(value, delay);
@@ -199,13 +199,13 @@ const secondSteps = [
 
     await wait(1000);
 
-const thirdSteps = [
-  [55, 1100],
-  [60, 1100],
-  [65, 1100],
-  [70, 1100],
-  [75, 1400],
-];
+    const thirdSteps = [
+      [55, 1100],
+      [60, 1100],
+      [65, 1100],
+      [70, 1100],
+      [75, 1400],
+    ];
     for (const [value, delay] of thirdSteps) {
       await updatePercentage(value, delay);
     }
@@ -219,15 +219,15 @@ const thirdSteps = [
 
     status.textContent = "System processing...";
 
-  await wait(1000);
+    await wait(1000);
 
-const fourthSteps = [
-  [80, 1100],
-  [85, 1100],
-  [90, 1100],
-  [95, 1100],
-  [100, 1600],
-];
+    const fourthSteps = [
+      [80, 1100],
+      [85, 1100],
+      [90, 1100],
+      [95, 1100],
+      [100, 1600],
+    ];
 
     for (const [value, delay] of fourthSteps) {
       await updatePercentage(value, delay);
@@ -240,27 +240,22 @@ const fourthSteps = [
 
     await changeMeme(systemHangMeme);
 
-label.textContent =
-  "Cuteness limit reached.";
+    label.textContent = "Cuteness limit reached.";
 
-status.textContent =
-  "SYSTEM HANG...";
+    status.textContent = "SYSTEM HANG...";
 
-await wait(1200);
+    await wait(1200);
 
-const overloadSteps = [
-  [105, 1200],
-  [110, 1200],
-  [115, 1200],
-  [120, 1800],
-];
+    const overloadSteps = [
+      [105, 1200],
+      [110, 1200],
+      [115, 1200],
+      [120, 1800],
+    ];
 
-for (const [value, delay] of overloadSteps) {
-  await updatePercentage(
-    value,
-    delay
-  );
-}
+    for (const [value, delay] of overloadSteps) {
+      await updatePercentage(value, delay);
+    }
 
     /* =================================
        120%
@@ -283,43 +278,31 @@ for (const [value, delay] of overloadSteps) {
      * Switch directly to Marjawa.
      * No fade-out.
      */
-   await changeMeme(
-  marjawaMeme
-);
+    await changeMeme(marjawaMeme);
 
-/* Extend meter */
-const progressTrack =
-  document.querySelector(
-    ".analysis-progress"
-  );
+    /* Extend meter */
+    const progressTrack = document.querySelector(".analysis-progress");
 
-if (progressTrack) {
-  progressTrack.classList.add(
-    "is-overload"
-  );
-}
+    if (progressTrack) {
+      progressTrack.classList.add("is-overload");
+    }
 
-await wait(700);
+    await wait(700);
 
-/* Heart explosion */
-if (meterHeart) {
-  meterHeart.classList.add(
-    "is-overload"
-  );
-}
+    /* Heart explosion */
+    if (meterHeart) {
+      meterHeart.classList.add("is-overload");
+    }
 
-await wait(1200);
+    await wait(1200);
 
-/* Transition out */
-document.body.classList.add(
-  "love-transition"
-);
+    /* Transition out */
+    document.body.classList.add("love-transition");
 
-await wait(1200);
+    await wait(1200);
 
-window.location.href =
-  "hottie.html";
-}
+    window.location.href = "hottie.html";
+  }
 
   runAnalysis();
 });
