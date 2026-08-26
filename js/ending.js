@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
    * Replace with your real passcode.
    */
   const CORRECT_PASSCODE =
-    "2612";
+    "1409";
 
 
   /*
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       0;
 
     springMusic.volume =
-      0.98;
+      1;
 
 
     const playPromise =
