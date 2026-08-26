@@ -1,308 +1,507 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cutenessMusic = document.getElementById("cutenessMusic");
+  const els = {
+    music: document.getElementById("cutenessMusic"),
+    memeImage: document.getElementById("analysisMemeImage"),
+    memeContainer: document.getElementById("analysisMeme"),
+    label: document.getElementById("analysisLabel"),
+    percent: document.getElementById("analysisPercent"),
+    progress: document.getElementById("analysisProgressBar"),
+    status: document.getElementById("analysisStatus"),
+    meterHeart: document.getElementById("meterHeart"),
+    progressTrack: document.querySelector(".analysis-progress"),
+  };
 
-  const memeImage = document.getElementById("analysisMemeImage");
-
-  const memeContainer = document.getElementById("analysisMeme");
-
-  const label = document.getElementById("analysisLabel");
-
-  const percent = document.getElementById("analysisPercent");
-
-  const progress = document.getElementById("analysisProgressBar");
-
-  const status = document.getElementById("analysisStatus");
-
-  const meterHeart = document.getElementById("meterHeart");
-
-  if (!memeImage || !memeContainer || !label || !percent || !progress) {
+  if (
+    !els.memeImage ||
+    !els.memeContainer ||
+    !els.label ||
+    !els.percent ||
+    !els.progress ||
+    !els.status
+  ) {
     return;
   }
 
-  const brainMeme = "../assets/images/cat-brain-meme.png";
 
-  const dartaMeme = "../assets/images/darta-meme.jfif";
+  /* =====================================
+     CONFIG
+  ===================================== */
 
-  const gussaMeme = "../assets/images/gussa.png";
+  const MAX_VALUE = 120;
 
-  const cuteMeme = "../assets/images/cute.png";
+  const MUSIC_VOLUME = 0.25;
 
-  const systemHangMeme = "../assets/images/hang.png";
+  /*
+   * Normal step speed.
+   */
+  const STEP_DELAY = 550;
 
-  const marjawaMeme = "../assets/images/marijava.jfif";
+  /*
+   * Small delay after each meme change.
+   */
+  const MEME_PAUSE = 500;
 
-  const memeImages = [
-    brainMeme,
-    dartaMeme,
-    gussaMeme,
-    cuteMeme,
-    systemHangMeme,
-    marjawaMeme,
-  ];
 
-  memeImages.forEach((src) => {
+  /* =====================================
+     MEMES
+  ===================================== */
+
+  const memes = {
+    brain: "../assets/images/cat-brain-meme.png",
+    darta: "../assets/images/darta-meme.jfif",
+    gussa: "../assets/images/gussa.png",
+    cute: "../assets/images/cute.png",
+    hang: "../assets/images/hang.png",
+    marjawa: "../assets/images/marijava.jfif",
+  };
+
+
+  /* =====================================
+     PRELOAD
+  ===================================== */
+
+  Object.values(memes).forEach((src) => {
     const img = new Image();
     img.src = src;
   });
 
-  function wait(ms) {
-    return new Promise((resolve) => window.setTimeout(resolve, ms));
-  }
 
   /* =====================================
-           CHANGE MEME
-        ===================================== */
+     HELPERS
+  ===================================== */
 
-  async function changeMeme(imagePath) {
-    /*
-     * Change the image in place.
-     * No hide → wait → show cycle.
-     */
-    memeImage.src = imagePath;
+  function wait(ms) {
+    return new Promise((resolve) => {
+      window.setTimeout(resolve, ms);
+    });
+  }
 
-    /*
-     * Make sure the image is loaded before continuing.
-     */
-    if (!memeImage.complete) {
+
+  async function changeMeme(src) {
+    els.memeImage.src = src;
+
+    if (!els.memeImage.complete) {
       await new Promise((resolve) => {
-        memeImage.onload = resolve;
-        memeImage.onerror = resolve;
+        els.memeImage.addEventListener(
+          "load",
+          resolve,
+          { once: true }
+        );
+
+        els.memeImage.addEventListener(
+          "error",
+          resolve,
+          { once: true }
+        );
       });
     }
 
-    memeContainer.classList.add("is-visible");
+    els.memeContainer.classList.add(
+      "is-visible"
+    );
+
+    await wait(MEME_PAUSE);
   }
 
-  function updateMeter(value) {
-    const clamped = Math.min(value, 100);
-
-    /* Fill the bar */
-    progress.style.width = `${clamped}%`;
-
-    /* Move travelling heart */
-    if (meterHeart) {
-      meterHeart.style.left = `${clamped}%`;
-
-      /*
-       * Heart grows with progress.
-       *
-       * 0%   = 0.75
-       * 50%  = 1.20
-       * 100% = 1.65
-       */
-      const scale = 1 + clamped / 100;
-
-      meterHeart.style.setProperty("--heart-scale", scale);
-    }
-  }
 
   /* =====================================
-           PERCENTAGE UPDATE
-        ===================================== */
+     METER POSITION
+  ===================================== */
 
-  async function updatePercentage(value, delay) {
-    percent.classList.remove("is-updating");
+  /*
+   * 0 → 120 actual value
+   *
+   * 120 = 100% of the visual track.
+   */
+  function visualProgress(value) {
+    const clamped =
+      Math.min(
+        Math.max(value, 0),
+        MAX_VALUE
+      );
+
+    return (
+      clamped / MAX_VALUE
+    ) * 100;
+  }
+
+
+  /* =====================================
+     EXPONENTIAL HEART
+  ===================================== */
+
+  /*
+   * Heart is intentionally larger
+   * right from the beginning.
+   *
+   * Approximate scale:
+   *
+   * 0%    → 1.05x
+   * 25%   → 1.11x
+   * 50%   → 1.28x
+   * 75%   → 1.62x
+   * 80%   → 1.78x
+   * 90%   → 2.05x
+   * 100%  → 2.45x
+   * 105%  → 2.75x
+   * 110%  → 3.10x
+   * 115%  → 3.50x
+   * 120%  → 4.00x
+   */
+  function exponentialHeartScale(value) {
+    const normalized =
+      Math.min(
+        Math.max(value, 0),
+        MAX_VALUE
+      ) / MAX_VALUE;
+
+    const exponent = 5;
+
+    const exponential =
+      (
+        Math.exp(
+          exponent * normalized
+        ) - 1
+      ) /
+      (
+        Math.exp(exponent) - 1
+      );
+
+    return (
+      1.05 +
+      exponential * 2.95
+    );
+  }
+
+
+  /* =====================================
+     UPDATE METER
+  ===================================== */
+
+  function updateMeter(value) {
+
+    const visual =
+      visualProgress(value);
+
 
     /*
-     * Force animation restart
+     * Fill the real meter.
      */
-    void percent.offsetWidth;
+    els.progress.style.width =
+      `${visual}%`;
 
-    percent.classList.add("is-updating");
 
-    percent.textContent = `${value}%`;
+    if (!els.meterHeart) {
+      return;
+    }
+
 
     /*
-     * Bar cannot visually exceed 100%.
-     * 120% is represented by the number.
+     * Heart travels with the bar.
      */
+    els.meterHeart.style.left =
+      `${visual}%`;
+
+
+    /*
+     * Exponential size.
+     */
+    const scale =
+      exponentialHeartScale(value);
+
+
+    els.meterHeart.style.setProperty(
+      "--heart-scale",
+      scale.toFixed(3)
+    );
+  }
+
+
+  /* =====================================
+     PERCENTAGE
+  ===================================== */
+
+  async function updatePercentage(
+    value,
+    delay = STEP_DELAY
+  ) {
+
+    els.percent.classList.remove(
+      "is-updating"
+    );
+
+    void els.percent.offsetWidth;
+
+    els.percent.textContent =
+      `${value}%`;
+
+    els.percent.classList.add(
+      "is-updating"
+    );
+
+
     updateMeter(value);
+
 
     await wait(delay);
   }
 
+
   /* =====================================
-           ANALYSIS
-        ===================================== */
+     RUN STEPS
+  ===================================== */
+
+  async function runSteps(
+    values,
+    finalDelay = STEP_DELAY
+  ) {
+
+    for (
+      let i = 0;
+      i < values.length;
+      i++
+    ) {
+
+      const last =
+        i === values.length - 1;
+
+
+      await updatePercentage(
+        values[i],
+        last
+          ? finalDelay
+          : STEP_DELAY
+      );
+    }
+  }
+
+
+  /* =====================================
+     MUSIC
+  ===================================== */
+
+  function startMusic() {
+
+    if (!els.music) {
+      return;
+    }
+
+    els.music.currentTime = 0;
+
+    els.music.volume =
+      MUSIC_VOLUME;
+
+    els.music
+      .play()
+      .catch(() => {
+        // Autoplay may be blocked.
+      });
+  }
+
+
+  /* =====================================
+     ANALYSIS
+  ===================================== */
 
   async function runAnalysis() {
-    if (cutenessMusic) {
-      cutenessMusic.currentTime = 0;
-      cutenessMusic.volume = 0.25;
 
-      cutenessMusic.play().catch(() => {
-        console.log("Cuteness music autoplay was blocked.");
-      });
-    }
+    startMusic();
+
+
     /* =================================
-       0–25%
-       CAT BRAIN
+       INITIAL
     ================================= */
 
-    memeImage.src = brainMeme;
+    els.label.textContent =
+      "Measuring Kaju's cuteness...";
 
-    memeContainer.classList.add("is-visible");
+    els.status.textContent =
+      "Calculating...";
 
-    label.textContent = "Measuring Kaju's cuteness...";
-
-    status.textContent = "Calculating...";
-
-    percent.textContent = "0%";
+    els.percent.textContent =
+      "0%";
 
     updateMeter(0);
 
-    await wait(1500);
 
-    const firstSteps = [
-      [5, 1100],
-      [10, 1100],
-      [15, 1100],
-      [20, 1100],
-      [25, 1400],
-    ];
+    await changeMeme(
+      memes.brain
+    );
 
-    for (const [value, delay] of firstSteps) {
-      await updatePercentage(value, delay);
-    }
+    await wait(800);
+
 
     /* =================================
-       25–50%
-       DARTA
+       0 → 25
     ================================= */
 
-    await changeMeme(dartaMeme);
+    await runSteps(
+      [
+        5,
+        10,
+        15,
+        20,
+        25,
+      ],
+      650
+    );
 
-    status.textContent = "Still calculating...";
-
-    await wait(1000);
-
-    const secondSteps = [
-      [30, 1100],
-      [35, 1100],
-      [40, 1100],
-      [45, 1100],
-      [50, 1400],
-    ];
-
-    for (const [value, delay] of secondSteps) {
-      await updatePercentage(value, delay);
-    }
 
     /* =================================
-       50–75%
-       GUSSA
+       25 → 50
     ================================= */
 
-    await changeMeme(gussaMeme);
+    await changeMeme(
+      memes.darta
+    );
 
-    status.textContent = "Cuteness getting intense...";
+    els.status.textContent =
+      "Still calculating...";
 
-    await wait(1000);
+    await runSteps(
+      [
+        30,
+        35,
+        40,
+        45,
+        50,
+      ],
+      650
+    );
 
-    const thirdSteps = [
-      [55, 1100],
-      [60, 1100],
-      [65, 1100],
-      [70, 1100],
-      [75, 1400],
-    ];
-    for (const [value, delay] of thirdSteps) {
-      await updatePercentage(value, delay);
-    }
 
     /* =================================
-       75–100%
-       CUTE
+       50 → 75
     ================================= */
 
-    await changeMeme(cuteMeme);
+    await changeMeme(
+      memes.gussa
+    );
 
-    status.textContent = "System processing...";
+    els.status.textContent =
+      "Cuteness getting intense...";
 
-    await wait(1000);
+    await runSteps(
+      [
+        55,
+        60,
+        65,
+        70,
+        75,
+      ],
+      650
+    );
 
-    const fourthSteps = [
-      [80, 1100],
-      [85, 1100],
-      [90, 1100],
-      [95, 1100],
-      [100, 1600],
-    ];
-
-    for (const [value, delay] of fourthSteps) {
-      await updatePercentage(value, delay);
-    }
 
     /* =================================
-       100–120%
-       SYSTEM HANG
+       75 → 100
     ================================= */
 
-    await changeMeme(systemHangMeme);
+    await changeMeme(
+      memes.cute
+    );
 
-    label.textContent = "Cuteness limit reached.";
+    els.status.textContent =
+      "System processing...";
 
-    status.textContent = "SYSTEM HANG...";
+    await runSteps(
+      [
+        80,
+        85,
+        90,
+        95,
+        100,
+      ],
+      800
+    );
 
-    await wait(1200);
 
-    const overloadSteps = [
-      [105, 1200],
-      [110, 1200],
-      [115, 1200],
-      [120, 1800],
-    ];
+    /* =================================
+       100 → 120
+       OVERLOAD
+    ================================= */
 
-    for (const [value, delay] of overloadSteps) {
-      await updatePercentage(value, delay);
-    }
+    await changeMeme(
+      memes.hang
+    );
+
+    els.label.textContent =
+      "Cuteness limit reached.";
+
+    els.status.textContent =
+      "SYSTEM HANG...";
+
+
+    await runSteps(
+      [
+        105,
+        110,
+        115,
+        120,
+      ],
+      900
+    );
+
 
     /* =================================
        120%
-       MARJAWA
+       FINAL RESULT
     ================================= */
 
-    percent.classList.remove("is-updating");
+    els.label.textContent =
+      "Cuteness analysis complete.";
 
-    void percent.offsetWidth;
+    els.status.textContent =
+      "Result exceeds normal limits.";
 
-    percent.classList.add("is-updating");
 
-    percent.textContent = "120%";
+    await changeMeme(
+      memes.marjawa
+    );
 
-    label.textContent = "Cuteness analysis complete.";
-
-    status.textContent = "Result exceeds normal limits.";
 
     /*
-     * Switch directly to Marjawa.
-     * No fade-out.
+     * 120 is now genuinely reached.
      */
-    await changeMeme(marjawaMeme);
+    els.progressTrack?.classList.add(
+      "is-overload"
+    );
 
-    /* Extend meter */
-    const progressTrack = document.querySelector(".analysis-progress");
 
-    if (progressTrack) {
-      progressTrack.classList.add("is-overload");
-    }
+    await wait(250);
 
-    await wait(700);
 
-    /* Heart explosion */
-    if (meterHeart) {
-      meterHeart.classList.add("is-overload");
-    }
+    /*
+     * EXPLODE THE HEART
+     */
+    els.meterHeart?.classList.add(
+      "is-overload"
+    );
+
+
+    await wait(1300);
+
+
+    /* =================================
+       TRANSITION
+    ================================= */
+
+    document.body.classList.add(
+      "love-transition"
+    );
+
 
     await wait(1200);
 
-    /* Transition out */
-    document.body.classList.add("love-transition");
 
-    await wait(1200);
-
-    window.location.href = "hottie.html";
+    window.location.href =
+      "hottie.html";
   }
+
+
+  /* =====================================
+     START
+  ===================================== */
 
   runAnalysis();
 });
