@@ -52,6 +52,7 @@ body {
 
 .kiss-background-video {
   position: fixed;
+
   inset: 0;
 
   width: 100vw;
@@ -87,6 +88,7 @@ body {
 
 .bargad-stage {
   position: fixed;
+
   inset: 0;
 
   width: 100vw;
@@ -116,6 +118,7 @@ body {
 
 .bargad-video {
   position: absolute;
+
   inset: 0;
 
   display: block;
@@ -182,20 +185,14 @@ body {
 
   will-change: transform, opacity;
 
-  animation:
-    kissFloat
-    var(--kiss-duration, 2s)
-    ease-out
-    forwards;
+  animation: kissFloat var(--kiss-duration, 2s) ease-out forwards;
 }
 
 @keyframes kissFloat {
   0% {
     opacity: 0;
 
-    transform:
-      translate(-50%, 18px)
-      rotate(var(--kiss-rotation, 0deg))
+    transform: translate(-50%, 18px) rotate(var(--kiss-rotation, 0deg))
       scale(0.65);
   }
 
@@ -206,27 +203,15 @@ body {
   55% {
     opacity: 1;
 
-    transform:
-      translate(
-        calc(-50% + var(--kiss-drift, 0px)),
-        -8px
-      )
-      rotate(var(--kiss-rotation, 0deg))
-      scale(1);
+    transform: translate(calc(-50% + var(--kiss-drift, 0px)), -8px)
+      rotate(var(--kiss-rotation, 0deg)) scale(1);
   }
 
   100% {
     opacity: 0;
 
-    transform:
-      translate(
-        calc(-50% + var(--kiss-drift, 0px)),
-        -65px
-      )
-      rotate(
-        calc(var(--kiss-rotation, 0deg) * -1)
-      )
-      scale(1.06);
+    transform: translate(calc(-50% + var(--kiss-drift, 0px)), -65px)
+      rotate(calc(var(--kiss-rotation, 0deg) * -1)) scale(1.06);
   }
 }
 
@@ -236,6 +221,7 @@ body {
 
 .compliment-layer {
   position: fixed;
+
   inset: 0;
 
   z-index: 300;
@@ -261,13 +247,12 @@ body {
   padding: 0;
   border: 0;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.28) 0%,
-      rgba(255, 220, 235, 0.12) 45%,
-      transparent 72%
-    );
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 220, 235, 0.12) 45%,
+    transparent 72%
+  );
 
   color: #fff4fa;
 
@@ -282,9 +267,7 @@ body {
 
   opacity: 1;
 
-  -webkit-text-stroke:
-    2.5px
-    rgba(70, 15, 45, 0.9);
+  -webkit-text-stroke: 2.5px rgba(70, 15, 45, 0.9);
 
   text-shadow:
     0 0 2px #ffffff,
@@ -293,19 +276,12 @@ body {
     0 0 32px #ff6f9f,
     0 0 55px rgba(255, 50, 130, 0.8);
 
-  filter:
-    drop-shadow(
-      0 5px 8px
-      rgba(0, 0, 0, 0.75)
-    );
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.75));
 
   transform-origin: center;
 
-  animation:
-    complimentFloat
-    var(--heart-duration, 10s)
-    ease-in-out
-    infinite alternate;
+  animation: complimentFloat var(--heart-duration, 10s) ease-in-out infinite
+    alternate;
 }
 
 .floating-compliment-heart:nth-child(3n + 1) {
@@ -322,60 +298,35 @@ body {
 
 @keyframes complimentFloat {
   0% {
-    transform:
-      translate(0, 0)
-      rotate(-10deg)
-      scale(0.92);
+    transform: translate(0, 0) rotate(-10deg) scale(0.92);
   }
 
   20% {
-    transform:
-      translate(
-        var(--heart-x1),
-        var(--heart-y1)
-      )
-      rotate(8deg)
+    transform: translate(var(--heart-x1), var(--heart-y1)) rotate(8deg)
       scale(1.05);
   }
 
   40% {
-    transform:
-      translate(
-        var(--heart-x2),
-        var(--heart-y2)
-      )
-      rotate(-10deg)
+    transform: translate(var(--heart-x2), var(--heart-y2)) rotate(-10deg)
       scale(0.96);
   }
 
   60% {
-    transform:
-      translate(
-        var(--heart-x3),
-        var(--heart-y3)
-      )
-      rotate(12deg)
+    transform: translate(var(--heart-x3), var(--heart-y3)) rotate(12deg)
       scale(1.08);
   }
 
   80% {
-    transform:
-      translate(
-        var(--heart-x4),
-        var(--heart-y4)
-      )
-      rotate(-8deg)
+    transform: translate(var(--heart-x4), var(--heart-y4)) rotate(-8deg)
       scale(0.98);
   }
 
   100% {
-    transform:
-      translate(
+    transform: translate(
         calc(var(--heart-x1) * -0.7),
         calc(var(--heart-y2) * -0.7)
       )
-      rotate(8deg)
-      scale(1.02);
+      rotate(8deg) scale(1.02);
   }
 }
 
@@ -389,23 +340,13 @@ body {
 }
 
 .floating-compliment-heart:hover {
-  filter:
-    brightness(1.25)
-    drop-shadow(
-      0 0 18px
-      rgba(255, 90, 155, 0.95)
-    );
+  filter: brightness(1.25) drop-shadow(0 0 18px rgba(255, 90, 155, 0.95));
 }
 
 .floating-compliment-heart.heart-opened {
   opacity: 0.3;
 
-  filter:
-    grayscale(0.2)
-    drop-shadow(
-      0 0 5px
-      rgba(255, 150, 190, 0.4)
-    );
+  filter: grayscale(0.2) drop-shadow(0 0 5px rgba(255, 150, 190, 0.4));
 }
 
 /* =========================================
@@ -414,6 +355,7 @@ body {
 
 .post-bargad-meme {
   position: fixed;
+
   inset: 0;
 
   z-index: 250;
@@ -421,8 +363,7 @@ body {
   display: grid;
   place-items: center;
 
-  background:
-    rgba(7, 2, 10, 0.18);
+  background: rgba(7, 2, 10, 0.18);
 
   opacity: 0;
   visibility: hidden;
@@ -445,26 +386,18 @@ body {
   width: min(420px, 72vw);
 
   max-width: 90vw;
+
   max-height: 75vh;
 
   object-fit: contain;
 
   border-radius: 18px;
 
-  box-shadow:
-    0 25px 80px
-    rgba(0, 0, 0, 0.65);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.65);
 
   transform: scale(0.85);
 
-  transition:
-    transform 0.7s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    );
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .post-bargad-meme.is-visible img {
@@ -478,31 +411,32 @@ body {
 
 .heart-unlock {
   position: fixed;
+
   inset: 0;
 
   z-index: 200;
 
   display: grid;
+
   place-items: center;
 
   padding: 22px;
 
-  background:
-    radial-gradient(
-      circle at 50% 45%,
-      rgba(255, 112, 164, 0.14),
-      rgba(8, 2, 12, 0.58) 65%
-    );
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(255, 112, 164, 0.14),
+    rgba(8, 2, 12, 0.58) 65%
+  );
 
   backdrop-filter: blur(3px);
+
   -webkit-backdrop-filter: blur(3px);
 
   opacity: 0;
 
   pointer-events: none;
 
-  transition:
-    opacity 0.45s ease;
+  transition: opacity 0.45s ease;
 }
 
 .heart-unlock.is-visible {
@@ -517,78 +451,48 @@ body {
 .heart-unlock-card {
   position: relative;
 
-  width:
-    min(500px, 91vw);
+  width: min(500px, 91vw);
 
-  padding:
-    34px
-    36px
-    29px;
+  padding: 34px 36px 29px;
 
-  border:
-    1px solid
-    rgba(142, 44, 77, 0.25);
+  border: 1px solid rgba(142, 44, 77, 0.25);
 
-  border-radius:
-    24px;
+  border-radius: 24px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #fffaf7 0%,
-      #fff3f4 52%,
-      #f9e2e8 100%
-    );
+  background: linear-gradient(145deg, #fffaf7 0%, #fff3f4 52%, #f9e2e8 100%);
 
   box-shadow:
-    0 28px 90px
-      rgba(0, 0, 0, 0.55),
-
-    0 0 0 6px
-      rgba(255, 245, 245, 0.08),
-
-    0 0 45px
-      rgba(213, 65, 112, 0.20);
+    0 28px 90px rgba(0, 0, 0, 0.55),
+    0 0 0 6px rgba(255, 245, 245, 0.08),
+    0 0 45px rgba(213, 65, 112, 0.2);
 
   text-align: center;
 
   overflow: hidden;
 
-  transform:
-    translateY(24px)
-    scale(0.94);
+  transform: translateY(24px) scale(0.94);
 
-  transition:
-    transform
-      0.6s
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.heart-unlock.is-visible
-.heart-unlock-card {
-  transform:
-    translateY(0)
-    scale(1);
+.heart-unlock.is-visible .heart-unlock-card {
+  transform: translateY(0) scale(1);
 }
 
-/* subtle paper frame */
+/* =========================================
+   SUBTLE PAPER FRAME
+========================================= */
+
 .heart-unlock-card::before {
   content: "";
 
   position: absolute;
+
   inset: 12px;
 
-  border:
-    1px solid
-    rgba(174, 69, 101, 0.18);
+  border: 1px solid rgba(174, 69, 101, 0.18);
 
-  border-radius:
-    17px;
+  border-radius: 17px;
 
   pointer-events: none;
 }
@@ -599,17 +503,14 @@ body {
   position: absolute;
 
   top: 13px;
+
   left: 18px;
 
-  color:
-    rgba(169, 55, 91, 0.30);
+  color: rgba(169, 55, 91, 0.3);
 
-  font-family:
-    Georgia,
-    serif;
+  font-family: Georgia, serif;
 
-  font-size:
-    1.15rem;
+  font-size: 1.15rem;
 
   pointer-events: none;
 }
@@ -622,52 +523,39 @@ body {
   position: relative;
 
   width: 62px;
+
   height: 62px;
 
-  margin:
-    0 auto 13px;
+  margin: 0 auto 13px;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #dd7295 0%,
-      #be4269 48%,
-      #93294e 100%
-    );
+  background: radial-gradient(
+    circle at 35% 30%,
+    #dd7295 0%,
+    #be4269 48%,
+    #93294e 100%
+  );
 
-  border:
-    4px solid
-    #fff4f4;
+  border: 4px solid #fff4f4;
 
   color: white;
 
-  font-family:
-    Georgia,
-    serif;
+  font-family: Georgia, serif;
 
-  font-size:
-    1.9rem;
+  font-size: 1.9rem;
 
-  line-height:
-    1;
+  line-height: 1;
 
   box-shadow:
-    0 8px 24px
-      rgba(125, 35, 65, 0.28),
+    0 8px 24px rgba(125, 35, 65, 0.28),
+    0 0 28px rgba(209, 67, 115, 0.22);
 
-    0 0 28px
-      rgba(209, 67, 115, 0.22);
-
-  animation:
-    unlockHeartPulse
-    2.6s
-    ease-in-out
-    infinite;
+  animation: unlockHeartPulse 2.6s ease-in-out infinite;
 }
 
 @keyframes unlockHeartPulse {
@@ -686,26 +574,19 @@ body {
 ========================================= */
 
 .unlock-kicker {
-  margin:
-    0 0 9px;
+  margin: 0 0 9px;
 
-  color:
-    #b14267;
+  color: #b14267;
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.65rem;
+  font-size: 0.65rem;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    0.22em;
+  letter-spacing: 0.22em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 /* =========================================
@@ -713,67 +594,43 @@ body {
 ========================================= */
 
 .heart-unlock-card h2 {
-  margin:
-    0 auto;
+  margin: 0 auto;
 
-  max-width:
-    430px;
+  max-width: 430px;
 
-  color:
-    #572239;
+  color: #572239;
 
-  font-family:
-    var(--font-display);
+  font-family: var(--font-display);
 
-  font-size:
-    clamp(
-      2rem,
-      5vw,
-      2.55rem
-    );
+  font-size: clamp(2rem, 5vw, 2.55rem);
 
-  font-weight:
-    400;
+  font-weight: 400;
 
-  line-height:
-    1.08;
+  line-height: 1.08;
 
-  letter-spacing:
-    -0.025em;
+  letter-spacing: -0.025em;
 
-  text-wrap:
-    balance;
+  text-wrap: balance;
 
   text-shadow:
-    0 1px 0
-      rgba(255, 255, 255, 0.9),
-
-    0 0 18px
-      rgba(174, 46, 91, 0.10);
+    0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 18px rgba(174, 46, 91, 0.1);
 }
 
 .heart-unlock-card h2::after {
-  content:
-    "✦";
+  content: "✦";
 
-  display:
-    block;
+  display: block;
 
-  margin:
-    14px auto 0;
+  margin: 14px auto 0;
 
-  color:
-    #c45076;
+  color: #c45076;
 
-  font-family:
-    Georgia,
-    serif;
+  font-family: Georgia, serif;
 
-  font-size:
-    0.8rem;
+  font-size: 0.8rem;
 
-  letter-spacing:
-    0.35em;
+  letter-spacing: 0.35em;
 }
 
 /* =========================================
@@ -781,26 +638,19 @@ body {
 ========================================= */
 
 .unlock-main-text {
-  margin:
-    18px auto 8px;
+  margin: 18px auto 8px;
 
-  max-width:
-    420px;
+  max-width: 420px;
 
-  color:
-    #b33f67;
+  color: #b33f67;
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.94rem;
+  font-size: 0.94rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  line-height:
-    1.45;
+  line-height: 1.45;
 }
 
 /* =========================================
@@ -808,26 +658,19 @@ body {
 ========================================= */
 
 .unlock-sub-text {
-  max-width:
-    390px;
+  max-width: 390px;
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 
-  color:
-    #705462;
+  color: #705462;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    0.84rem;
+  font-size: 0.84rem;
 
-  font-weight:
-    600;
+  font-weight: 600;
 
-  line-height:
-    1.62;
+  line-height: 1.62;
 }
 
 /* =========================================
@@ -835,57 +678,39 @@ body {
 ========================================= */
 
 .heart-progress {
-  display:
-    inline-flex;
+  display: inline-flex;
 
-  align-items:
-    center;
+  align-items: center;
 
-  justify-content:
-    center;
+  justify-content: center;
 
-  gap:
-    7px;
+  gap: 7px;
 
-  margin:
-    21px auto 0;
+  margin: 21px auto 0;
 
-  padding:
-    10px 17px;
+  padding: 10px 17px;
 
-  border:
-    1px solid
-    rgba(169, 62, 99, 0.16);
+  border: 1px solid rgba(169, 62, 99, 0.16);
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
-  background:
-    rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.68);
 
-  color:
-    #a44867;
+  color: #a44867;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    0.74rem;
+  font-size: 0.74rem;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  box-shadow:
-    0 3px 10px
-      rgba(139, 44, 76, 0.05);
+  box-shadow: 0 3px 10px rgba(139, 44, 76, 0.05);
 }
 
 .heart-progress span:first-child {
-  color:
-    #c64c73;
+  color: #c64c73;
 
-  font-size:
-    0.95rem;
+  font-size: 0.95rem;
 }
 
 /* =========================================
@@ -893,63 +718,43 @@ body {
 ========================================= */
 
 .unlock-hint {
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
 
-  justify-content:
-    center;
+  justify-content: center;
 
-  gap:
-    9px;
+  gap: 9px;
 
-  margin:
-    17px auto 0;
+  margin: 17px auto 0;
 
-  color:
-    #906276;
+  color: #906276;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    0.63rem;
+  font-size: 0.63rem;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  letter-spacing:
-    0.10em;
+  letter-spacing: 0.1em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 .hint-line {
-  width:
-    30px;
+  width: 30px;
 
-  height:
-    1px;
+  height: 1px;
 
-  background:
-    rgba(175, 70, 103, 0.28);
+  background: rgba(175, 70, 103, 0.28);
 }
 
 .hint-heart {
-  color:
-    #cd4f77;
+  color: #cd4f77;
 
-  font-size:
-    0.95rem;
+  font-size: 0.95rem;
 
-  filter:
-    drop-shadow(
-      0 0 6px
-      rgba(205, 79, 119, 0.35)
-    );
+  filter: drop-shadow(0 0 6px rgba(205, 79, 119, 0.35));
 }
 
 /* =========================================
@@ -957,46 +762,29 @@ body {
 ========================================= */
 
 .heart-continue {
-  width:
-    100%;
+  width: 100%;
 
-  margin:
-    18px auto 0;
+  margin: 18px auto 0;
 
-  padding:
-    13px 20px;
+  padding: 13px 20px;
 
-  border:
-    none;
+  border: none;
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #b9476e,
-      #8f294d
-    );
+  background: linear-gradient(135deg, #b9476e, #8f294d);
 
-  color:
-    #fff9fb;
+  color: #fff9fb;
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.80rem;
+  font-size: 0.8rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  cursor:
-    pointer;
+  cursor: pointer;
 
-  box-shadow:
-    0 10px 24px
-      rgba(131, 36, 69, 0.23);
+  box-shadow: 0 10px 24px rgba(131, 36, 69, 0.23);
 
   transition:
     transform 0.2s ease,
@@ -1005,19 +793,15 @@ body {
 }
 
 .heart-continue:hover:not(:disabled) {
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 
-  filter:
-    brightness(1.07);
+  filter: brightness(1.07);
 }
 
 .heart-continue:disabled {
-  opacity:
-    0.48;
+  opacity: 0.48;
 
-  cursor:
-    default;
+  cursor: default;
 }
 
 /* =========================================
@@ -1032,18 +816,16 @@ body {
   z-index: 1000;
 
   opacity: 0;
+
   visibility: hidden;
 
   pointer-events: none;
 
-  background:
-    rgba(5, 1, 8, 0.14);
+  background: rgba(5, 1, 8, 0.14);
 
-  backdrop-filter:
-    blur(1.5px);
+  backdrop-filter: blur(1.5px);
 
-  -webkit-backdrop-filter:
-    blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
 
   transition:
     opacity 0.25s ease,
@@ -1052,6 +834,7 @@ body {
 
 .heart-message.is-visible {
   opacity: 1;
+
   visibility: visible;
 
   pointer-events: auto;
@@ -1064,52 +847,33 @@ body {
 .heart-message-card {
   position: absolute;
 
-  left:
-    var(--message-left, 50%);
+  left: var(--message-left, 50%);
 
-  top:
-    var(--message-top, 50%);
+  top: var(--message-top, 50%);
 
-  width:
-    min(540px, 88vw);
+  width: min(540px, 88vw);
 
   height: auto;
 
   opacity: 0;
 
-  transform:
-    translate(-50%, -50%)
-    scale(0.16);
+  transform: translate(-50%, -50%) scale(0.16);
 
-  transform-origin:
-    var(--message-origin-x, 50%)
-    var(--message-origin-y, 50%);
+  transform-origin: var(--message-origin-x, 50%) var(--message-origin-y, 50%);
 
   transition:
-    transform
-      0.55s
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.22s ease;
 
-  overflow:
-    visible;
+  overflow: visible;
 
-  isolation:
-    isolate;
+  isolation: isolate;
 }
 
-.heart-message.is-visible
-.heart-message-card {
+.heart-message.is-visible .heart-message-card {
   opacity: 1;
 
-  transform:
-    translate(-50%, -50%)
-    scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 /* =========================================
@@ -1117,51 +881,32 @@ body {
 ========================================= */
 
 .heart-message-background {
-  position:
-    relative;
+  position: relative;
 
-  display:
-    block;
+  display: block;
 
-  width:
-    100%;
+  width: 100%;
 
-  height:
-    auto;
+  height: auto;
 
-  margin:
-    0;
+  margin: 0;
 
-  padding:
-    0;
+  padding: 0;
 
-  border:
-    0;
+  border: 0;
 
-  object-fit:
-    contain;
+  object-fit: contain;
 
-  object-position:
-    center;
+  object-position: center;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 
-  user-select:
-    none;
+  user-select: none;
 
-  z-index:
-    0;
+  z-index: 0;
 
-  filter:
-    drop-shadow(
-      0 25px 45px
-      rgba(0, 0, 0, 0.43)
-    )
-    drop-shadow(
-      0 0 22px
-      rgba(255, 100, 165, 0.18)
-    );
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.43))
+    drop-shadow(0 0 22px rgba(255, 100, 165, 0.18));
 }
 
 /* =========================================
@@ -1169,32 +914,23 @@ body {
 ========================================= */
 
 .heart-message-content {
-  position:
-    absolute;
+  position: absolute;
 
-  inset:
-    0;
+  inset: 0;
 
-  z-index:
-    5;
+  z-index: 5;
 
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  align-items:
-    center;
+  align-items: center;
 
-  justify-content:
-    center;
+  justify-content: center;
 
-  text-align:
-    center;
+  text-align: center;
 
-  padding:
-    18% 18% 21%;
+  padding: 18% 18% 21%;
 }
 
 /* =========================================
@@ -1202,38 +938,25 @@ body {
 ========================================= */
 
 .heart-message-icon {
-  margin:
-    0 auto 5px;
+  margin: 0 auto 5px;
 
-  font-size:
-    2.25rem;
+  font-size: 2.25rem;
 
-  line-height:
-    1;
+  line-height: 1;
 
-  filter:
-    drop-shadow(
-      0 0 12px
-      rgba(255, 70, 140, 0.55)
-    );
+  filter: drop-shadow(0 0 12px rgba(255, 70, 140, 0.55));
 
-  animation:
-    messageIconPulse
-    2s
-    ease-in-out
-    infinite;
+  animation: messageIconPulse 2s ease-in-out infinite;
 }
 
 @keyframes messageIconPulse {
   0%,
   100% {
-    transform:
-      scale(1);
+    transform: scale(1);
   }
 
   50% {
-    transform:
-      scale(1.08);
+    transform: scale(1.08);
   }
 }
 
@@ -1242,29 +965,21 @@ body {
 ========================================= */
 
 .heart-message-title {
-  width:
-    100%;
+  width: 100%;
 
-  margin:
-    0 0 9px;
+  margin: 0 0 9px;
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    1.62rem;
+  font-size: 1.62rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  line-height:
-    1.12;
+  line-height: 1.12;
 
-  letter-spacing:
-    -0.025em;
+  letter-spacing: -0.025em;
 
-  text-wrap:
-    balance;
+  text-wrap: balance;
 }
 
 /* =========================================
@@ -1272,29 +987,21 @@ body {
 ========================================= */
 
 .heart-message-text {
-  width:
-    100%;
+  width: 100%;
 
-  max-width:
-    325px;
+  max-width: 325px;
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    0.86rem;
+  font-size: 0.86rem;
 
-  font-weight:
-    600;
+  font-weight: 600;
 
-  line-height:
-    1.48;
+  line-height: 1.48;
 
-  text-wrap:
-    balance;
+  text-wrap: balance;
 }
 
 /* =========================================
@@ -1302,45 +1009,31 @@ body {
 ========================================= */
 
 .heart-message-done {
-  margin-top:
-    14px;
+  margin-top: 14px;
 
-  min-width:
-    185px;
+  min-width: 185px;
 
-  max-width:
-    90%;
+  max-width: 90%;
 
-  padding:
-    10px 18px;
+  padding: 10px 18px;
 
-  border:
-    none;
+  border: none;
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
-  color:
-    white;
+  color: white;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    0.80rem;
+  font-size: 0.8rem;
 
-  font-weight:
-    800;
+  font-weight: 800;
 
-  line-height:
-    1.24;
+  line-height: 1.24;
 
-  cursor:
-    pointer;
+  cursor: pointer;
 
-  box-shadow:
-    0 8px 20px
-    rgba(70, 15, 40, 0.24);
+  box-shadow: 0 8px 20px rgba(70, 15, 40, 0.24);
 
   transition:
     transform 0.2s ease,
@@ -1348,362 +1041,237 @@ body {
 }
 
 .heart-message-done:hover {
-  transform:
-    translateY(-2px)
-    scale(1.03);
+  transform: translateY(-2px) scale(1.03);
 
-  filter:
-    brightness(1.08);
+  filter: brightness(1.08);
 }
 
 /* =========================================
    SOFT PINK THEME
 ========================================= */
 
-.heart-theme-soft
-.heart-message-title {
-  color:
-    #98395f;
+.heart-theme-soft .heart-message-title {
+  color: #98395f;
 
   text-shadow:
-    0 1px 0
-      rgba(255,255,255,.96),
-    0 0 6px
-      rgba(255,255,255,.92),
-    0 0 14px
-      rgba(220,64,126,.48);
+    0 1px 0 rgba(255, 255, 255, 0.96),
+    0 0 6px rgba(255, 255, 255, 0.92),
+    0 0 14px rgba(220, 64, 126, 0.48);
 }
 
-.heart-theme-soft
-.heart-message-text {
-  color:
-    #604051;
+.heart-theme-soft .heart-message-text {
+  color: #604051;
 
   text-shadow:
-    0 1px 0
-      rgba(255,255,255,.96),
-    0 0 6px
-      rgba(255,255,255,.74);
+    0 1px 0 rgba(255, 255, 255, 0.96),
+    0 0 6px rgba(255, 255, 255, 0.74);
 }
 
-.heart-theme-soft
-.heart-message-done {
-  background:
-    linear-gradient(
-      135deg,
-      #df6c97,
-      #c64c78
-    );
+.heart-theme-soft .heart-message-done {
+  background: linear-gradient(135deg, #df6c97, #c64c78);
 }
 
 /* =========================================
    BOWS THEME
 ========================================= */
 
-.heart-theme-bows
-.heart-message-title {
-  color:
-    #963a68;
+.heart-theme-bows .heart-message-title {
+  color: #963a68;
 
   text-shadow:
-    0 1px 0
-      rgba(255,255,255,.98),
-    0 0 7px
-      rgba(255,255,255,.92),
-    0 0 14px
-      rgba(207,50,123,.42);
+    0 1px 0 rgba(255, 255, 255, 0.98),
+    0 0 7px rgba(255, 255, 255, 0.92),
+    0 0 14px rgba(207, 50, 123, 0.42);
 }
 
-.heart-theme-bows
-.heart-message-text {
-  color:
-    #57404f;
+.heart-theme-bows .heart-message-text {
+  color: #57404f;
 
   text-shadow:
-    0 1px 0
-      rgba(255,255,255,.98),
-    0 0 6px
-      rgba(255,255,255,.80);
+    0 1px 0 rgba(255, 255, 255, 0.98),
+    0 0 6px rgba(255, 255, 255, 0.8);
 }
 
-.heart-theme-bows
-.heart-message-done {
-  background:
-    linear-gradient(
-      135deg,
-      #e27da6,
-      #c95783
-    );
+.heart-theme-bows .heart-message-done {
+  background: linear-gradient(135deg, #e27da6, #c95783);
 }
 
 /* =========================================
    LIPS THEME
 ========================================= */
 
-.heart-theme-lips
-.heart-message-title {
-  color:
-    #651934;
+.heart-theme-lips .heart-message-title {
+  color: #651934;
 
   text-shadow:
-    0 1px 0
-      rgba(255,241,245,.98),
-    0 0 6px
-      rgba(255,236,242,.94),
-    0 0 15px
-      rgba(105,15,49,.42);
+    0 1px 0 rgba(255, 241, 245, 0.98),
+    0 0 6px rgba(255, 236, 242, 0.94),
+    0 0 15px rgba(105, 15, 49, 0.42);
 }
 
-.heart-theme-lips
-.heart-message-text {
-  color:
-    #45232d;
+.heart-theme-lips .heart-message-text {
+  color: #45232d;
 
   text-shadow:
-    0 1px 0
-      rgba(255,241,245,.98),
-    0 0 6px
-      rgba(255,236,242,.82);
+    0 1px 0 rgba(255, 241, 245, 0.98),
+    0 0 6px rgba(255, 236, 242, 0.82);
 }
 
-.heart-theme-lips
-.heart-message-done {
-  background:
-    linear-gradient(
-      135deg,
-      #9f3b5c,
-      #70213c
-    );
+.heart-theme-lips .heart-message-done {
+  background: linear-gradient(135deg, #9f3b5c, #70213c);
 }
 
 /* =========================================
    SUNFLOWER THEME
 ========================================= */
 
-.heart-theme-sunflower
-.heart-message-title {
-  color:
-    #674209;
+.heart-theme-sunflower .heart-message-title {
+  color: #674209;
 
   text-shadow:
-    0 1px 0
-      rgba(255,253,229,.98),
-    0 0 7px
-      rgba(255,248,207,.92),
-    0 0 14px
-      rgba(132,82,8,.36);
+    0 1px 0 rgba(255, 253, 229, 0.98),
+    0 0 7px rgba(255, 248, 207, 0.92),
+    0 0 14px rgba(132, 82, 8, 0.36);
 }
 
-.heart-theme-sunflower
-.heart-message-text {
-  color:
-    #55431e;
+.heart-theme-sunflower .heart-message-text {
+  color: #55431e;
 
   text-shadow:
-    0 1px 0
-      rgba(255,253,229,.98),
-    0 0 6px
-      rgba(255,247,204,.82);
+    0 1px 0 rgba(255, 253, 229, 0.98),
+    0 0 6px rgba(255, 247, 204, 0.82);
 }
 
-.heart-theme-sunflower
-.heart-message-done {
-  background:
-    linear-gradient(
-      135deg,
-      #dba437,
-      #bd7918
-    );
+.heart-theme-sunflower .heart-message-done {
+  background: linear-gradient(135deg, #dba437, #bd7918);
 }
 
 /* =========================================
    HEART MESSAGE LAYOUTS
 ========================================= */
 
-.heart-layout-1
-.heart-message-content {
-  padding:
-    18% 18% 20%;
+.heart-layout-1 .heart-message-content {
+  padding: 18% 18% 20%;
 }
 
-.heart-layout-2
-.heart-message-content {
-  padding:
-    18% 18% 20%;
+.heart-layout-2 .heart-message-content {
+  padding: 18% 18% 20%;
 }
 
-.heart-layout-3
-.heart-message-content {
-  padding:
-    20% 18% 22%;
+.heart-layout-3 .heart-message-content {
+  padding: 20% 18% 22%;
 }
 
-.heart-layout-3
-.heart-message-title {
-  font-size:
-    1.50rem;
+.heart-layout-3 .heart-message-title {
+  font-size: 1.5rem;
 }
 
-.heart-layout-3
-.heart-message-text {
-  max-width:
-    330px;
+.heart-layout-3 .heart-message-text {
+  max-width: 330px;
 
-  font-size:
-    0.81rem;
+  font-size: 0.81rem;
 
-  line-height:
-    1.43;
+  line-height: 1.43;
 }
 
-.heart-layout-4
-.heart-message-content {
-  padding:
-    20% 18% 22%;
+.heart-layout-4 .heart-message-content {
+  padding: 20% 18% 22%;
 }
 
-.heart-layout-4
-.heart-message-title {
-  font-size:
-    1.54rem;
+.heart-layout-4 .heart-message-title {
+  font-size: 1.54rem;
 }
 
-.heart-layout-4
-.heart-message-text {
-  max-width:
-    330px;
+.heart-layout-4 .heart-message-text {
+  max-width: 330px;
 
-  font-size:
-    0.80rem;
+  font-size: 0.8rem;
 
-  line-height:
-    1.42;
+  line-height: 1.42;
 }
 
-.heart-layout-5
-.heart-message-content {
-  padding:
-    19% 18% 21%;
+.heart-layout-5 .heart-message-content {
+  padding: 19% 18% 21%;
 }
 
-.heart-layout-6
-.heart-message-content {
-  padding:
-    15% 18% 19%;
+.heart-layout-6 .heart-message-content {
+  padding: 15% 18% 19%;
 }
 
-.heart-layout-6
-.heart-message-title {
-  font-size:
-    1.72rem;
+.heart-layout-6 .heart-message-title {
+  font-size: 1.72rem;
 }
 
-.heart-layout-6
-.heart-message-text {
-  font-size:
-    0.96rem;
+.heart-layout-6 .heart-message-text {
+  font-size: 0.96rem;
 }
 
-.heart-layout-7
-.heart-message-content {
-  padding:
-    19% 18% 20%;
+.heart-layout-7 .heart-message-content {
+  padding: 19% 18% 20%;
 }
 
-.heart-layout-8
-.heart-message-content {
-  padding:
-    20% 18% 22%;
+.heart-layout-8 .heart-message-content {
+  padding: 20% 18% 22%;
 }
 
-.heart-layout-8
-.heart-message-text {
-  max-width:
-    330px;
+.heart-layout-8 .heart-message-text {
+  max-width: 330px;
 
-  font-size:
-    0.80rem;
+  font-size: 0.8rem;
 
-  line-height:
-    1.42;
+  line-height: 1.42;
 }
 
-.heart-layout-9
-.heart-message-content {
-  padding:
-    20% 18% 22%;
+.heart-layout-9 .heart-message-content {
+  padding: 20% 18% 22%;
 }
 
-.heart-layout-9
-.heart-message-text {
-  max-width:
-    330px;
+.heart-layout-9 .heart-message-text {
+  max-width: 330px;
 
-  font-size:
-    0.80rem;
+  font-size: 0.8rem;
 
-  line-height:
-    1.42;
+  line-height: 1.42;
 }
 
-.heart-layout-10
-.heart-message-content {
-  padding:
-    21% 18% 23%;
+.heart-layout-10 .heart-message-content {
+  padding: 21% 18% 23%;
 }
 
-.heart-layout-10
-.heart-message-title {
-  font-size:
-    1.50rem;
+.heart-layout-10 .heart-message-title {
+  font-size: 1.5rem;
 }
 
-.heart-layout-10
-.heart-message-text {
-  max-width:
-    340px;
+.heart-layout-10 .heart-message-text {
+  max-width: 340px;
 
-  font-size:
-    0.77rem;
+  font-size: 0.77rem;
 
-  line-height:
-    1.39;
+  line-height: 1.39;
 }
 
-.heart-layout-11
-.heart-message-content {
-  padding:
-    20% 18% 22%;
+.heart-layout-11 .heart-message-content {
+  padding: 20% 18% 22%;
 }
 
-.heart-layout-11
-.heart-message-text {
-  max-width:
-    330px;
+.heart-layout-11 .heart-message-text {
+  max-width: 330px;
 
-  font-size:
-    0.81rem;
+  font-size: 0.81rem;
 
-  line-height:
-    1.43;
+  line-height: 1.43;
 }
 
-.heart-layout-12
-.heart-message-content {
-  padding:
-    20% 18% 22%;
+.heart-layout-12 .heart-message-content {
+  padding: 20% 18% 22%;
 }
 
-.heart-layout-12
-.heart-message-text {
-  max-width:
-    330px;
+.heart-layout-12 .heart-message-text {
+  max-width: 330px;
 
-  font-size:
-    0.80rem;
+  font-size: 0.8rem;
 
-  line-height:
-    1.43;
+  line-height: 1.43;
 }
 
 /* =========================================
@@ -1711,152 +1279,358 @@ body {
 ========================================= */
 
 @media (max-width: 700px) {
+  /* =====================================
+     FLOATING HEARTS
+  ====================================== */
 
   .floating-compliment-heart {
-    width:
-      70px;
+    width: 70px;
 
-    height:
-      70px;
+    height: 70px;
 
-    font-size:
-      3.2rem;
+    font-size: 3.2rem;
   }
 
+  /* =====================================
+     HEART UNLOCK
+  ====================================== */
+
   .heart-unlock {
-    padding:
-      14px;
+    padding: 14px;
   }
 
   .heart-unlock-card {
-    width:
-      94vw;
+    width: 94vw;
 
-    padding:
-      27px 21px 23px;
+    max-height: 91svh;
 
-    border-radius:
-      23px;
+    padding: 27px 21px 23px;
+
+    border-radius: 23px;
+
+    overflow: hidden;
   }
 
   .heart-unlock-card::before {
-    inset:
-      9px;
+    inset: 9px;
 
-    border-radius:
-      16px;
+    border-radius: 16px;
   }
+
+  /* =====================================
+     TOP HEART
+  ====================================== */
 
   .unlock-heart {
-    width:
-      54px;
+    width: 54px;
 
-    height:
-      54px;
+    height: 54px;
 
-    font-size:
-      1.65rem;
+    font-size: 1.65rem;
   }
+
+  /* =====================================
+     HEADING
+  ====================================== */
 
   .heart-unlock-card h2 {
-    max-width:
-      340px;
+    max-width: 340px;
 
-    font-size:
-      1.75rem;
+    font-size: 1.75rem;
   }
+
+  /* =====================================
+     MAIN TEXT
+  ====================================== */
 
   .unlock-main-text {
-    font-size:
-      0.82rem;
+    max-width: 90%;
+
+    font-size: 0.82rem;
+
+    line-height: 1.42;
   }
+
+  /* =====================================
+     DESCRIPTION
+  ====================================== */
 
   .unlock-sub-text {
-    font-size:
-      0.76rem;
+    max-width: 88%;
 
-    line-height:
-      1.55;
+    font-size: 0.76rem;
+
+    line-height: 1.55;
   }
+
+  /* =====================================
+     PROGRESS
+  ====================================== */
 
   .heart-progress {
-    margin-top:
-      16px;
+    margin-top: 16px;
 
-    font-size:
-      0.68rem;
+    padding: 9px 15px;
+
+    font-size: 0.68rem;
   }
 
+  /* =====================================
+     TAP HINT
+  ====================================== */
+
   .unlock-hint {
-    font-size:
-      0.56rem;
+    font-size: 0.56rem;
+
+    margin-top: 14px;
   }
 
   .hint-line {
-    width:
-      21px;
+    width: 21px;
   }
+
+  /* =====================================
+     CONTINUE BUTTON
+  ====================================== */
 
   .heart-continue {
-    margin-top:
-      15px;
+    margin-top: 15px;
 
-    padding:
-      12px 16px;
+    padding: 12px 16px;
 
-    font-size:
-      0.73rem;
+    font-size: 0.73rem;
   }
 
+  /* =====================================
+     HEART MESSAGE
+  ====================================== */
+
   .heart-message-card {
-    width:
-      min(94vw, 540px);
+    width: min(94vw, 540px);
+
+    max-height: 88svh;
   }
 
   .heart-message-content {
-    padding:
-      19% 17% 21%;
+    padding: 19% 17% 21%;
   }
 
   .heart-message-icon {
-    font-size:
-      1.85rem;
+    font-size: 1.85rem;
   }
 
   .heart-message-title {
-    margin-bottom:
-      7px;
+    margin-bottom: 7px;
 
-    font-size:
-      1.16rem !important;
+    font-size: 1.16rem !important;
   }
 
   .heart-message-text {
-    max-width:
-      250px !important;
+    max-width: 250px !important;
 
-    font-size:
-      0.72rem !important;
+    font-size: 0.72rem !important;
 
-    line-height:
-      1.44 !important;
+    line-height: 1.44 !important;
   }
 
   .heart-message-done {
-    min-width:
-      148px;
+    min-width: 148px;
 
-    max-width:
-      88%;
+    max-width: 88%;
 
-    padding:
-      9px 14px;
+    padding: 9px 14px;
 
-    font-size:
-      0.72rem;
+    font-size: 0.72rem;
 
-    margin-top:
-      10px;
+    margin-top: 10px;
+  }
+
+  /* =====================================
+     I MISS US TRANSITION
+  ====================================== */
+
+  .us-transition {
+    padding: 16px;
+  }
+
+  .us-transition-card {
+    width: 93vw;
+
+    max-height: 88svh;
+
+    padding: 28px 20px 23px;
+
+    border-radius: 23px;
+  }
+
+  .us-transition-heart {
+    font-size: 2.7rem;
+
+    margin-bottom: 8px;
+  }
+
+  .us-transition-card h2 {
+    font-size: 1.65rem;
+
+    line-height: 1.14;
+  }
+
+  .us-transition-card p {
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+  }
+
+  #seeUsButton {
+    margin-top: 18px;
+
+    padding: 12px 18px;
+
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 430px) {
+  .heart-unlock {
+    padding: 10px;
+  }
+
+  .heart-unlock-card {
+    width: 95vw;
+
+    max-height: 92svh;
+
+    padding: 23px 16px 19px;
+
+    border-radius: 20px;
+  }
+
+  .unlock-heart {
+    width: 48px;
+
+    height: 48px;
+
+    margin-bottom: 10px;
+
+    font-size: 1.45rem;
+  }
+
+  .heart-unlock-card h2 {
+    max-width: 300px;
+
+    font-size: 1.55rem;
+  }
+
+  .unlock-main-text {
+    max-width: 92%;
+
+    font-size: 0.77rem;
+  }
+
+  .unlock-sub-text {
+    max-width: 92%;
+
+    font-size: 0.71rem;
+
+    line-height: 1.48;
+  }
+
+  .heart-progress {
+    margin-top: 13px;
+
+    padding: 8px 13px;
+
+    font-size: 0.63rem;
+  }
+
+  .unlock-hint {
+    margin-top: 12px;
+
+    font-size: 0.5rem;
+
+    gap: 7px;
+  }
+
+  .heart-continue {
+    margin-top: 13px;
+
+    padding: 11px 14px;
+
+    font-size: 0.7rem;
+  }
+
+  .heart-message-card {
+    width: 95vw;
+
+    max-height: 90svh;
+  }
+
+  .heart-message-content {
+    padding: 18% 15% 20%;
+  }
+
+  .heart-message-icon {
+    font-size: 1.65rem;
+  }
+
+  .heart-message-title {
+    font-size: 1.04rem !important;
+  }
+
+  .heart-message-text {
+    max-width: 235px !important;
+
+    font-size: 0.67rem !important;
+
+    line-height: 1.4 !important;
+  }
+
+  .heart-message-done {
+    min-width: 138px;
+
+    padding: 8px 12px;
+
+    font-size: 0.68rem;
+
+    margin-top: 9px;
+  }
+
+  .us-transition {
+    padding: 12px;
+  }
+
+  .us-transition-card {
+    width: 95vw;
+
+    max-height: 88svh;
+
+    padding: 24px 16px 19px;
+
+    border-radius: 21px;
+  }
+
+  .us-transition-heart {
+    font-size: 2.45rem;
+  }
+
+  .us-transition-card h2 {
+    font-size: 1.48rem;
+  }
+
+  .us-transition-card p {
+    font-size: 0.75rem;
+  }
+
+  #seeUsButton {
+    margin-top: 15px;
+
+    padding: 11px 16px;
+
+    font-size: 0.74rem;
   }
 }
 
@@ -1877,18 +1651,15 @@ body {
 
   padding: 20px;
 
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255, 105, 160, 0.18),
-      rgba(8, 2, 12, 0.78)
-    );
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 105, 160, 0.18),
+    rgba(8, 2, 12, 0.78)
+  );
 
-  backdrop-filter:
-    blur(6px);
+  backdrop-filter: blur(6px);
 
-  -webkit-backdrop-filter:
-    blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   opacity: 0;
 
@@ -1908,117 +1679,76 @@ body {
 
   pointer-events: auto;
 
-  transition:
-    opacity 0.45s ease;
+  transition: opacity 0.45s ease;
 }
-
 
 /* =========================================
    TRANSITION CARD
 ========================================= */
 
 .us-transition-card {
-  width:
-    min(410px, 90vw);
+  width: min(410px, 90vw);
 
-  padding:
-    34px
-    28px
-    28px;
+  padding: 34px 28px 28px;
 
   text-align: center;
 
-  border-radius:
-    28px;
+  border-radius: 28px;
 
-  border:
-    1px solid
-    rgba(255, 230, 240, 0.65);
+  border: 1px solid rgba(255, 230, 240, 0.65);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 249, 251, 0.98),
-      rgba(250, 220, 233, 0.97)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(255, 249, 251, 0.98),
+    rgba(250, 220, 233, 0.97)
+  );
 
   box-shadow:
-    0 30px 100px
-      rgba(0, 0, 0, 0.60),
+    0 30px 100px rgba(0, 0, 0, 0.6),
+    0 0 45px rgba(226, 76, 126, 0.25);
 
-    0 0 45px
-      rgba(226, 76, 126, 0.25);
+  transform: translateY(24px) scale(0.9);
 
-  transform:
-    translateY(24px)
-    scale(0.90);
-
-  transition:
-    transform
-      0.6s
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.us-transition.is-visible
-.us-transition-card {
-  transform:
-    translateY(0)
-    scale(1);
+.us-transition.is-visible .us-transition-card {
+  transform: translateY(0) scale(1);
 }
-
 
 /* =========================================
    HEART
 ========================================= */
 
 .us-transition-heart {
-  margin-bottom:
-    10px;
+  margin-bottom: 10px;
 
-  font-size:
-    3.1rem;
+  font-size: 3.1rem;
 
-  line-height:
-    1;
+  line-height: 1;
 
-  filter:
-    drop-shadow(
-      0 0 18px
-      rgba(255, 75, 140, 0.60)
-    );
+  filter: drop-shadow(0 0 18px rgba(255, 75, 140, 0.6));
 
-  animation:
-    usHeartPulse
-    2s
-    ease-in-out
-    infinite;
+  animation: usHeartPulse 2s ease-in-out infinite;
 }
 
 @keyframes usHeartPulse {
-
   0%,
   100% {
-    transform:
-      scale(1);
+    transform: scale(1);
   }
 
   50% {
-    transform:
-      scale(1.10);
+    transform: scale(1.1);
   }
 }
-
 
 /* =========================================
    TEXT
 ========================================= */
 
-/* .us-transition-kicker {
+/*
+.us-transition-kicker {
   margin-bottom:
     8px;
 
@@ -2036,89 +1766,61 @@ body {
 
   text-transform:
     uppercase;
-} */
+}
+*/
 
 .us-transition-card h2 {
-  margin:
-    0 0 8px;
+  margin: 0 0 8px;
 
-  color:
-    #59233e;
+  color: #59233e;
 
-  font-family:
-    var(--font-display);
+  font-family: var(--font-display);
 
-  font-size:
-    2rem;
+  font-size: 2rem;
 
-  font-weight:
-    400;
+  font-weight: 400;
 
-  line-height:
-    1.15;
+  line-height: 1.15;
 }
 
 .us-transition-card p {
-  margin:
-    0;
+  margin: 0;
 
-  color:
-    #735765;
+  color: #735765;
 
-  font-size:
-    0.92rem;
+  font-size: 0.92rem;
 
-  font-weight:
-    600;
+  font-weight: 600;
 }
-
 
 /* =========================================
    BUTTON
 ========================================= */
 
 #seeUsButton {
-  width:
-    100%;
+  width: 100%;
 
-  margin-top:
-    22px;
+  margin-top: 22px;
 
-  padding:
-    13px
-    20px;
+  padding: 13px 20px;
 
-  border:
-    none;
+  border: none;
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #c9577d,
-      #962e52
-    );
+  background: linear-gradient(135deg, #c9577d, #962e52);
 
-  color:
-    white;
+  color: white;
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.84rem;
+  font-size: 0.84rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  cursor:
-    pointer;
+  cursor: pointer;
 
-  box-shadow:
-    0 10px 25px
-      rgba(132, 35, 69, 0.25);
+  box-shadow: 0 10px 25px rgba(132, 35, 69, 0.25);
 
   transition:
     transform 0.2s ease,
@@ -2126,59 +1828,23 @@ body {
 }
 
 #seeUsButton:hover {
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 
-  filter:
-    brightness(1.07);
+  filter: brightness(1.07);
 }
-
 
 /* =========================================
    EXIT TRANSITION
 ========================================= */
 
 .us-transition.is-leaving {
-  opacity:
-    0;
+  opacity: 0;
 
-  transition:
-    opacity 0.55s ease;
+  transition: opacity 0.55s ease;
 }
 
-.us-transition.is-leaving
-.us-transition-card {
-  transform:
-    scale(1.08);
+.us-transition.is-leaving .us-transition-card {
+  transform: scale(1.08);
 
-  filter:
-    blur(4px);
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 700px) {
-
-  .us-transition-card {
-    width:
-      93vw;
-
-    padding:
-      28px
-      20px
-      23px;
-  }
-
-  .us-transition-card h2 {
-    font-size:
-      1.65rem;
-  }
-
-  .us-transition-card p {
-    font-size:
-      0.82rem;
-  }
+  filter: blur(4px);
 }

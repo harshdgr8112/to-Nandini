@@ -1,52 +1,32 @@
 :root {
+  --sky-muted: #747541;
 
-  --sky-muted:
-    #747541;
+  --sky-olive: #676d3d;
 
-  --sky-olive:
-    #676d3d;
+  --deep-green: #414a2f;
 
-  --deep-green:
-    #414a2f;
+  --field-green: #36452b;
 
-  --field-green:
-    #36452b;
+  --dark-green: #20281d;
 
-  --dark-green:
-    #20281d;
+  --yellow-flower: #d1b34f;
 
-  --yellow-flower:
-    #d1b34f;
+  --warm-yellow: #b99437;
 
-  --warm-yellow:
-    #b99437;
+  --cream: #f4ead8;
 
-  --cream:
-    #f4ead8;
+  --cream-soft: #ddd1b9;
 
-  --cream-soft:
-    #ddd1b9;
+  --brown-ink: #665849;
 
-  --brown-ink:
-    #665849;
+  --coral: #bd7868;
 
-  --coral:
-    #bd7868;
+  --font-main: "Nunito", sans-serif;
 
-  --font-main:
-    "Nunito",
-    sans-serif;
+  --font-ui: "Quicksand", sans-serif;
 
-  --font-ui:
-    "Quicksand",
-    sans-serif;
-
-  --font-display:
-    "DM Serif Display",
-    Georgia,
-    serif;
+  --font-display: "DM Serif Display", Georgia, serif;
 }
-
 
 /* =========================================
    RESET
@@ -65,17 +45,14 @@ body {
 
   overflow: hidden;
 
-  background:
-    var(--dark-green);
+  background: var(--dark-green);
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 }
 
 button {
   font: inherit;
 }
-
 
 /* =========================================
    PAGE
@@ -90,20 +67,17 @@ button {
 
   overflow: hidden;
 
-  color:
-    var(--cream);
+  color: var(--cream);
 
-  background:
-    linear-gradient(
-      180deg,
-      #747541 0%,
-      #646a3c 24%,
-      #4b5633 52%,
-      #36452b 76%,
-      #20281d 100%
-    );
+  background: linear-gradient(
+    180deg,
+    #747541 0%,
+    #646a3c 24%,
+    #4b5633 52%,
+    #36452b 76%,
+    #20281d 100%
+  );
 }
-
 
 /* =========================================
    BACKGROUND
@@ -115,14 +89,12 @@ button {
 
   z-index: 0;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(83, 86, 45, 0.34),
-      rgba(25, 33, 23, 0.42)
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(83, 86, 45, 0.34),
+    rgba(25, 33, 23, 0.42)
+  );
 }
-
 
 /* =========================================
    VIGNETTE
@@ -136,14 +108,12 @@ button {
 
   pointer-events: none;
 
-  background:
-    radial-gradient(
-      ellipse at center,
-      transparent 38%,
-      rgba(8, 12, 8, 0.42) 100%
-    );
+  background: radial-gradient(
+    ellipse at center,
+    transparent 38%,
+    rgba(8, 12, 8, 0.42) 100%
+  );
 }
-
 
 /* =========================================
    FILM / PAPER GRAIN
@@ -161,13 +131,10 @@ button {
 
   opacity: 0.055;
 
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.5'/%3E%3C/svg%3E");
 
-  mix-blend-mode:
-    soft-light;
+  mix-blend-mode: soft-light;
 }
-
 
 /* =========================================
    SCENES
@@ -201,7 +168,6 @@ button {
   pointer-events: auto;
 }
 
-
 /* =========================================
    FAKE ENDING
 ========================================= */
@@ -209,87 +175,54 @@ button {
 #fakeEnding {
   padding: 30px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #5f6640,
-      #3c492f
-    );
+  background: linear-gradient(180deg, #5f6640, #3c492f);
 }
 
 .ending-small-line {
   margin-bottom: 14px;
 
-  color:
-    rgba(238, 222, 187, 0.66);
+  color: rgba(238, 222, 187, 0.66);
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.60rem;
+  font-size: 0.6rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  letter-spacing:
-    0.28em;
+  letter-spacing: 0.28em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 .ending-main-text {
   margin: 0;
 
-  color:
-    var(--cream);
+  color: var(--cream);
 
-  font-family:
-    var(--font-display);
+  font-family: var(--font-display);
 
-  font-size:
-    clamp(
-      3rem,
-      7vw,
-      6rem
-    );
+  font-size: clamp(3rem, 7vw, 6rem);
 
-  font-weight:
-    400;
+  font-weight: 400;
 
-  line-height:
-    1;
+  line-height: 1;
 
-  text-shadow:
-    0 5px 18px
-    rgba(0, 0, 0, 0.30);
+  text-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
 }
 
 .ending-second-text {
-  margin:
-    24px 0 0;
+  margin: 24px 0 0;
 
-  max-width:
-    650px;
+  max-width: 650px;
 
-  color:
-    rgba(236, 221, 191, 0.72);
+  color: rgba(236, 221, 191, 0.72);
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    clamp(
-      1rem,
-      2vw,
-      1.3rem
-    );
+  font-size: clamp(1rem, 2vw, 1.3rem);
 
-  font-weight:
-    600;
+  font-weight: 600;
 }
-
 
 /* =========================================
    COUNTDOWN SCENE
@@ -305,17 +238,15 @@ button {
 
   padding: 0;
 
-  background:
-    linear-gradient(
-      180deg,
-      #747541 0%,
-      #676d3d 25%,
-      #4f5935 48%,
-      #39482d 72%,
-      #25301f 100%
-    );
+  background: linear-gradient(
+    180deg,
+    #747541 0%,
+    #676d3d 25%,
+    #4f5935 48%,
+    #39482d 72%,
+    #25301f 100%
+  );
 }
-
 
 /* =========================================
    SOFT ATMOSPHERE
@@ -337,7 +268,6 @@ button {
       rgba(235, 217, 172, 0.14),
       transparent 34%
     ),
-
     linear-gradient(
       180deg,
       rgba(231, 212, 169, 0.08),
@@ -345,7 +275,6 @@ button {
       rgba(10, 15, 10, 0.14) 100%
     );
 }
-
 
 /* =========================================
    COUNTDOWN CONTENT
@@ -362,8 +291,7 @@ button {
 
   width: 100%;
 
-  transform:
-    translateX(-50%);
+  transform: translateX(-50%);
 
   display: flex;
 
@@ -371,7 +299,6 @@ button {
 
   align-items: center;
 }
-
 
 /* =========================================
    FLOWER FIELD
@@ -416,46 +343,36 @@ button {
    */
   object-fit: cover;
 
-  object-position:
-    center 58%;
+  object-position: center 58%;
 
-  transform:
-    scale(1.14);
+  transform: scale(1.14);
 
-  transform-origin:
-    center center;
+  transform-origin: center center;
 
-  opacity:
-    0.72;
+  opacity: 0.72;
 
-  filter:
-    saturate(0.78)
-    brightness(0.82)
-    contrast(0.96);
+  filter: saturate(0.78) brightness(0.82) contrast(0.96);
 
   /*
    * Blend the top of the field
    * naturally into the background.
    */
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0,0,0,0.22) 8%,
-      black 20%,
-      black 100%
-    );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.22) 8%,
+    black 20%,
+    black 100%
+  );
 
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0,0,0,0.22) 8%,
-      black 20%,
-      black 100%
-    );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.22) 8%,
+    black 20%,
+    black 100%
+  );
 }
-
 
 /* =========================================
    COUPLE
@@ -473,14 +390,9 @@ button {
 
   pointer-events: none;
 
-  transform:
-    rotate(-2deg);
+  transform: rotate(-2deg);
 
-  filter:
-    drop-shadow(
-      0 9px 12px
-      rgba(15, 20, 11, 0.26)
-    );
+  filter: drop-shadow(0 9px 12px rgba(15, 20, 11, 0.26));
 }
 
 .tangerine-couple img {
@@ -489,7 +401,6 @@ button {
   width: 100%;
   height: auto;
 }
-
 
 /* =========================================
    BICYCLE
@@ -501,23 +412,15 @@ button {
   right: 3.5%;
   bottom: 4%;
 
-  width:
-    215px;
+  width: 215px;
 
-  z-index:
-    12;
+  z-index: 12;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 
-  transform:
-    rotate(1deg);
+  transform: rotate(1deg);
 
-  filter:
-    drop-shadow(
-      0 9px 12px
-      rgba(15, 20, 11, 0.26)
-    );
+  filter: drop-shadow(0 9px 12px rgba(15, 20, 11, 0.26));
 }
 
 .tangerine-bicycle img {
@@ -527,7 +430,6 @@ button {
   height: auto;
 }
 
-
 /* =========================================
    TANGERINES
 ========================================= */
@@ -535,29 +437,19 @@ button {
 .tangerine-orange {
   position: absolute;
 
-  right:
-    7%;
+  right: 7%;
 
-  top:
-    8%;
+  top: 8%;
 
-  width:
-    68px;
+  width: 68px;
 
-  z-index:
-    15;
+  z-index: 15;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 
-  transform:
-    rotate(7deg);
+  transform: rotate(7deg);
 
-  filter:
-    drop-shadow(
-      0 5px 7px
-      rgba(30, 28, 14, 0.22)
-    );
+  filter: drop-shadow(0 5px 7px rgba(30, 28, 14, 0.22));
 }
 
 .tangerine-orange img {
@@ -567,662 +459,543 @@ button {
   height: auto;
 }
 
-
 /* =========================================
    KICKER
 ========================================= */
 
 .countdown-kicker {
-  margin-bottom:
-    12px;
+  margin-bottom: 12px;
 
-  color:
-    rgba(231, 214, 176, 0.76);
+  color: rgba(231, 214, 176, 0.76);
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.60rem;
+  font-size: 0.6rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  letter-spacing:
-    0.28em;
+  letter-spacing: 0.28em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
-
 
 /* =========================================
    TITLE
 ========================================= */
 
 .countdown-title {
-  margin:
-    0;
+  margin: 0;
 
-  color:
-    #f4ead8;
+  color: #f4ead8;
 
-  font-family:
-    var(--font-display);
+  font-family: var(--font-display);
 
-  font-size:
-    clamp(
-      2.5rem,
-      5.4vw,
-      4.5rem
-    );
+  font-size: clamp(2.5rem, 5.4vw, 4.5rem);
 
-  font-weight:
-    400;
+  font-weight: 400;
 
-  line-height:
-    1.02;
+  line-height: 1.02;
 
-  text-shadow:
-    0 5px 20px
-    rgba(0, 0, 0, 0.34);
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.34);
 }
 
 .countdown-title::after {
-  content:
-    "♥";
+  content: "♥";
 
-  display:
-    inline-block;
+  display: inline-block;
 
-  margin-left:
-    13px;
+  margin-left: 13px;
 
-  color:
-    var(--coral);
+  color: var(--coral);
 
-  font-family:
-    Georgia,
-    serif;
+  font-family: Georgia, serif;
 
-  font-size:
-    0.46em;
+  font-size: 0.46em;
 
-  vertical-align:
-    0.15em;
+  vertical-align: 0.15em;
 
-  transform:
-    rotate(-8deg);
+  transform: rotate(-8deg);
 }
-
 
 /* =========================================
    CLOCK
 ========================================= */
 
 .countdown-clock {
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
 
-  justify-content:
-    center;
+  justify-content: center;
 
-  gap:
-    9px;
+  gap: 9px;
 
-  margin-top:
-    34px;
+  margin-top: 34px;
 }
 
 .countdown-unit {
-  min-width:
-    102px;
+  min-width: 102px;
 
-  padding:
-    17px 14px 13px;
+  padding: 17px 14px 13px;
 
-  border:
-    1px solid
-    rgba(229, 212, 173, 0.24);
+  border: 1px solid rgba(229, 212, 173, 0.24);
 
-  border-radius:
-    5px;
+  border-radius: 5px;
 
-  background:
-    rgba(84, 79, 43, 0.38);
+  background: rgba(84, 79, 43, 0.38);
 
-  box-shadow:
-    0 7px 20px
-    rgba(10, 14, 8, 0.25);
+  box-shadow: 0 7px 20px rgba(10, 14, 8, 0.25);
 
-  backdrop-filter:
-    blur(2px);
+  backdrop-filter: blur(2px);
 
-  transform:
-    rotate(-0.6deg);
+  transform: rotate(-0.6deg);
 }
 
 .countdown-unit:nth-of-type(3) {
-  transform:
-    rotate(0.5deg);
+  transform: rotate(0.5deg);
 }
 
 .countdown-unit:nth-of-type(5) {
-  transform:
-    rotate(-0.35deg);
+  transform: rotate(-0.35deg);
 }
 
 .countdown-unit:nth-of-type(7) {
-  transform:
-    rotate(0.55deg);
+  transform: rotate(0.55deg);
 }
 
 .countdown-unit span {
-  display:
-    block;
+  display: block;
 
-  color:
-    #f2e8d8;
+  color: #f2e8d8;
 
-  font-family:
-    var(--font-display);
+  font-family: var(--font-display);
 
-  font-size:
-    clamp(
-      2.5rem,
-      5.3vw,
-      4.3rem
-    );
+  font-size: clamp(2.5rem, 5.3vw, 4.3rem);
 
-  line-height:
-    0.92;
+  line-height: 0.92;
 
-  font-variant-numeric:
-    tabular-nums;
+  font-variant-numeric: tabular-nums;
 
-  text-shadow:
-    0 3px 12px
-    rgba(0, 0, 0, 0.24);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.24);
 }
 
 .countdown-unit small {
-  display:
-    block;
+  display: block;
 
-  margin-top:
-    9px;
+  margin-top: 9px;
 
-  color:
-    rgba(235, 220, 187, 0.64);
+  color: rgba(235, 220, 187, 0.64);
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.50rem;
+  font-size: 0.5rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  letter-spacing:
-    0.18em;
+  letter-spacing: 0.18em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 .countdown-separator {
-  color:
-    rgba(231, 213, 174, 0.66);
+  color: rgba(231, 213, 174, 0.66);
 
-  font-family:
-    Georgia,
-    serif;
+  font-family: Georgia, serif;
 
-  font-size:
-    1.8rem;
+  font-size: 1.8rem;
 
-  transform:
-    translateY(-7px);
+  transform: translateY(-7px);
 
-  text-shadow:
-    0 2px 8px
-    rgba(0, 0, 0, 0.22);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
 }
-
 
 /* =========================================
    TEASER
 ========================================= */
 
 .countdown-teaser {
-  margin:
-    25px 0 0;
+  margin: 25px 0 0;
 
-  color:
-    rgba(228, 212, 179, 0.72);
+  color: rgba(228, 212, 179, 0.72);
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.73rem;
+  font-size: 0.73rem;
 
-  font-weight:
-    600;
+  font-weight: 600;
 
-  line-height:
-    1.75;
+  line-height: 1.75;
 
-  text-align:
-    center;
+  text-align: center;
 
-  text-shadow:
-    0 2px 7px
-    rgba(0, 0, 0, 0.24);
+  text-shadow: 0 2px 7px rgba(0, 0, 0, 0.24);
 }
 
 .countdown-teaser::before {
-  content:
-    "—";
+  content: "—";
 
-  display:
-    block;
+  display: block;
 
-  margin-bottom:
-    7px;
+  margin-bottom: 7px;
 
-  color:
-    rgba(220, 198, 156, 0.54);
+  color: rgba(220, 198, 156, 0.54);
 
-  font-family:
-    Georgia,
-    serif;
+  font-family: Georgia, serif;
 }
-
 
 /* =========================================
    PASSCODE
 ========================================= */
 
 .passcode-scene {
-  padding:
-    28px 20px;
+  padding: 28px 20px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #545d38,
-      #2e3825
-    );
+  background: linear-gradient(180deg, #545d38, #2e3825);
 }
 
 .passcode-kicker {
-  color:
-    rgba(235, 218, 180, 0.68);
+  color: rgba(235, 218, 180, 0.68);
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    0.60rem;
+  font-size: 0.6rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  letter-spacing:
-    0.20em;
+  letter-spacing: 0.2em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
 
 .passcode-scene h2 {
-  margin:
-    10px 0 5px;
+  margin: 10px 0 5px;
 
-  color:
-    var(--cream);
+  color: var(--cream);
 
-  font-family:
-    var(--font-display);
+  font-family: var(--font-display);
 
-  font-size:
-    clamp(
-      2rem,
-      5vw,
-      3.4rem
-    );
+  font-size: clamp(2rem, 5vw, 3.4rem);
 
-  font-weight:
-    400;
+  font-weight: 400;
 }
 
 .passcode-scene p {
-  margin:
-    0 0 22px;
+  margin: 0 0 22px;
 
-  color:
-    rgba(231, 214, 178, 0.64);
+  color: rgba(231, 214, 178, 0.64);
 
-  font-size:
-    0.84rem;
+  font-size: 0.84rem;
 
-  font-weight:
-    600;
+  font-weight: 600;
 }
-
 
 /* =========================================
    PASSCODE DOTS
 ========================================= */
 
 .passcode-dots {
-  display:
-    flex;
+  display: flex;
 
-  justify-content:
-    center;
+  justify-content: center;
 
-  gap:
-    10px;
+  gap: 10px;
 
-  margin-bottom:
-    25px;
+  margin-bottom: 25px;
 }
 
 .passcode-dots span {
-  width:
-    11px;
+  width: 11px;
 
-  height:
-    11px;
+  height: 11px;
 
-  border:
-    1px solid
-    rgba(224, 202, 158, 0.42);
+  border: 1px solid rgba(224, 202, 158, 0.42);
 
-  border-radius:
-    50%;
+  border-radius: 50%;
 
-  background:
-    rgba(255, 245, 225, 0.04);
+  background: rgba(255, 245, 225, 0.04);
 }
 
 .passcode-dots span.is-filled {
-  background:
-    var(--coral);
+  background: var(--coral);
 
-  transform:
-    scale(1.08);
+  transform: scale(1.08);
 }
-
 
 /* =========================================
    KEYPAD
 ========================================= */
 
 .passcode-keys {
-  width:
-    min(
-      290px,
-      82vw
-    );
+  width: min(290px, 82vw);
 
-  display:
-    grid;
+  display: grid;
 
-  grid-template-columns:
-    repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
-  gap:
-    9px;
+  gap: 9px;
 }
 
 .passcode-keys button {
-  height:
-    60px;
+  height: 60px;
 
-  border:
-    1px solid
-    rgba(227, 209, 171, 0.15);
+  border: 1px solid rgba(227, 209, 171, 0.15);
 
-  border-radius:
-    7px;
+  border-radius: 7px;
 
-  background:
-    rgba(81, 77, 42, 0.35);
+  background: rgba(81, 77, 42, 0.35);
 
-  color:
-    #efe4d1;
+  color: #efe4d1;
 
-  font-family:
-    var(--font-ui);
+  font-family: var(--font-ui);
 
-  font-size:
-    1rem;
+  font-size: 1rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  cursor:
-    pointer;
+  cursor: pointer;
 }
 
 .passcode-keys button:active {
-  transform:
-    scale(0.95);
+  transform: scale(0.95);
 }
 
 .passcode-keys .key-special {
-  font-size:
-    0.68rem;
+  font-size: 0.68rem;
 
-  color:
-    rgba(224, 204, 165, 0.68);
+  color: rgba(224, 204, 165, 0.68);
 }
-
 
 /* =========================================
    MESSAGE
 ========================================= */
 
 .passcode-message {
-  min-height:
-    22px;
+  min-height: 22px;
 
-  margin-top:
-    15px;
+  margin-top: 15px;
 
-  color:
-    #c68573;
+  color: #c68573;
 
-  font-size:
-    0.76rem;
+  font-size: 0.76rem;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  opacity:
-    0;
+  opacity: 0;
 }
 
 .passcode-message.is-visible {
-  opacity:
-    1;
+  opacity: 1;
 }
-
 
 /* =========================================
    FINAL REVEAL
 ========================================= */
 
 .final-reveal {
-  padding:
-    30px;
+  padding: 30px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #616a40,
-      #2d3724
-    );
+  background: linear-gradient(180deg, #616a40, #2d3724);
 }
 
 .final-heart {
-  color:
-    var(--coral);
+  color: var(--coral);
 
-  font-size:
-    4rem;
+  font-size: 4rem;
 }
 
 .final-reveal h2 {
-  margin:
-    18px 0 7px;
+  margin: 18px 0 7px;
 
-  color:
-    var(--cream);
+  color: var(--cream);
 
-  font-family:
-    var(--font-display);
+  font-family: var(--font-display);
 
-  font-size:
-    clamp(
-      2rem,
-      5vw,
-      3.4rem
-    );
+  font-size: clamp(2rem, 5vw, 3.4rem);
 
-  font-weight:
-    400;
+  font-weight: 400;
 }
 
 .final-reveal p {
-  margin:
-    0;
+  margin: 0;
 
-  color:
-    rgba(230, 211, 174, 0.65);
+  color: rgba(230, 211, 174, 0.65);
 
-  font-size:
-    0.84rem;
+  font-size: 0.84rem;
 }
-
 
 /* =========================================
    MOBILE
 ========================================= */
 
 @media (max-width: 650px) {
-
   .countdown-content {
-    top:
-      6%;
+    top: 6%;
   }
+
+  /* =====================================
+     FLOWER FIELD
+  ====================================== */
 
   .tangerine-field {
-    left:
-      -16%;
+    left: -18%;
 
-    width:
-      132%;
+    width: 136%;
 
-    height:
-      62%;
+    height: 64%;
 
-    bottom:
-      -3%;
+    bottom: -3%;
   }
 
+  .tangerine-field img {
+    object-fit: cover;
+
+    object-position: center 58%;
+
+    transform: scale(1.12);
+  }
+
+  /* =====================================
+     COUPLE
+  ====================================== */
   .tangerine-couple {
-    left:
-      -8px;
-
-    bottom:
-      2%;
-
-    width:
-      120px;
+    left: -12px;
+    bottom: 1.5%;
+    width: 175px;
+    z-index: 12;
   }
+
+  /* =====================================
+     BICYCLE
+  ====================================== */
 
   .tangerine-bicycle {
-    right:
-      -8px;
-
-    bottom:
-      2%;
-
-    width:
-      140px;
+    right: -12px;
+    bottom: 1.5%;
+    width: 135px;
+    z-index: 12;
   }
+
+  /* =====================================
+     TANGERINES
+  ====================================== */
 
   .tangerine-orange {
-    right:
-      5%;
+    right: 5%;
 
-    top:
-      7%;
+    top: 7%;
 
-    width:
-      52px;
+    width: 48px;
   }
 
-  .countdown-clock {
-    gap:
-      4px;
+  /* =====================================
+     COUNTDOWN
+  ====================================== */
 
-    margin-top:
-      27px;
+  .countdown-clock {
+    width: 94vw;
+
+    gap: 3px;
+
+    margin-top: 27px;
   }
 
   .countdown-unit {
-    min-width:
-      67px;
+    min-width: 0;
 
-    padding:
-      13px 7px 11px;
+    width: clamp(61px, 17vw, 72px);
+
+    padding: 13px 5px 11px;
+
+    border-radius: 4px;
   }
 
   .countdown-unit span {
-    font-size:
-      2rem;
+    font-size: clamp(1.75rem, 7vw, 2.2rem);
   }
 
   .countdown-unit small {
-    font-size:
-      0.40rem;
+    margin-top: 8px;
+
+    font-size: 0.38rem;
+
+    letter-spacing: 0.1em;
   }
 
   .countdown-separator {
-    font-size:
-      1.35rem;
+    font-size: 1.25rem;
+
+    transform: translateY(-6px);
   }
 
+  /* =====================================
+     TITLE
+  ====================================== */
+
+  .countdown-title {
+    max-width: 92vw;
+
+    font-size: clamp(2.25rem, 10vw, 3.3rem);
+  }
+
+  /* =====================================
+     KICKER
+  ====================================== */
+
+  .countdown-kicker {
+    margin-bottom: 9px;
+
+    font-size: 0.5rem;
+
+    letter-spacing: 0.22em;
+  }
+
+  /* =====================================
+     TEASER
+  ====================================== */
+
   .countdown-teaser {
-    max-width:
-      290px;
+    max-width: 285px;
 
-    margin-top:
-      22px;
+    margin-top: 21px;
 
-    font-size:
-      0.67rem;
+    font-size: 0.65rem;
+
+    line-height: 1.7;
+  }
+
+  /* =====================================
+     PASSCODE
+  ====================================== */
+
+  .passcode-scene {
+    padding: 22px 15px;
+  }
+
+  .passcode-scene h2 {
+    font-size: clamp(1.9rem, 9vw, 2.7rem);
+  }
+
+  .passcode-kicker {
+    font-size: 0.52rem;
   }
 
   .passcode-keys {
-    width:
-      min(
-        290px,
-        90vw
-      );
+    width: min(290px, 88vw);
+
+    gap: 8px;
   }
 
   .passcode-keys button {
-    height:
-      55px;
+    height: 55px;
+  }
+
+  /* =====================================
+     FINAL REVEAL
+  ====================================== */
+
+  .final-reveal h2 {
+    max-width: 88vw;
+
+    font-size: clamp(1.9rem, 8vw, 2.7rem);
   }
 }

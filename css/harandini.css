@@ -32,6 +32,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+
   margin: 0;
 
   overflow: hidden;
@@ -71,6 +72,7 @@ button {
 
 .moon-background {
   position: fixed;
+
   inset: 0;
 
   width: 100%;
@@ -88,6 +90,7 @@ button {
 
 .night-overlay {
   position: fixed;
+
   inset: 0;
 
   z-index: 1;
@@ -117,7 +120,9 @@ button {
   padding: 15px 20px;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 
   transition:
@@ -380,7 +385,9 @@ button {
   position: absolute;
 
   left: 6px;
+
   right: 6px;
+
   bottom: 3px;
 
   color: #674653;
@@ -819,11 +826,6 @@ button {
 
   pointer-events: none;
 
-  /*
-   * No transition here.
-   * Clicking the button immediately
-   * replaces this screen.
-   */
   background: rgba(0, 0, 0, 0.18);
 }
 
@@ -979,6 +981,7 @@ button {
  * The separate open image never appears
  * during the letter-gate stage.
  */
+
 .letter-image-open {
   display: none;
 }
@@ -1048,6 +1051,7 @@ button {
    * Transparent so the original
    * moon scene remains underneath.
    */
+
   background: transparent;
 
   opacity: 0;
@@ -1078,6 +1082,7 @@ button {
    * Larger than viewport.
    * It appears at this size immediately.
    */
+
   height: 128vh;
 
   width: auto;
@@ -1163,14 +1168,17 @@ button {
   display: block;
 
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
+
   object-position: center center;
 
   background: transparent;
 
   border: 0;
+
   outline: 0;
 
   transform: none;
@@ -1282,6 +1290,10 @@ body.harandini-leaving .harandini-page {
 ========================================= */
 
 @media (max-width: 650px) {
+  /* =====================================
+     MEMORY HEADER
+  ====================================== */
+
   .memory-header h1 {
     font-size: 1.72rem;
   }
@@ -1290,11 +1302,19 @@ body.harandini-leaving .harandini-page {
     font-size: 0.68rem;
   }
 
+  /* =====================================
+     WARM LIGHTS
+  ====================================== */
+
   .light-wall {
     top: 3%;
 
     width: 195vw;
   }
+
+  /* =====================================
+     MEMORY WALL
+  ====================================== */
 
   .memory-grid {
     top: 20%;
@@ -1304,7 +1324,9 @@ body.harandini-leaving .harandini-page {
     height: 70vh;
   }
 
-  /* STORY */
+  /* =====================================
+     STORY MODAL
+  ====================================== */
 
   .story-card {
     width: 92vw;
@@ -1340,6 +1362,8 @@ body.harandini-leaving .harandini-page {
     max-width: 100%;
 
     max-height: 100%;
+
+    object-fit: contain;
   }
 
   .story-content {
@@ -1378,7 +1402,9 @@ body.harandini-leaving .harandini-page {
     font-size: 0.73rem;
   }
 
-  /* LETTER */
+  /* =====================================
+     LETTER
+  ====================================== */
 
   .letter-intro {
     top: 6%;
@@ -1398,7 +1424,9 @@ body.harandini-leaving .harandini-page {
     margin-top: 12px;
   }
 
-  /* FINAL EDIT */
+  /* =====================================
+     FINAL EDIT
+  ====================================== */
 
   .edit-letter-frame {
     height: 116vh;
@@ -1447,6 +1475,8 @@ body.harandini-leaving .harandini-page {
 
     font-size: 0.75rem;
   }
+
+  /* FINAL EDIT */
 
   .edit-letter-frame {
     height: 114vh;

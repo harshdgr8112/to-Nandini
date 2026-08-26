@@ -10,7 +10,6 @@
   --muted: rgba(249, 237, 244, 0.68);
 }
 
-
 /* =========================================
    RESET
 ========================================= */
@@ -27,51 +26,37 @@ body {
 }
 
 body {
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  font-family:
-    "DM Sans",
-    Arial,
-    sans-serif;
+  font-family: "DM Sans", Arial, sans-serif;
 
-  background:
-    var(--bg-bottom);
+  background: var(--bg-bottom);
 
   transition:
     opacity 0.5s ease,
     transform 0.5s ease;
 }
 
-
 /* =========================================
    PAGE
 ========================================= */
 
 .cuteness-page {
-  position:
-    relative;
+  position: relative;
 
-  width:
-    100vw;
+  width: 100vw;
 
-  height:
-    100vh;
+  height: 100vh;
 
-  height:
-    100svh;
+  height: 100svh;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  display:
-    flex;
+  display: flex;
 
-  align-items:
-    center;
+  align-items: center;
 
-  justify-content:
-    center;
+  justify-content: center;
 
   background:
     radial-gradient(
@@ -79,281 +64,173 @@ body {
       rgba(112, 48, 100, 0.28),
       transparent 43%
     ),
-    linear-gradient(
-      180deg,
-      var(--bg-top),
-      var(--bg-bottom)
-    );
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
 }
-
 
 /* =========================================
    AMBIENT GLOW
 ========================================= */
 
 .ambient-glow {
-  position:
-    absolute;
+  position: absolute;
 
-  left:
-    50%;
+  left: 50%;
 
-  top:
-    42%;
+  top: 42%;
 
-  width:
-    430px;
+  width: 430px;
 
-  height:
-    430px;
+  height: 430px;
 
-  transform:
-    translate(
-      -50%,
-      -50%
-    );
+  transform: translate(-50%, -50%);
 
-  border-radius:
-    50%;
+  border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(236, 112, 156, 0.18) 0%,
-      rgba(193, 76, 132, 0.07) 35%,
-      transparent 70%
-    );
+  background: radial-gradient(
+    circle,
+    rgba(236, 112, 156, 0.18) 0%,
+    rgba(193, 76, 132, 0.07) 35%,
+    transparent 70%
+  );
 
-  filter:
-    blur(22px);
+  filter: blur(22px);
 
-  animation:
-    ambientPulse
-    4s
-    ease-in-out
-    infinite
-    alternate;
+  animation: ambientPulse 4s ease-in-out infinite alternate;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 }
 
 @keyframes ambientPulse {
-
   from {
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(0.96);
+    transform: translate(-50%, -50%) scale(0.96);
 
-    opacity:
-      0.7;
+    opacity: 0.7;
   }
 
   to {
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(1.04);
+    transform: translate(-50%, -50%) scale(1.04);
 
-    opacity:
-      1;
+    opacity: 1;
   }
 }
-
 
 /* =========================================
    ANALYSIS
 ========================================= */
 
 .cuteness-analysis {
-  position:
-    relative;
+  position: relative;
 
-  z-index:
-    5;
+  z-index: 5;
 
-  width:
-    min(
-      440px,
-      86vw
-    );
+  width: min(440px, 86vw);
 
-  display:
-    flex;
+  display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  align-items:
-    center;
+  align-items: center;
 
-  text-align:
-    center;
+  text-align: center;
 
-  animation:
-    analysisEnter
-    0.7s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    )
-    both;
+  animation: analysisEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-
 
 /* =========================================
    MAIN HEART
 ========================================= */
 
 .analysis-heart {
-  position:
-    relative;
+  position: relative;
 
-  width:
-    110px;
+  width: 110px;
 
-  height:
-    110px;
+  height: 110px;
 
-  display:
-    grid;
+  display: grid;
 
-  place-items:
-    center;
+  place-items: center;
 
-  margin-bottom:
-    28px;
+  margin-bottom: 28px;
 
-  color:
-    var(--pink-soft);
+  color: var(--pink-soft);
 
-  font-size:
-    5.2rem;
+  font-size: 5.2rem;
 
-  line-height:
-    1;
+  line-height: 1;
 
   text-shadow:
-    0 0 16px
-    rgba(255, 150, 188, 0.78),
+    0 0 16px rgba(255, 150, 188, 0.78),
+    0 0 45px rgba(236, 112, 156, 0.48);
 
-    0 0 45px
-    rgba(236, 112, 156, 0.48);
-
-  animation:
-    heartPulse
-    1.8s
-    ease-in-out
-    infinite;
+  animation: heartPulse 1.8s ease-in-out infinite;
 }
 
 .analysis-heart::before {
-  content:
-    "";
+  content: "";
 
-  position:
-    absolute;
+  position: absolute;
 
-  inset:
-    8px;
+  inset: 8px;
 
-  border-radius:
-    50%;
+  border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(236, 112, 156, 0.22),
-      transparent 70%
-    );
+  background: radial-gradient(
+    circle,
+    rgba(236, 112, 156, 0.22),
+    transparent 70%
+  );
 
-  filter:
-    blur(12px);
+  filter: blur(12px);
 
-  z-index:
-    -1;
+  z-index: -1;
 }
 
 @keyframes heartPulse {
-
   0%,
   100% {
-    transform:
-      scale(0.96);
+    transform: scale(0.96);
   }
 
   50% {
-    transform:
-      scale(1.08);
+    transform: scale(1.08);
   }
 }
-
 
 /* =========================================
    LABEL
 ========================================= */
 
 .analysis-label {
-  margin:
-    0;
+  margin: 0;
 
-  color:
-    var(--text);
+  color: var(--text);
 
-  font-size:
-    clamp(
-      1rem,
-      2.5vw,
-      1.15rem
-    );
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
 
-  font-weight:
-    600;
+  font-weight: 600;
 
-  letter-spacing:
-    0.01em;
+  letter-spacing: 0.01em;
 }
-
 
 /* =========================================
    PERCENTAGE
 ========================================= */
 
 .analysis-percent {
-  margin-top:
-    19px;
+  margin-top: 19px;
 
-  color:
-    var(--pink-soft);
+  color: var(--pink-soft);
 
-  font-family:
-    "Playfair Display",
-    Georgia,
-    serif;
+  font-family: "Playfair Display", Georgia, serif;
 
-  font-size:
-    clamp(
-      3.4rem,
-      9vw,
-      5rem
-    );
+  font-size: clamp(3.4rem, 9vw, 5rem);
 
-  font-weight:
-    700;
+  font-weight: 700;
 
-  line-height:
-    1;
+  line-height: 1;
 
-  text-shadow:
-    0 0 25px
-    rgba(236, 112, 156, 0.24);
+  text-shadow: 0 0 25px rgba(236, 112, 156, 0.24);
 
   transition:
     transform 0.25s ease,
@@ -361,215 +238,109 @@ body {
 }
 
 .analysis-percent.is-updating {
-  transform:
-    scale(1.08);
+  transform: scale(1.08);
 
-  text-shadow:
-    0 0 34px
-    rgba(236, 112, 156, 0.45);
+  text-shadow: 0 0 34px rgba(236, 112, 156, 0.45);
 }
-
 
 /* =========================================
    METER
 ========================================= */
 
 .analysis-progress {
-  position:
-    relative;
+  position: relative;
 
-  width:
-    min(
-      360px,
-      78vw
-    );
+  width: min(360px, 78vw);
 
-  height:
-    8px;
+  height: 8px;
 
-  margin-top:
-    24px;
+  margin-top: 24px;
 
-  border-radius:
-    999px;
+  border-radius: 999px;
 
-  background:
-    rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.12);
 
-  box-shadow:
-    inset 0 0 0 1px
-    rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 
-  overflow:
-    visible;
+  overflow: visible;
 }
-
 
 /* =========================================
    FILL
 ========================================= */
 
 .analysis-progress-bar {
-  position:
-    relative;
+  position: relative;
 
-  width:
-    0%;
+  width: 0%;
 
-  height:
-    100%;
+  height: 100%;
 
-  border-radius:
-    inherit;
+  border-radius: inherit;
 
-  background:
-    linear-gradient(
-      90deg,
-      #d95784,
-      #f47aa6 52%,
-      #ff9abb
-    );
+  background: linear-gradient(90deg, #d95784, #f47aa6 52%, #ff9abb);
 
-  box-shadow:
-    0 0 10px
-    rgba(236, 112, 156, 0.38);
+  box-shadow: 0 0 10px rgba(236, 112, 156, 0.38);
 
-  transition:
-    width 0.45s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    );
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 
 /* =========================================
    TRAVELLING HEART
 ========================================= */
 
 .meter-heart {
-  position:
-    absolute;
+  position: absolute;
 
-  left:
-    0%;
+  left: 0%;
 
-  top:
-    50%;
+  top: 50%;
 
-  z-index:
-    10;
+  z-index: 10;
 
-  color:
-    #ffd4e3;
+  color: #ffd4e3;
 
-  /*
-   * Increased base size.
-   * JS supplies the exponential
-   * multiplier on top of this.
-   */
-  font-size:
-    1.75rem;
+  font-size: 1.75rem;
 
-  line-height:
-    1;
+  line-height: 1;
 
-  transform:
-    translate(
-      -50%,
-      -50%
-    )
-    scale(
-      var(--heart-scale, 1.05)
-    );
+  transform: translate(-50%, -50%) scale(var(--heart-scale, 1.05));
 
-  transform-origin:
-    center;
+  transform-origin: center;
 
   text-shadow:
-    0 0 10px
-    rgba(255, 153, 190, 0.95),
-
-    0 0 18px
-    rgba(236, 112, 156, 0.55),
-
-    0 0 30px
-    rgba(236, 112, 156, 0.30);
+    0 0 10px rgba(255, 153, 190, 0.95),
+    0 0 18px rgba(236, 112, 156, 0.55),
+    0 0 30px rgba(236, 112, 156, 0.3);
 
   transition:
-    left 0.45s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    ),
+    left 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
-    transform 0.35s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    );
+  pointer-events: none;
 
-  pointer-events:
-    none;
-
-  animation:
-    meterHeartPulse
-    1.15s
-    ease-in-out
-    infinite
-    alternate;
+  animation: meterHeartPulse 1.15s ease-in-out infinite alternate;
 }
-
 
 /* =========================================
    NORMAL PULSE
 ========================================= */
 
 @keyframes meterHeartPulse {
-
   from {
+    filter: brightness(0.95);
 
-    filter:
-      brightness(0.95);
-
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(
-        calc(
-          var(--heart-scale, 1.05)
-          * 0.94
-        )
-      );
+    transform: translate(-50%, -50%)
+      scale(calc(var(--heart-scale, 1.05) * 0.94));
   }
 
   to {
+    filter: brightness(1.18);
 
-    filter:
-      brightness(1.18);
-
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(
-        calc(
-          var(--heart-scale, 1.05)
-          * 1.06
-        )
-      );
+    transform: translate(-50%, -50%)
+      scale(calc(var(--heart-scale, 1.05) * 1.06));
   }
 }
-
 
 /* =========================================
    120% OVERLOAD
@@ -577,178 +348,101 @@ body {
 
 .analysis-progress.is-overload {
   box-shadow:
-    0 0 18px
-    rgba(236, 112, 156, 0.40),
-
-    0 0 38px
-    rgba(236, 112, 156, 0.16),
-
-    inset 0 0 0 1px
-    rgba(255, 255, 255, 0.12);
+    0 0 18px rgba(236, 112, 156, 0.4),
+    0 0 38px rgba(236, 112, 156, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
-
 
 /* =========================================
    HEART EXPLOSION
 ========================================= */
 
 .meter-heart.is-overload {
-  left:
-    100% !important;
+  left: 100% !important;
 
-  animation:
-    heartExplosion
-    0.55s
-    cubic-bezier(
-      0.15,
-      0.85,
-      0.25,
-      1
-    )
-    forwards;
+  animation: heartExplosion 0.55s cubic-bezier(0.15, 0.85, 0.25, 1) forwards;
 }
 
 @keyframes heartExplosion {
-
   0% {
-    opacity:
-      1;
+    opacity: 1;
 
-    filter:
-      brightness(1.2);
+    filter: brightness(1.2);
 
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(2.8);
+    transform: translate(-50%, -50%) scale(2.8);
   }
 
   15% {
-    opacity:
-      1;
+    opacity: 1;
 
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(3.4);
+    transform: translate(-50%, -50%) scale(3.4);
   }
 
   30% {
-    opacity:
-      1;
+    opacity: 1;
 
-    filter:
-      brightness(1.5);
+    filter: brightness(1.5);
 
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(4.5);
+    transform: translate(-50%, -50%) scale(4.5);
   }
 
   55% {
-    opacity:
-      0.95;
+    opacity: 0.95;
 
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(6.5);
+    transform: translate(-50%, -50%) scale(6.5);
   }
 
   75% {
-    opacity:
-      0.72;
+    opacity: 0.72;
 
-    filter:
-      blur(2px)
-      brightness(1.35);
+    filter: blur(2px) brightness(1.35);
 
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(9);
+    transform: translate(-50%, -50%) scale(9);
   }
 
   100% {
-    opacity:
-      0;
+    opacity: 0;
 
-    filter:
-      blur(7px)
-      brightness(1.5);
+    filter: blur(7px) brightness(1.5);
 
-    transform:
-      translate(
-        -50%,
-        -50%
-      )
-      scale(13);
+    transform: translate(-50%, -50%) scale(13);
   }
 }
-
 
 /* =========================================
    STATUS
 ========================================= */
 
 .analysis-status {
-  margin-top:
-    11px;
+  margin-top: 11px;
 
-  color:
-    var(--muted);
+  color: var(--muted);
 
-  font-size:
-    0.7rem;
+  font-size: 0.7rem;
 
-  font-weight:
-    500;
+  font-weight: 500;
 
-  letter-spacing:
-    0.12em;
+  letter-spacing: 0.12em;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 }
-
 
 /* =========================================
    MEME
 ========================================= */
 
 .analysis-meme {
-  width:
-    min(
-      390px,
-      82vw
-    );
+  width: min(390px, 82vw);
 
-  max-height:
-    0;
+  max-height: 0;
 
-  margin-top:
-    0;
+  margin-top: 0;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  opacity:
-    0;
+  opacity: 0;
 
-  transform:
-    translateY(12px)
-    scale(0.96);
+  transform: translateY(12px) scale(0.96);
 
   transition:
     max-height 0.35s ease,
@@ -758,187 +452,237 @@ body {
 }
 
 .analysis-meme.is-visible {
-  max-height:
-    330px;
+  max-height: 330px;
 
-  margin-top:
-    20px;
+  margin-top: 20px;
 
-  opacity:
-    1;
+  opacity: 1;
 
-  transform:
-    translateY(0)
-    scale(1);
+  transform: translateY(0) scale(1);
 }
 
 .analysis-meme img {
-  display:
-    block;
+  display: block;
 
-  width:
-    auto;
+  width: auto;
 
-  max-width:
-    100%;
+  max-width: 100%;
 
-  max-height:
-    300px;
+  max-height: 300px;
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 
-  object-fit:
-    contain;
+  object-fit: contain;
 
-  border-radius:
-    8px;
+  border-radius: 8px;
 
-  box-shadow:
-    0 12px 35px
-    rgba(0, 0, 0, 0.28);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
 }
-
 
 /* =========================================
    KISS
 ========================================= */
 
 .kiss-layer {
-  position:
-    fixed;
+  position: fixed;
 
-  inset:
-    0;
+  inset: 0;
 
-  z-index:
-    20;
+  z-index: 20;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 }
-
 
 /* =========================================
    COMPLIMENT
 ========================================= */
 
 .compliment-layer {
-  position:
-    fixed;
+  position: fixed;
 
-  inset:
-    0;
+  inset: 0;
 
-  z-index:
-    30;
+  z-index: 30;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 }
-
 
 /* =========================================
    ENTRY
 ========================================= */
 
 @keyframes analysisEnter {
-
   from {
-    opacity:
-      0;
+    opacity: 0;
 
-    transform:
-      translateY(18px)
-      scale(0.97);
+    transform: translateY(18px) scale(0.97);
   }
 
   to {
-    opacity:
-      1;
+    opacity: 1;
 
-    transform:
-      translateY(0)
-      scale(1);
+    transform: translateY(0) scale(1);
   }
 }
-
 
 /* =========================================
    FINAL TRANSITION
 ========================================= */
 
 body.love-transition {
-  opacity:
-    0;
+  opacity: 0;
 
-  transform:
-    scale(1.03);
+  transform: scale(1.03);
 }
-
 
 /* =========================================
    MOBILE
 ========================================= */
 
 @media (max-width: 600px) {
+  .cuteness-page {
+    width: 100vw;
+
+    height: 100svh;
+
+    padding: 18px 12px;
+  }
+
+  /* =====================================
+     MAIN CONTENT
+  ====================================== */
+
+  .cuteness-analysis {
+    width: min(100%, 390px);
+
+    max-height: 94svh;
+
+    justify-content: center;
+
+    transform: translateY(-1vh);
+  }
+
+  /* =====================================
+     TOP HEART
+  ====================================== */
 
   .analysis-heart {
-    width:
-      90px;
+    width: 82px;
 
-    height:
-      90px;
+    height: 82px;
 
-    font-size:
-      4.4rem;
+    margin-bottom: 16px;
 
-    margin-bottom:
-      22px;
+    font-size: 4rem;
   }
+
+  /* =====================================
+     LABEL
+  ====================================== */
+
+  .analysis-label {
+    max-width: 92vw;
+
+    font-size: 0.96rem;
+
+    line-height: 1.35;
+  }
+
+  /* =====================================
+     PERCENTAGE
+  ====================================== */
 
   .analysis-percent {
-    font-size:
-      3.2rem;
+    margin-top: 12px;
+
+    font-size: 3rem;
   }
+
+  /* =====================================
+     METER
+  ====================================== */
 
   .analysis-progress {
-    width:
-      82vw;
+    width: min(84vw, 330px);
+
+    height: 7px;
+
+    margin-top: 19px;
   }
+
+  /* =====================================
+     TRAVELLING HEART
+  ====================================== */
 
   .meter-heart {
-    font-size:
-      1.55rem;
+    font-size: 1.55rem;
   }
 
+  /* =====================================
+     STATUS
+  ====================================== */
+
+  .analysis-status {
+    max-width: 88vw;
+
+    margin-top: 8px;
+
+    font-size: 0.62rem;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.09em;
+  }
+
+  /* =====================================
+     MEME
+  ====================================== */
+
   .analysis-meme {
-    width:
-      84vw;
+    width: min(86vw, 340px);
+
+    max-height: 250px;
+  }
+
+  .analysis-meme.is-visible {
+    max-height: 250px;
+
+    margin-top: 14px;
+  }
+
+  .analysis-meme img {
+    width: auto;
+
+    max-width: 100%;
+
+    max-height: 225px;
+
+    border-radius: 7px;
+  }
+
+  /* =====================================
+     AMBIENT GLOW
+  ====================================== */
+
+  .ambient-glow {
+    width: 300px;
+
+    height: 300px;
+
+    top: 44%;
   }
 }
 
-
 /* =========================================
-   REDUCED MOTION
+   VERY SMALL PHONES
 ========================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 380px) {
+  .cuteness-analysis {
+    transform: translateY(-2vh) scale(0.92);
 
-  .analysis-heart,
-  .ambient-glow,
-  .cuteness-analysis,
-  .meter-heart {
-    animation:
-      none !important;
-  }
-
-  .analysis-progress-bar,
-  .meter-heart {
-    transition:
-      none !important;
+    transform-origin: center;
   }
 }

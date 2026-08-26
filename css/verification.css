@@ -69,7 +69,9 @@ body {
   background-image: url("../assets/images/vb.jpg");
 
   background-position: center;
+
   background-size: cover;
+
   background-repeat: no-repeat;
 
   transform: scale(1.01);
@@ -96,9 +98,11 @@ body {
   width: min(500px, 92vw);
 
   display: flex;
+
   justify-content: center;
   align-items: center;
 }
+
 .popup[hidden] {
   display: none !important;
 }
@@ -123,6 +127,7 @@ body {
   box-shadow: 0 28px 70px rgba(48, 20, 45, 0.38);
 
   backdrop-filter: blur(18px);
+
   -webkit-backdrop-filter: blur(18px);
 
   color: #fff8fb;
@@ -142,6 +147,7 @@ body {
   color: #f4a7c4;
 
   font-size: 0.62rem;
+
   font-weight: 700;
 
   letter-spacing: 0.18em;
@@ -151,12 +157,15 @@ body {
 
 .popup-icon {
   width: 64px;
+
   height: 64px;
 
   margin: 0 auto 16px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 50%;
@@ -212,7 +221,9 @@ body {
 
 .progress-header {
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   margin-bottom: 8px;
@@ -226,6 +237,7 @@ body {
   color: #ffffff;
 
   font-size: 2.45rem;
+
   line-height: 1;
 
   letter-spacing: -0.04em;
@@ -233,6 +245,7 @@ body {
 
 .progress-track {
   width: 100%;
+
   height: 6px;
 
   overflow: hidden;
@@ -244,6 +257,7 @@ body {
 
 .progress-bar {
   width: 0%;
+
   height: 100%;
 
   border-radius: inherit;
@@ -275,7 +289,9 @@ body {
   width: 100%;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   gap: 16px;
@@ -293,6 +309,7 @@ body {
   color: #fff4f8;
 
   font-size: 0.92rem;
+
   font-weight: 600;
 
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -324,6 +341,7 @@ body {
   color: #269653;
 
   font-size: 0.9rem;
+
   font-weight: 700;
 
   box-shadow: 0 8px 20px rgba(38, 150, 83, 0.08);
@@ -417,6 +435,7 @@ body {
   cursor: pointer;
 
   font-size: 0.9rem;
+
   font-weight: 700;
 
   transition:
@@ -512,131 +531,49 @@ body {
    Continuous bottom → top movement
 ========================================= */
 
-/* =========================================
-   SMOOTH BALLOON TRANSITION
-========================================= */
-
 .birthday-balloon {
-    position: fixed;
+  position: fixed;
 
-    left: 0;
-    bottom: -180px;
+  left: 0;
 
-    z-index: 9999;
+  bottom: -180px;
 
-    pointer-events: none;
-    user-select: none;
+  z-index: 9999;
 
-    object-fit: contain;
+  pointer-events: none;
 
-    opacity: 0;
+  user-select: none;
 
-    filter:
-        drop-shadow(
-            0 8px 14px
-            rgba(50, 20, 40, 0.14)
-        );
+  object-fit: contain;
 
-    animation:
-        smoothBalloonRise
-        var(--duration, 5s)
-        cubic-bezier(
-            0.25,
-            0.1,
-            0.25,
-            1
-        )
-        var(--delay, 0s)
-        forwards;
+  opacity: 0;
+
+  filter: drop-shadow(0 8px 14px rgba(50, 20, 40, 0.14));
+
+  animation: smoothBalloonRise var(--duration, 5s)
+    cubic-bezier(0.25, 0.1, 0.25, 1) var(--delay, 0s) forwards;
 }
-
 
 /* =========================================
    SMOOTH CONTINUOUS RISE
 ========================================= */
 
 @keyframes smoothBalloonRise {
+  0% {
+    opacity: 0;
 
-    0% {
-        opacity: 0;
-
-        transform:
-            translate3d(
-                0,
-                0,
-                0
-            )
-            rotate(
-                var(--rotation, 0deg)
-            )
-            scale(0.92);
-    }
-
-    8% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate3d(
-                var(--exit-x, 0px),
-                -125vh,
-                0
-            )
-            rotate(
-                calc(
-                    var(--rotation, 0deg) + 6deg
-                )
-            )
-            scale(1.02);
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .birthday-balloon {
-        bottom: -140px;
-    }
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .birthday-balloon {
-        animation-duration:
-            0.01ms !important;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-  .birthday-balloon {
-    bottom: -140px;
+    transform: translate3d(0, 0, 0) rotate(var(--rotation, 0deg)) scale(0.92);
   }
-}
 
-/* =========================================
-   REDUCED MOTION
-========================================= */
+  8% {
+    opacity: 1;
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  .birthday-balloon {
-    animation-duration: 0.01ms !important;
+  100% {
+    opacity: 0;
+
+    transform: translate3d(var(--exit-x, 0px), -125vh, 0)
+      rotate(calc(var(--rotation, 0deg) + 6deg)) scale(1.02);
   }
 }
 
@@ -646,11 +583,13 @@ body {
 
 .cake-celebration {
   position: fixed;
+
   inset: 0;
 
   z-index: 50;
 
   display: grid;
+
   place-items: center;
 
   overflow: hidden;
@@ -668,6 +607,7 @@ body {
 
 .cake-celebration-background {
   position: absolute;
+
   inset: 0;
 
   z-index: 0;
@@ -685,6 +625,7 @@ body {
   z-index: 3;
 
   width: 100%;
+
   height: 100%;
 
   padding: 0;
@@ -706,13 +647,17 @@ body {
 
 .verification-page.is-birthday .verification-background {
   opacity: 0;
+
   transform: scale(1.04);
 }
 
 .verification-page.is-birthday .popup {
   opacity: 0;
+
   transform: scale(0.96);
+
   pointer-events: none;
+
   transition:
     opacity 0.6s ease,
     transform 0.6s ease;
@@ -722,6 +667,7 @@ body {
 
 .cake-celebration {
   opacity: 0;
+
   transform: scale(1.02);
 
   transition:
@@ -731,6 +677,7 @@ body {
 
 .cake-celebration.is-visible {
   opacity: 1;
+
   transform: scale(1);
 }
 
@@ -742,11 +689,13 @@ body {
   position: absolute;
 
   top: 5%;
+
   left: 17%;
 
   z-index: 6;
 
   width: min(330px, 31vw);
+
   height: auto;
 
   object-fit: contain;
@@ -786,6 +735,7 @@ body {
   position: absolute;
 
   top: 53%;
+
   left: 43%;
 
   z-index: 6;
@@ -825,6 +775,7 @@ body {
   height: auto;
 
   top: 29%;
+
   left: 58%;
 
   transform: translate(-50%, -50%);
@@ -856,6 +807,7 @@ body {
   position: absolute;
 
   top: 58%;
+
   left: 58.5%;
 
   z-index: 6;
@@ -908,61 +860,55 @@ body {
 /* =========================================
    CAKE COMPLETE
 ========================================= */
+
 .cake-complete {
-    position: absolute;
+  position: absolute;
 
-    left: 50%;
-    bottom: 17%;
+  left: 50%;
 
-    z-index: 20;
+  bottom: 17%;
 
-    width: min(350px, 86vw);
+  z-index: 20;
 
-    padding: 25px 24px 22px;
+  width: min(350px, 86vw);
 
-    transform: translateX(-50%);
+  padding: 25px 24px 22px;
 
-    border: 1px solid rgba(120, 70, 90, 0.12);
+  transform: translateX(-50%);
 
-    border-radius: 18px;
+  border: 1px solid rgba(120, 70, 90, 0.12);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 251, 247, 0.97),
-            rgba(255, 239, 245, 0.96)
-        );
+  border-radius: 18px;
 
-    box-shadow:
-        0 22px 45px
-        rgba(77, 37, 65, 0.20),
-        0 4px 10px
-        rgba(77, 37, 65, 0.08);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 251, 247, 0.97),
+    rgba(255, 239, 245, 0.96)
+  );
 
-    text-align: center;
+  box-shadow:
+    0 22px 45px rgba(77, 37, 65, 0.2),
+    0 4px 10px rgba(77, 37, 65, 0.08);
 
-    pointer-events: auto;
+  text-align: center;
+
+  pointer-events: auto;
 }
 
 .cake-complete::before {
-    content: "🎀";
+  content: "🎀";
 
-    position: absolute;
+  position: absolute;
 
-    top: -17px;
-    left: 50%;
+  top: -17px;
 
-    transform:
-        translateX(-50%)
-        rotate(-4deg);
+  left: 50%;
 
-    font-size: 1.55rem;
+  transform: translateX(-50%) rotate(-4deg);
 
-    filter:
-        drop-shadow(
-            0 3px 4px
-            rgba(70, 30, 50, 0.12)
-        );
+  font-size: 1.55rem;
+
+  filter: drop-shadow(0 3px 4px rgba(70, 30, 50, 0.12));
 }
 
 .cake-complete[hidden] {
@@ -970,110 +916,96 @@ body {
 }
 
 .cake-complete-icon {
-    width: auto;
-    height: auto;
+  width: auto;
 
-    margin: 0 0 6px;
+  height: auto;
 
-    background: transparent;
+  margin: 0 0 6px;
 
-    color: #bc526f;
+  background: transparent;
 
-    font-size: 1.45rem;
+  color: #bc526f;
+
+  font-size: 1.45rem;
 }
 
 .cake-complete h3 {
-    margin: 2px 0 8px;
+  margin: 2px 0 8px;
 
-    color: #542544;
+  color: #542544;
 
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+  font-family: "Playfair Display", Georgia, serif;
 
-    font-size:
-        clamp(
-            1.5rem,
-            4vw,
-            1.85rem
-        );
+  font-size: clamp(1.5rem, 4vw, 1.85rem);
 
-    font-weight: 700;
+  font-weight: 700;
 
-    line-height: 1.2;
+  line-height: 1.2;
 }
 
 .cake-complete p {
-    max-width: 285px;
+  max-width: 285px;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    color: #765d6b;
+  color: #765d6b;
 
-    font-size: 0.84rem;
+  font-size: 0.84rem;
 
-    font-weight: 600;
+  font-weight: 600;
 
-    line-height: 1.5;
+  line-height: 1.5;
 }
 
 .cake-continue-button {
-    width: min(300px, 100%);
+  width: min(300px, 100%);
 
-    min-height: 48px;
+  min-height: 48px;
 
-    margin-top: 18px;
+  margin-top: 18px;
 
-    padding: 11px 18px;
+  padding: 11px 18px;
 
-    border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 
-    border-radius: 999px;
+  border-radius: 999px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #d85f83,
-            #b53f60
-        );
+  background: linear-gradient(135deg, #d85f83, #b53f60);
 
-    color: #fff;
+  color: #fff;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    font-family:
-        "DM Sans",
-        Arial,
-        sans-serif;
+  font-family: "DM Sans", Arial, sans-serif;
 
-    font-size: 0.82rem;
+  font-size: 0.82rem;
 
-    font-weight: 800;
+  font-weight: 800;
 
-    line-height: 1.35;
+  line-height: 1.35;
 
-    box-shadow:
-        0 9px 18px
-        rgba(181, 63, 96, 0.20);
+  box-shadow: 0 9px 18px rgba(181, 63, 96, 0.2);
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .cake-continue-button:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 
-    box-shadow:
-        0 12px 24px
-        rgba(181, 63, 96, 0.28);
+  box-shadow: 0 12px 24px rgba(181, 63, 96, 0.28);
 }
+
 /* =========================================
    MOBILE
 ========================================= */
 
 @media (max-width: 600px) {
+  /* =====================================
+       VERIFICATION PAGE
+    ====================================== */
+
   .verification-page {
     padding: 16px;
   }
@@ -1083,90 +1015,390 @@ body {
   }
 
   .popup-content {
-    padding: 28px 18px;
+    width: 100%;
 
-    border-radius: 22px;
+    padding: 25px 17px 22px;
+
+    border-radius: 21px;
+  }
+
+  .popup-step {
+    margin-bottom: 7px;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.14em;
   }
 
   .popup-icon {
     width: 56px;
+
     height: 56px;
+
+    margin-bottom: 13px;
 
     font-size: 1.7rem;
   }
 
   .popup h2 {
     font-size: 1.45rem;
+
+    line-height: 1.18;
   }
 
   .popup p {
-    font-size: 0.87rem;
-  }
-
-  .popup-row {
-    padding: 13px 14px;
+    max-width: 350px;
 
     font-size: 0.84rem;
+
+    line-height: 1.5;
   }
+
+  /* =====================================
+       DETAILS
+    ====================================== */
+
+  .popup-details {
+    min-height: 68px;
+
+    margin-top: 18px;
+  }
+
+  /* =====================================
+       PROGRESS
+    ====================================== */
+
+  .verification-progress {
+    margin-top: 19px;
+  }
+
+  .progress-header {
+    margin-bottom: 7px;
+  }
+
+  .progress-header strong {
+    font-size: 2.15rem;
+  }
+
+  .progress-track {
+    height: 6px;
+  }
+
+  .verification-status {
+    margin-top: 12px;
+
+    font-size: 0.62rem;
+  }
+
+  /* =====================================
+       VERIFICATION ROW
+    ====================================== */
+
+  .popup-row {
+    gap: 10px;
+
+    margin-top: 15px;
+
+    padding: 12px 13px;
+
+    border-radius: 12px;
+
+    font-size: 0.79rem;
+
+    line-height: 1.35;
+  }
+
+  .popup-row strong {
+    font-size: 0.65rem;
+  }
+
+  /* =====================================
+       RESULT
+    ====================================== */
+
+  .popup-result {
+    padding: 14px 15px;
+
+    font-size: 0.82rem;
+  }
+
+  /* =====================================
+       BUTTON
+    ====================================== */
 
   .popup .button {
     width: 100%;
 
-    margin-top: 20px;
+    min-width: 0;
+
+    margin-top: 17px;
+
+    padding: 12px 18px;
+
+    font-size: 0.82rem;
   }
 
-  /* Cake graphic */
+  /* =====================================
+       BIRTHDAY GRAPHIC
+    ====================================== */
 
   .birthday-graphic {
     top: 4%;
+
     left: 3%;
 
     width: min(190px, 42vw);
   }
 
-  /* Cake video */
+  /* =====================================
+       CAKE VIDEO
+    ====================================== */
 
   .cake-video {
     width: min(260px, 55vw);
 
     top: 40%;
+
     left: 58%;
   }
 
-  /* Wish */
+  /* =====================================
+       WISH
+    ====================================== */
 
   .cake-message {
     top: 49%;
+
     left: 40%;
 
     width: 180px;
 
     font-size: 0.78rem;
+
+    line-height: 1.4;
   }
 
-  /* Blow button */
+  /* =====================================
+       BLOW BUTTON
+    ====================================== */
 
   .cake-action-button {
     top: auto;
 
     bottom: 8%;
+
     left: 60%;
 
     min-width: 175px;
+
+    padding: 12px 18px;
+
+    font-size: 0.78rem;
   }
 
-  /* Complete */
+  /* =====================================
+       COMPLETE CARD
+    ====================================== */
 
- .cake-complete {
+  .cake-complete {
+    left: 50%;
+
     bottom: 18%;
 
     width: min(88vw, 340px);
 
+    max-height: 74svh;
+
     padding: 20px 18px 18px;
 
     border-radius: 20px;
+
+    overflow: hidden;
+  }
+
+  .cake-complete-icon {
+    font-size: 1.35rem;
+  }
+
+  .cake-complete h3 {
+    font-size: clamp(1.45rem, 7vw, 1.75rem);
+
+    line-height: 1.18;
+  }
+
+  .cake-complete p {
+    max-width: 285px;
+
+    font-size: 0.78rem;
+
+    line-height: 1.48;
+  }
+
+  .cake-continue-button {
+    width: min(280px, 100%);
+
+    min-height: 46px;
+
+    margin-top: 15px;
+
+    padding: 10px 16px;
+
+    font-size: 0.76rem;
+  }
+
+  /* =====================================
+       CONFETTI VIDEO
+    ====================================== */
+
+  .confetti-bomb-video {
+    width: 100vw;
+
+    height: 100svh;
+
+    object-fit: cover;
+  }
 }
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+  .verification-page {
+    padding: 11px;
+  }
+
+  .popup-content {
+    padding: 22px 13px 19px;
+
+    border-radius: 19px;
+  }
+
+  .popup-icon {
+    width: 50px;
+
+    height: 50px;
+
+    margin-bottom: 11px;
+
+    font-size: 1.5rem;
+  }
+
+  .popup h2 {
+    font-size: 1.32rem;
+  }
+
+  .popup p {
+    font-size: 0.78rem;
+  }
+
+  .popup-details {
+    min-height: 60px;
+
+    margin-top: 15px;
+  }
+
+  .progress-header strong {
+    font-size: 2rem;
+  }
+
+  .popup-row {
+    padding: 10px 11px;
+
+    font-size: 0.73rem;
+  }
+
+  .popup-row strong {
+    font-size: 0.6rem;
+  }
+
+  .popup .button {
+    padding: 11px 14px;
+
+    font-size: 0.76rem;
+  }
+
+  /* =====================================
+       BIRTHDAY GRAPHIC
+    ====================================== */
+
+  .birthday-graphic {
+    width: min(165px, 43vw);
+
+    left: 1%;
+
+    top: 3%;
+  }
+
+  /* =====================================
+       CAKE VIDEO
+    ====================================== */
+
+  .cake-video {
+    width: min(235px, 59vw);
+
+    top: 40%;
+  }
+
+  /* =====================================
+       WISH
+    ====================================== */
+
+  .cake-message {
+    width: 160px;
+
+    font-size: 0.71rem;
+  }
+
+  /* =====================================
+       BLOW BUTTON
+    ====================================== */
+
+  .cake-action-button {
+    bottom: 7%;
+
+    min-width: 160px;
+
+    padding: 11px 14px;
+
+    font-size: 0.73rem;
+  }
+
+  /* =====================================
+       COMPLETE
+    ====================================== */
+
+  .cake-complete {
+    bottom: 16%;
+
+    width: 91vw;
+
+    padding: 18px 14px 16px;
+  }
+
+  .cake-complete h3 {
+    font-size: 1.38rem;
+  }
+
+  .cake-complete p {
+    font-size: 0.72rem;
+  }
+
+  .cake-continue-button {
+    min-height: 44px;
+
+    margin-top: 13px;
+
+    padding: 9px 13px;
+
+    font-size: 0.72rem;
+  }
 }
+
+/* =========================================
+   BIRTHDAY EXTRA TEXT
+========================================= */
+
 .birthday-cheers {
   display: block;
 
@@ -1258,11 +1490,13 @@ body {
 @keyframes cakePopupIn {
   from {
     opacity: 0;
+
     transform: translateX(-50%) translateY(20px) scale(0.92);
   }
 
   to {
     opacity: 1;
+
     transform: translateX(-50%) translateY(0) scale(1);
   }
 }
@@ -1274,11 +1508,13 @@ body {
 @keyframes cakePopupSwap {
   from {
     opacity: 0;
+
     transform: translateX(-50%) scale(0.94);
   }
 
   to {
     opacity: 1;
+
     transform: translateX(-50%) scale(1);
   }
 }
@@ -1293,6 +1529,7 @@ body {
   inset: 0;
 
   width: 100vw;
+
   height: 100vh;
 
   object-fit: cover;
@@ -1304,8 +1541,9 @@ body {
   display: none;
 
   /*
-   * Black becomes visually transparent.
-   * Bright confetti remains visible.
-   */
+     * Black becomes visually transparent.
+     * Bright confetti remains visible.
+     */
+
   mix-blend-mode: screen;
 }
