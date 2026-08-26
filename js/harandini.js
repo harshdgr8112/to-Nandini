@@ -46,6 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const letterGate =
     document.getElementById("letterGate");
 
+  const letterBox =
+    document.getElementById("letterBox");
+
+  const letterClosed =
+    document.getElementById("letterClosed");
+
+  const letterOpen =
+    document.getElementById("letterOpen");
+
   const openLetter =
     document.getElementById("openLetter");
 
@@ -61,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================== */
 
   const TOTAL_MEMORIES = 14;
-  const MUSIC_VOLUME = 0.10;
+
+  const MUSIC_VOLUME = 0.8;
 
 
   /* =====================================
@@ -71,101 +81,199 @@ document.addEventListener("DOMContentLoaded", () => {
   const memories = [
 
     {
-      image: "../assets/images/firstouting.jpeg",
-      title: "First outing",
-      story: "Add the story behind our first outing here.",
-      ratio: "45"
+      image:
+        "../assets/images/firstouting.jpeg",
+
+      title:
+        "First outing",
+
+      story:
+        "This is our first day, when we meet eachother as a couple , pheli baar you made something for me , or apne haath se khilaya bhi tha , wo dal chawal or or mirchi with lal mirchi ka achar aaj bhi muh m pani le aata h",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/garba-before.jpeg",
-      title: "Garba - Day 1",
-      story: "Add the story behind this Garba memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/garba-before.jpeg",
+
+      title:
+        "Garba - Day 1",
+
+      story:
+        "Oho garba night, kese bhul sakte h , phele din, ky lg rhe the dono ,or ap toh madam hotness ki dukan lgri thi ,apn poch gye the or vo log aaye nhi or m unke intezar m time pass krta rha , fir tum gussa hui tumhe manaya or fir uske baad vo chiz pr kabhi tumhe gussa nhi hone diya.",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/gyaras.jpeg",
-      title: "Gyaras",
-      story: "Add the story behind our Gyaras memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/Lotus.jpg",
+
+      title:
+        "Lotus Valley",
+
+      story:
+        "Ye day was the most relaxing and calming , ek din phele apn ne essential oils aagye the toh trail k liye apn ne pura ghr mehka diya tha , vo oil se , ek dusre ki intimate massages , fir agle din subah uth kr yha aana or raste m lotus tod k aapko dena , mere kapde gila hona , fir meko daat khana , or fir waha poch kr mast boating krna or dher sare lotus lena",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/kanpur.jpeg",
-      title: "Kanpur",
-      story: "Add the story behind this Kanpur memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/kanpur.jpeg",
+
+      title:
+        "Kanpur",
+
+      story:
+        "Tum jb ghar chali gyi thi , fir milna nhi hota tha toh , dono se nhi raha ja rha tha , toh ek din m kanpur hi aagya ,mast bhagam bhag din tha , pr tumhare saath spend hua tha isliye full thakan vasool tha",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/lastouting.jpeg",
-      title: "Last outing",
-      story: "Add the story behind this outing here.",
-      ratio: "45"
+      image:
+        "../assets/images/lastouting.jpeg",
+
+      title:
+        "Last outing",
+
+      story:
+        "Ye day toh boht jyada miss krta hu m , is din we were thinking kuch krte h , kahi chalte h ,tum bolri thi coffee chalo, toh phele toh pheonix ja rhe the fir idhr hi chale gye, or yha bhi apn ne kitte maze kiye the , last of our many outing together, i miss this so much",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/marathon.jpeg",
-      title: "Marathon",
-      story: "Add the story behind our marathon memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/marathon.jpeg",
+
+      title:
+        "Marathon",
+
+      story:
+        "Ye bhi mast day tha , tumhare bank se tumko milne wala tha pr nhi mila or meko tumne dilwa diya tha vo toh bhala h vo admi ka , vo waha bech rha tha , fir marathon wale day , m bhagra fir tum ruk jara fir m age niklra tum ruk jari tumhari halat ekdum kharab hogyi thi fir ghr aake protien pekar chup chap so gye fir bhar khana khane gye the , gazab marathoners h apn 😂",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/movies.jpeg",
-      title: "Movies",
-      story: "Add the story behind our movie memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/movies.jpeg",
+
+      title:
+        "Movies",
+
+      story:
+        "One of our movie nights , kitni hi movies saath m dekhi apn ne , first wali yad h meko demon slayer , i was so tired , but tumhare saath mujhe movie dekhni thi , isliye tumko lekr gya or vahi soya 😂, fir ese hi movies ka silsila chalta raha , har movie tumhare saath dekhna meko sabse best experience lgta h",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/newyear.jpeg",
-      title: "New Year",
-      story: "Add the story behind our New Year memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/newyear.jpeg",
+
+      title:
+        "New Year",
+
+      story:
+        "New year, full thakele log or itna sab krna tha 😂 Phele din decide kiya tha tum party dogi, O3 gaye, mast pizza khaya. But tumhare oil ka kuch jyada hi incident ho gaya tha toh tumhe acha nhi lag raha tha, but still I was there, making you feel comfortable... aur hamesha karunga. Phir apan ne khana liya aur uske baad jo hua, uss night ka apna alag hi feel tha. Thake hue the, but tumhare saath hona hi enough tha.",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/ratlam.jpeg",
-      title: "Ratlam",
-      story: "Add the story behind our Ratlam memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/ratlam.jpeg",
+
+      title:
+        "Ratlam",
+
+      story:
+        "Ye weekend was so much fun ,ratlam jana ekdum out of sudden fir waha rukne ki dikkat, fir waha jese tese tumhara therna fir ghumne jana , fir nadi kinare bakchodi krna , tumhe mere friends se Milana or fir vo nightout and sari bakchodi , waha ki fir apne rooms m sex sux , mera toh ek tarike se dream come true tha friends bhi or meri babyy bhi , fir agle din apna bahar khana khana , tumhe dal bafle khilana tumhare saath hi fir wapas indore aajana , Boht hi mast experience tha",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/ujjain.jpeg",
-      title: "Ujjain",
-      story: "Add the story behind our Ujjain memory here.",
-      ratio: "11"
+      image:
+        "../assets/images/ujjain.jpeg",
+
+      title:
+        "Ujjain",
+
+      story:
+        "Ujjain jana bhi apna kbse chalra pr jb tk bulawa nhi aata tb tk ni ja skte , ek saath pheli out of station trip bike se , Boht hi jyada mazedar tha , vaha phele bhairav baba k darshan krna fir mahakal baba k tumahare saath , fir aate hue late hojana or andhere m gaadi chala boht hi daring experience tha ,or tumhara bakchodi krna kuch bhi taki m jaga rahu can't imagine how much I was happy",
+
+      ratio:
+        "11"
     },
 
     {
-      image: "../assets/images/idhrudhr.jpeg",
-      title: "Idhar Udhar",
-      story: "Add the story behind this random little memory here.",
-      ratio: "11"
+      image:
+        "../assets/images/idhrudhr.jpeg",
+
+      title:
+        "Idhar Udhar",
+
+      story:
+        "Ye toh apna roz ka ek hissa, mera tumhe pickup krna , or fir late aana fir tumhe mera datna fir mera mana or fir kahi chatorne nikal jana , tumhe pg drop krna sabse bad experience hota tha mera mera bas chalta tha toh m pura time tumse hi chipak k rahu , or fir apn ko ye dur ka ana jana algpn hatane k liye saath room le hi liya tha",
+
+      ratio:
+        "11"
     },
 
     {
-      image: "../assets/images/hanumanji.jpeg",
-      title: "Hanumanji",
-      story: "Add the story behind this memory here.",
-      ratio: "11"
+      image:
+        "../assets/images/hanumanji.jpeg",
+
+      title:
+        "Hanumanji",
+
+      story:
+        "Hanuman ji , meko mere exam ki boht tension chal rhi thi , tum mujhe calm krna chah rhi thi tumne bola yha chalte h fir mene bola chalo , mast maza aaye the is din mast darshan hue , mast thandi m photos liye the ,pass hi m airport bhi tha , jisse m tumhe laya tha ekdin raat ko , tumhare saath thoda sa time spend krne k liye bhi , mene nhi choda or aagya tha lene",
+
+      ratio:
+        "11"
     },
 
     {
-      image: "../assets/images/garba-after.jpeg",
-      title: "Garba — Day 2",
-      story: "Add the story behind this second Garba memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/garba-after.jpeg",
+
+      title:
+        "Garba - Day 2",
+
+      story:
+        "Garba day 2 yaad hi hoga sb log time se aagye is baar or shitiz or agrim dono the btao , phele thoda halka halka warmup apn ne shitiz and gang k saath kiya fir , apn agrim nivi k pass gye the unki family k saath kiya , vo first time tha jb i got to know ki kitni energy h tum m and how much i love you , or after an heavy garba night this is us reacting nice fir meri jutti tut gyi thi bina chapal k gye the",
+
+      ratio:
+        "45"
     },
 
     {
-      image: "../assets/images/birthdayparty.jpeg",
-      title: "Birthday",
-      story: "Add the story behind this birthday memory here.",
-      ratio: "45"
+      image:
+        "../assets/images/birthdayparty.jpeg",
+
+      title:
+        "Birthday",
+
+      story:
+        "Your surprise... I can't imagine how much you prepared and did. Tumhare saare gifts, the cake, aur tumne mujhe chat par wait karwaya tha jab tak tum pura prepare kar rahi thi. Phir 12 baje tum upar aayi, aur ekdum ussi time the sky was filled with fireworks. We kissed under that sky, side se dhima dhima music aa raha tha... that was an incredible night. Fir uske baad tumhare handwritten notes aur hand-prepared gifts. You made my best birthday ever. ❤️",
+
+      ratio:
+        "45"
     }
 
   ];
@@ -173,21 +281,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* =====================================
      MANUAL POLAROID POSITIONING
-
-     Change ONLY these numbers.
-
-     x       = left/right position (%)
-     y       = up/down position (%)
-     size    = Polaroid width (px)
-     hanger  = thread length (px)
-     rotate  = Polaroid rotation (deg)
-
-     Each memory is completely independent.
   ===================================== */
 
   const wallPositions = [
 
-    /* 01 — First outing */
     {
       x: 5,
       y: 40,
@@ -196,7 +293,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -3
     },
 
-    /* 02 — Garba */
     {
       x: 15,
       y: 80,
@@ -205,7 +301,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: 2
     },
 
-    /* 03 — Gyaras */
     {
       x: 0,
       y: 100,
@@ -214,7 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -2
     },
 
-    /* 04 — Kanpur */
     {
       x: 27,
       y: 67,
@@ -223,7 +317,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -3
     },
 
-    /* 05 — Last outing */
     {
       x: 41,
       y: 50,
@@ -232,7 +325,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -2
     },
 
-    /* 06 — Marathon */
     {
       x: 30,
       y: 110,
@@ -241,7 +333,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: 2
     },
 
-    /* 07 — Movies */
     {
       x: 60,
       y: 41,
@@ -250,7 +341,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -3
     },
 
-    /* 08 — New Year */
     {
       x: 67,
       y: 98,
@@ -259,7 +349,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -5
     },
 
-    /* 09 — Ratlam */
     {
       x: 75,
       y: 8,
@@ -268,7 +357,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -2
     },
 
-    /* 10 — Ujjain */
     {
       x: 78,
       y: 70,
@@ -277,7 +365,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -5
     },
 
-    /* 11 — Idhar Udhar */
     {
       x: 84,
       y: 117,
@@ -286,7 +373,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -2
     },
 
-    /* 12 — Hanumanji */
     {
       x: 89,
       y: 40,
@@ -295,7 +381,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: 2
     },
 
-    /* 13 — Garba — one more */
     {
       x: 53,
       y: 85,
@@ -304,7 +389,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rotate: -3
     },
 
-    /* 14 — Birthday */
     {
       x: 98,
       y: 80,
@@ -321,7 +405,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================== */
 
   let openedCount = 0;
+
   let activeMemoryIndex = null;
+
   let moonMusicStarted = false;
 
 
@@ -335,9 +421,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    moonMusic.volume = MUSIC_VOLUME;
-    moonMusic.loop = true;
-    moonMusic.preload = "auto";
+    moonMusic.volume =
+      MUSIC_VOLUME;
+
+    moonMusic.loop =
+      true;
+
+    moonMusic.preload =
+      "auto";
   }
 
 
@@ -350,23 +441,35 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    moonMusic.volume = MUSIC_VOLUME;
-    moonMusic.loop = true;
+    moonMusic.volume =
+      MUSIC_VOLUME;
 
-    const promise = moonMusic.play();
+    moonMusic.loop =
+      true;
+
+    const promise =
+      moonMusic.play();
 
     if (
       promise &&
-      typeof promise.then === "function"
+      typeof promise.then ===
+        "function"
     ) {
 
       promise
         .then(() => {
-          moonMusicStarted = true;
+
+          moonMusicStarted =
+            true;
+
         })
         .catch(() => {
-          moonMusicStarted = false;
+
+          moonMusicStarted =
+            false;
+
         });
+
     }
   }
 
@@ -380,14 +483,18 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    moonMusic.volume = MUSIC_VOLUME;
-    moonMusic.loop = true;
+    moonMusic.volume =
+      MUSIC_VOLUME;
+
+    moonMusic.loop =
+      true;
 
     moonMusic
       .play()
       .then(() => {
 
-        moonMusicStarted = true;
+        moonMusicStarted =
+          true;
 
         removeAudioListeners();
 
@@ -418,13 +525,17 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener(
     "pointerdown",
     unlockMoonMusic,
-    { passive: true }
+    {
+      passive: true
+    }
   );
 
   document.addEventListener(
     "touchstart",
     unlockMoonMusic,
-    { passive: true }
+    {
+      passive: true
+    }
   );
 
   document.addEventListener(
@@ -441,7 +552,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================== */
 
   function pad(value) {
-    return String(value).padStart(2, "0");
+
+    return String(value)
+      .padStart(2, "0");
+
   }
 
 
@@ -455,7 +569,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    memoryDots.innerHTML = "";
+    memoryDots.innerHTML =
+      "";
 
     for (
       let i = 0;
@@ -464,12 +579,16 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
 
       const dot =
-        document.createElement("span");
+        document.createElement(
+          "span"
+        );
 
       dot.className =
         "memory-dot";
 
-      memoryDots.appendChild(dot);
+      memoryDots.appendChild(
+        dot
+      );
     }
   }
 
@@ -480,14 +599,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       memoryProgressText.textContent =
         `${openedCount} / ${TOTAL_MEMORIES} memories`;
-    }
 
+    }
 
     const dots =
       document.querySelectorAll(
         ".memory-dot"
       );
-
 
     dots.forEach(
       (dot, index) => {
@@ -512,8 +630,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    memoryGrid.innerHTML = "";
-
+    memoryGrid.innerHTML =
+      "";
 
     memories.forEach(
       (memory, index) => {
@@ -521,14 +639,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const position =
           wallPositions[index];
 
-
         if (!position) {
           return;
         }
 
-
         const card =
-          document.createElement("button");
+          document.createElement(
+            "button"
+          );
 
         card.type =
           "button";
@@ -539,10 +657,6 @@ document.addEventListener("DOMContentLoaded", () => {
         card.dataset.index =
           String(index);
 
-
-        /*
-         * Convert manual values into CSS units.
-         */
         card.style.setProperty(
           "--x",
           `${position.x}%`
@@ -570,7 +684,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const image =
-          document.createElement("img");
+          document.createElement(
+            "img"
+          );
 
         image.className =
           "memory-photo";
@@ -583,7 +699,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         image.loading =
           "lazy";
-
 
         image.addEventListener(
           "error",
@@ -598,7 +713,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const caption =
-          document.createElement("span");
+          document.createElement(
+            "span"
+          );
 
         caption.className =
           "memory-caption";
@@ -607,8 +724,13 @@ document.addEventListener("DOMContentLoaded", () => {
           memory.title;
 
 
-        card.appendChild(image);
-        card.appendChild(caption);
+        card.appendChild(
+          image
+        );
+
+        card.appendChild(
+          caption
+        );
 
 
         card.addEventListener(
@@ -623,7 +745,9 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        memoryGrid.appendChild(card);
+        memoryGrid.appendChild(
+          card
+        );
 
       }
     );
@@ -643,10 +767,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-
     activeMemoryIndex =
       index;
-
 
     storyPhoto.src =
       memory.image;
@@ -662,7 +784,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     storyText.textContent =
       memory.story;
-
 
     storyModal.classList.add(
       "is-visible"
@@ -684,16 +805,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-
     const cards =
       document.querySelectorAll(
         ".memory-polaroid"
       );
 
-
     const currentCard =
       cards[activeMemoryIndex];
-
 
     if (
       currentCard &&
@@ -727,8 +845,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "true"
     );
 
-
-    activeMemoryIndex = null;
+    activeMemoryIndex =
+      null;
 
 
     if (
@@ -756,7 +874,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =====================================
-     LETTER
+     LETTER GATE
   ===================================== */
 
   function showLetterGate() {
@@ -765,41 +883,55 @@ document.addEventListener("DOMContentLoaded", () => {
       "is-hidden"
     );
 
-    letterGate.classList.add(
-      "is-visible"
+    letterGate.classList.remove(
+      "is-opening"
     );
 
     letterGate.setAttribute(
       "aria-hidden",
       "false"
     );
+
+    letterGate.classList.add(
+      "is-visible"
+    );
   }
 
+
+  /* =====================================
+     OPEN LETTER → DIRECT EDIT
+  ===================================== */
 
   openLetter?.addEventListener(
     "click",
     () => {
 
-      letterGate.classList.add(
-        "is-opened"
-      );
+      /*
+       * Absolutely no intermediate
+       * open-letter animation.
+       */
+      startUntilEdit();
 
-      window.setTimeout(
-        startUntilEdit,
-        1450
-      );
     }
   );
 
 
   /* =====================================
-     FINAL EDIT
+     START FINAL EDIT
   ===================================== */
 
   function startUntilEdit() {
 
+    /*
+     * Remove the entire closed-letter
+     * screen immediately.
+     */
     letterGate.classList.remove(
       "is-visible"
+    );
+
+    letterGate.classList.remove(
+      "is-opening"
     );
 
     letterGate.setAttribute(
@@ -808,6 +940,10 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
+    /*
+     * Immediately display the large
+     * open-letter + video frame.
+     */
     editStage.classList.add(
       "is-visible"
     );
@@ -818,30 +954,54 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
+    /*
+     * Stop moon music.
+     */
     if (moonMusic) {
+
       moonMusic.pause();
+
+      moonMusic.currentTime =
+        0;
+
     }
 
 
-    untilEdit.currentTime = 0;
+    /*
+     * Start final edit from the
+     * first frame immediately.
+     */
+    if (untilEdit) {
 
+      untilEdit.pause();
 
-    const promise =
-      untilEdit.play();
+      untilEdit.currentTime =
+        0;
 
+      const playPromise =
+        untilEdit.play();
 
-    if (
-      promise &&
-      typeof promise.catch === "function"
-    ) {
+      if (
+        playPromise &&
+        typeof playPromise.catch ===
+          "function"
+      ) {
 
-      promise.catch(() => {});
+        playPromise.catch(() => {
+
+          console.log(
+            "Until I Found You edit autoplay was blocked."
+          );
+
+        });
+
+      }
     }
   }
 
 
   /* =====================================
-     EDIT → ENDING
+     FINAL EDIT → ENDING
   ===================================== */
 
   untilEdit?.addEventListener(
@@ -853,7 +1013,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add(
         "harandini-leaving"
       );
-
 
       window.setTimeout(
         () => {
@@ -879,9 +1038,9 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(
         "moonbg.mp4 could not be loaded."
       );
+
     }
   );
-
 
   moonMusic?.addEventListener(
     "error",
@@ -890,9 +1049,9 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(
         "moon.mp3 could not be loaded."
       );
+
     }
   );
-
 
   untilEdit?.addEventListener(
     "error",
@@ -901,6 +1060,29 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(
         "Untill-Edit.mp4 could not be loaded."
       );
+
+    }
+  );
+
+  letterClosed?.addEventListener(
+    "error",
+    () => {
+
+      console.error(
+        "close.png could not be loaded."
+      );
+
+    }
+  );
+
+  letterOpen?.addEventListener(
+    "error",
+    () => {
+
+      console.error(
+        "open.png could not be loaded."
+      );
+
     }
   );
 

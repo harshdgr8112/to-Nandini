@@ -1795,7 +1795,7 @@ document.addEventListener("DOMContentLoaded", () => {
             0;
 
           blueMusic.volume =
-            1;
+            0.50;
 
           blueMusic.loop =
             true;

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>You Thought This Was It? ❤️</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../css/ending.css?v=5"
+  />
+</head>
+
+
+<body>
+
+  <main class="ending-page">
+
+    <!-- =====================================
+         BACKGROUND
+    ====================================== -->
+
+    <div
+      class="ending-background"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="ending-vignette"
+      aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================
+         SPRING MUSIC
+    ====================================== -->
+
+    <audio
+      id="springMusic"
+      src="../assets/music/spring.mp3"
+      preload="auto"
+    ></audio>
+
+
+    <!-- =====================================
+         FAKE ENDING
+    ====================================== -->
+
+    <section
+      id="fakeEnding"
+      class="ending-scene is-active"
+    >
+
+      <div class="ending-small-line">
+        you made it this far...
+      </div>
+
+      <h1 class="ending-main-text">
+        You did it. ❤️
+      </h1>
+
+      <p class="ending-second-text">
+        You thought this was it, my love?
+      </p>
+
+    </section>
+
+
+    <!-- =====================================
+         COUNTDOWN
+    ====================================== -->
+
+    <section
+      id="countdownScene"
+      class="ending-scene countdown-scene"
+    >
+
+      <!-- ===================================
+           FLOWER FIELD
+      ==================================== -->
+
+      <div
+        class="tangerine-field"
+        aria-hidden="true"
+      >
+
+        <img
+          src="../assets/images/tangerines/flower-field.png"
+          alt=""
+          draggable="false"
+        />
+
+      </div>
+
+
+      <!-- ===================================
+           COUPLE
+      ==================================== -->
+
+      <div
+        class="tangerine-decoration tangerine-couple"
+        aria-hidden="true"
+      >
+
+        <img
+          src="../assets/images/tangerines/couple.png"
+          alt=""
+          draggable="false"
+        />
+
+      </div>
+
+
+      <!-- ===================================
+           BICYCLE
+      ==================================== -->
+
+      <div
+        class="tangerine-decoration tangerine-bicycle"
+        aria-hidden="true"
+      >
+
+        <img
+          src="../assets/images/tangerines/bicycle.png"
+          alt=""
+          draggable="false"
+        />
+
+      </div>
+
+
+      <!-- ===================================
+           TANGERINES
+      ==================================== -->
+
+      <div
+        class="tangerine-decoration tangerine-orange"
+        aria-hidden="true"
+      >
+
+        <img
+          src="../assets/images/tangerines/tangerines.png"
+          alt=""
+          draggable="false"
+        />
+
+      </div>
+
+
+      <!-- ===================================
+           COUNTDOWN CONTENT
+      ==================================== -->
+
+      <div class="countdown-content">
+
+        <div class="countdown-kicker">
+          something special is waiting...
+        </div>
+
+
+        <h2 class="countdown-title">
+          Until 14 September
+        </h2>
+
+
+        <div
+          id="countdownClock"
+          class="countdown-clock"
+        >
+
+          <div class="countdown-unit">
+
+            <span id="countdownDays">
+              00
+            </span>
+
+            <small>
+              days
+            </small>
+
+          </div>
+
+
+          <div class="countdown-separator">
+            :
+          </div>
+
+
+          <div class="countdown-unit">
+
+            <span id="countdownHours">
+              00
+            </span>
+
+            <small>
+              hours
+            </small>
+
+          </div>
+
+
+          <div class="countdown-separator">
+            :
+          </div>
+
+
+          <div class="countdown-unit">
+
+            <span id="countdownMinutes">
+              00
+            </span>
+
+            <small>
+              minutes
+            </small>
+
+          </div>
+
+
+          <div class="countdown-separator">
+            :
+          </div>
+
+
+          <div class="countdown-unit">
+
+            <span id="countdownSeconds">
+              00
+            </span>
+
+            <small>
+              seconds
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <p class="countdown-teaser">
+          some days pass quietly...
+          <br />
+          until one becomes a memory worth keeping.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PASSCODE
+    ====================================== -->
+
+    <section
+      id="passcodeScene"
+      class="ending-scene passcode-scene"
+    >
+
+      <div class="passcode-kicker">
+        okay... now prove you're my kaju
+      </div>
+
+      <h2>
+        One last little lock ❤️
+      </h2>
+
+      <p>
+        You know the answer.
+      </p>
+
+
+      <div
+        id="passcodeDots"
+        class="passcode-dots"
+        aria-hidden="true"
+      >
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </div>
+
+
+      <div
+        id="passcodeKeys"
+        class="passcode-keys"
+      >
+
+        <button type="button" data-key="1">
+          1
+        </button>
+
+        <button type="button" data-key="2">
+          2
+        </button>
+
+        <button type="button" data-key="3">
+          3
+        </button>
+
+        <button type="button" data-key="4">
+          4
+        </button>
+
+        <button type="button" data-key="5">
+          5
+        </button>
+
+        <button type="button" data-key="6">
+          6
+        </button>
+
+        <button type="button" data-key="7">
+          7
+        </button>
+
+        <button type="button" data-key="8">
+          8
+        </button>
+
+        <button type="button" data-key="9">
+          9
+        </button>
+
+        <button
+          type="button"
+          data-action="clear"
+          class="key-special"
+        >
+          clear
+        </button>
+
+        <button type="button" data-key="0">
+          0
+        </button>
+
+        <button
+          type="button"
+          data-action="back"
+          class="key-special"
+        >
+          ←
+        </button>
+
+      </div>
+
+
+      <div
+        id="passcodeMessage"
+        class="passcode-message"
+      ></div>
+
+    </section>
+
+
+    <!-- =====================================
+         FINAL REVEAL
+    ====================================== -->
+
+    <section
+      id="finalReveal"
+      class="ending-scene final-reveal"
+    >
+
+      <div class="final-heart">
+        ♥
+      </div>
+
+      <h2>
+        You really thought I'd stop there? ❤️
+      </h2>
+
+      <p>
+        The real ending is waiting...
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <script
+    src="../js/ending.js?v=3"
+  ></script>
+
+</body>
+
+</html>
