@@ -1,360 +1,322 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+    <title>Until I Found You ❤️</title>
 
-  <title>Until I Found You ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+    <link rel="stylesheet" href="../css/harandini.css?v=11" />
+  </head>
 
-  <link
-    rel="stylesheet"
-    href="../css/harandini.css?v=9"
-  />
-</head>
-
-
-<body>
-
-  <main class="harandini-page">
-
-
-    <!-- =====================================
+  <body>
+    <main class="harandini-page">
+      <!-- =====================================
          MOON / NIGHT BACKGROUND
     ====================================== -->
 
-    <video
-      id="moonBackground"
-      class="moon-background"
-      muted
-      playsinline
-      autoplay
-      loop
-      preload="auto"
-    >
+      <video
+        id="moonBackground"
+        class="moon-background"
+        muted
+        playsinline
+        autoplay
+        loop
+        preload="auto"
+      >
+        <source src="../assets/videos/moonbg.mp4" type="video/mp4" />
+      </video>
 
-      <source
-        src="../assets/videos/moonbg.mp4"
-        type="video/mp4"
-      />
+      <div class="night-overlay"></div>
 
-    </video>
-
-    <div class="night-overlay"></div>
-
-
-    <!-- =====================================
+      <!-- =====================================
          MOON MUSIC
     ====================================== -->
 
-    <audio
-      id="moonMusic"
-      src="../assets/music/moon.mp3"
-      preload="auto"
-      loop
-    ></audio>
+      <audio
+        id="moonMusic"
+        src="../assets/music/khat.mp3"
+        preload="auto"
+        loop
+      ></audio>
 
-
-    <!-- =====================================
+      <!-- =====================================
          MEMORY WALL
     ====================================== -->
 
-    <section
-      id="memorySection"
-      class="memory-section"
-    >
+      <section id="memorySection" class="memory-section">
+        <header class="memory-header">
+          <div class="memory-kicker">until i found you</div>
 
-      <header class="memory-header">
+          <h1>Our little memories</h1>
 
-        <div class="memory-kicker">
-          until i found you
-        </div>
+          <p>14 little pieces of us. Open every one.</p>
+        </header>
 
-        <h1>
-          Our little memories
-        </h1>
-
-        <p>
-          14 little pieces of us.
-          Open every one.
-        </p>
-
-      </header>
-
-
-      <!-- ===================================
+        <!-- ===================================
            WARM LIGHT PNG
       ==================================== -->
 
-      <div
-        class="light-wall"
-        aria-hidden="true"
-      >
+        <div class="light-wall" aria-hidden="true">
+          <img
+            class="warm-light"
+            src="../assets/images/warm-lights.png"
+            alt=""
+            draggable="false"
+          />
+        </div>
 
-        <img
-          class="warm-light"
-          src="../assets/images/warm-lights.png"
-          alt=""
-          draggable="false"
-        />
-
-      </div>
-
-
-      <!-- ===================================
+        <!-- ===================================
            POLAROID WALL
       ==================================== -->
 
-      <div
-        id="memoryGrid"
-        class="memory-grid"
-      ></div>
+        <div id="memoryGrid" class="memory-grid"></div>
 
-
-      <!-- ===================================
+        <!-- ===================================
            MEMORY PROGRESS
       ==================================== -->
 
-      <div
-        id="memoryProgress"
-        class="memory-progress"
-      >
+        <div id="memoryProgress" class="memory-progress">
+          <span id="memoryProgressText"> 0 / 14 memories </span>
 
-        <span id="memoryProgressText">
-          0 / 14 memories
-        </span>
+          <div class="memory-dots" aria-hidden="true"></div>
+        </div>
+      </section>
 
-        <div
-          class="memory-dots"
-          aria-hidden="true"
-        ></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
+      <!-- =====================================
          STORY MODAL
     ====================================== -->
 
-    <div
-      id="storyModal"
-      class="story-modal"
-      aria-hidden="true"
-    >
+      <div id="storyModal" class="story-modal" aria-hidden="true">
+        <div id="storyBackdrop" class="story-backdrop"></div>
 
-      <div
-        id="storyBackdrop"
-        class="story-backdrop"
-      ></div>
-
-
-      <article
-        id="storyCard"
-        class="story-card"
-      >
-
-        <div class="story-photo-wrap">
-
-          <img
-            id="storyPhoto"
-            class="story-photo"
-            src=""
-            alt=""
-          />
-
-        </div>
-
-
-        <div class="story-content">
-
-          <div
-            id="storyNumber"
-            class="story-number"
-          >
-            MEMORY 01
+        <article id="storyCard" class="story-card">
+          <div class="story-photo-wrap">
+            <img id="storyPhoto" class="story-photo" src="" alt="" />
           </div>
 
+          <div class="story-content">
+            <div id="storyNumber" class="story-number">MEMORY 01</div>
 
-          <h2
-            id="storyTitle"
-          ></h2>
+            <h2 id="storyTitle"></h2>
 
+            <p id="storyText"></p>
 
-          <p
-            id="storyText"
-          ></p>
+            <button id="storyDone" class="story-done" type="button">
+              Next Memory ❤️
+            </button>
+          </div>
+        </article>
+      </div>
 
-
-          <button
-            id="storyDone"
-            class="story-done"
-            type="button"
-          >
-            Next Memory ❤️
-          </button>
-
-        </div>
-
-      </article>
-
-    </div>
-
-
-    <!-- =====================================
+      <!-- =====================================
          LETTER GATE
     ====================================== -->
 
-    <div
-      id="letterGate"
-      class="letter-gate"
-      aria-hidden="true"
-    >
+      <div id="letterGate" class="letter-gate" aria-hidden="true">
+        <div class="letter-intro">
+          <div class="letter-seal">♡</div>
 
+          <div class="letter-kicker">14 memories later...</div>
 
-      <div class="letter-intro">
+          <h2>One last little thing</h2>
 
-        <div class="letter-seal">
-          ♡
+          <p>I kept something for you.</p>
         </div>
 
-
-        <div class="letter-kicker">
-          14 memories later...
-        </div>
-
-
-        <h2>
-          One last little thing
-        </h2>
-
-
-        <p>
-          I kept something for you.
-        </p>
-
-      </div>
-
-
-      <!-- ===================================
-           LETTER ART
+        <!-- ===================================
+           CLOSED LETTER
       ==================================== -->
 
-      <div
-        id="letterBox"
-        class="letter-box"
-      >
-
-        <div class="letter-art">
-
-
-          <!-- CLOSED LETTER -->
-
-          <img
-            id="letterClosed"
-            class="letter-image letter-image-closed"
-            src="../assets/images/close.png"
-            alt=""
-            draggable="false"
-          />
-
-
-          <!-- OPEN LETTER -->
-
-          <img
-            id="letterOpen"
-            class="letter-image letter-image-open"
-            src="../assets/images/open.png"
-            alt=""
-            draggable="false"
-          />
-
-        </div>
-
-
-        <button
-          id="openLetter"
-          class="open-letter"
-          type="button"
-        >
-          Open the letter 💌
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <!-- =====================================
-         UNTIL I FOUND YOU EDIT
-         VIDEO INSIDE OPEN LETTER
-    ====================================== -->
-
-    <div
-      id="editStage"
-      class="edit-stage"
-      aria-hidden="true"
-    >
-
-      <div class="edit-letter-frame">
-
-        <!-- Full open-letter artwork -->
-
-        <img
-          class="edit-letter-image"
-          src="../assets/images/open.png"
-          alt=""
-          draggable="false"
-        />
-
-
-        <!-- Video inside the blank paper -->
-
-        <div class="edit-video-window">
-
-          <video
-            id="untilEdit"
-            class="until-edit"
-            playsinline
-            preload="auto"
-          >
-
-            <source
-              src="../assets/videos/Untill-Edit.mp4"
-              type="video/mp4"
+        <div id="letterBox" class="letter-box">
+          <div class="letter-art">
+            <img
+              id="letterClosed"
+              class="letter-image letter-image-closed"
+              src="../assets/images/close.png"
+              alt=""
+              draggable="false"
             />
 
-          </video>
+            <img
+              id="letterOpen"
+              class="letter-image letter-image-open"
+              src="../assets/images/open.png"
+              alt=""
+              draggable="false"
+            />
+          </div>
 
+          <button id="openLetter" class="open-letter" type="button">
+            Open the letter 💌
+          </button>
         </div>
-
       </div>
 
-    </div>
+      <!-- =====================================
+         BIRTHDAY LETTER + FINAL EDIT STAGE
+         SAME CANVAS FOR BOTH
+    ====================================== -->
 
+      <div id="editStage" class="edit-stage" aria-hidden="true">
+        <div class="birthday-letter-canvas">
+          <!-- =================================
+             LANDSCAPE LETTER BACKGROUND
+        ================================== -->
 
-  </main>
+          <img
+            class="birthday-letter-background"
+            src="../assets/images/letter.png"
+            alt=""
+            draggable="false"
+          />
 
+          <!-- =================================
+             BIRTHDAY LETTER CONTENT
+        ================================== -->
 
-  <script
-    src="../js/harandini.js?v=10"
-  ></script>
+          <div id="birthdayLetterContent" class="birthday-letter-content">
+            <div class="birthday-letter-text">
+              <p>
+                Aur bs ye thi meri thodi si koshish to make my special person's
+                day special, aka Nandini Janmotsav.
+              </p>
 
-</body>
+              <p>
+                Kaisa laga? I know thik hi hoga, could have been better, but
+                chhodo wo sab, aapka din hai, aapki hi baatein hongi bas.
+              </p>
 
+              <p>
+                I know apan aaj saath nahi hai, but I know you are with me in
+                every breath I take, every word I speak, every thought I
+                process. And someday, itna difficult nahi hoga apna saath hona.
+                Tab tak aise hi birthday wish le lo.
+              </p>
+
+              <p>
+                You deserve more, you deserve everything. I will make sure you
+                get it, and I will not rest until you do.
+              </p>
+
+              <p>
+                Whenever the day is hard, whenever you are not able to think
+                straight, always remember: I will always be there for you,
+                standing by your side, holding your hand.
+              </p>
+
+              <p>
+                We will face everything together, no matter what — sadness,
+                happiness, tumhara gussa, sab mein.
+              </p>
+
+              <p>
+                Coz you are my pretty little baby. I adore you, I care for you,
+                I yearn for you. You are my kuchu puchu, my chotu sa bacha, my
+                kaju baby.
+              </p>
+
+              <p>You are all I need. I am so in love with you.</p>
+
+              <p>
+                You are pretty, beautiful, hot — the piece that had been missing
+                from my life all along.
+              </p>
+
+              <p>
+                Staying away from you is the hardest thing I have had to do. I
+                didn't believe in soulmates until I met you.
+              </p>
+
+              <p>
+                The best thing about you is that you just get me; while others
+                judge, you understand. This makes you the most wonderful person.
+              </p>
+
+              <p>
+                Maybe you don't notice, but every day I try to do the same: to
+                find ways to make you feel good, safe, beautiful, and truly
+                loved. I don't know if I always get it right, but those will
+                forever be my intentions with you.
+              </p>
+
+              <p>
+                I hope this whole thing has made you smile even a little. If it
+                did, bas main bhi khush fir.
+              </p>
+
+              <p>
+                Bas zyada tumhara time na lete hue, isko yahi khatam karte hai.
+              </p>
+
+              <p>
+                Main chahe gussa karu, ya baat na karu, ya rou, ya gaau, ya
+                nachu, ya jo karu... always remember, I love you. Always and
+                forever. Nothing will change.
+              </p>
+            </div>
+
+            <!-- =================================
+               FINAL CLOSING
+          ================================== -->
+
+            <div class="birthday-letter-ending">
+              <div class="birthday-signoff">Happy Birthday, my love. ❤️</div>
+
+              <div class="birthday-last-line">
+                Aur haan, bas ye last chiz...
+              </div>
+            </div>
+
+            <!-- =================================
+               FINAL BUTTON
+          ================================== -->
+
+            <button
+              id="birthdayLastThing"
+              class="birthday-last-thing"
+              type="button"
+            >
+              kya?
+            </button>
+          </div>
+
+          <!-- =================================
+             VOLUME BUTTON
+        ================================== -->
+
+          <button
+            id="letterVolumeBtn"
+            class="letter-volume-btn"
+            type="button"
+            aria-label="Mute music"
+            aria-pressed="false"
+          >
+            🔊
+          </button>
+
+          <!-- =================================
+             UNTIL I FOUND YOU EDIT
+             SAME CANVAS
+        ================================== -->
+
+          <div class="edit-video-window">
+            <video id="untilEdit" class="until-edit" playsinline preload="auto">
+              <source src="../assets/videos/Untill-Edit.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/harandini.js?v=11"></script>
+  </body>
 </html>

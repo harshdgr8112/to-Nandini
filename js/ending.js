@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       0;
 
     springMusic.volume =
-      1;
+      1.5;
 
 
     const playPromise =

@@ -15,7 +15,7 @@
   --gold: #dfb467;
   --gold-dark: #9c6932;
 
-  --font-main: "Nunito", sans-serif;
+  --font-main: "IM Fell English", Georgia, serif;
   --font-ui: "Quicksand", sans-serif;
   --font-display: "DM Serif Display", Georgia, serif;
 }
@@ -977,11 +977,6 @@ button {
   transform: scale(1) rotate(0deg);
 }
 
-/*
- * The separate open image never appears
- * during the letter-gate stage.
- */
-
 .letter-image-open {
   display: none;
 }
@@ -1029,7 +1024,7 @@ button {
 }
 
 /* =========================================
-   FINAL EDIT STAGE
+   BIRTHDAY LETTER + FINAL EDIT STAGE
 ========================================= */
 
 .edit-stage {
@@ -1047,20 +1042,13 @@ button {
 
   overflow: hidden;
 
-  /*
-   * Transparent so the original
-   * moon scene remains underneath.
-   */
-
-  background: transparent;
+  background: #e8ddd0;
 
   opacity: 0;
 
   visibility: hidden;
 
   pointer-events: none;
-
-  transition: none;
 }
 
 .edit-stage.is-visible {
@@ -1072,76 +1060,347 @@ button {
 }
 
 /* =========================================
-   LARGE OPEN LETTER
+   FULL-SCREEN LETTER CANVAS
 ========================================= */
 
-.edit-letter-frame {
+.birthday-letter-canvas {
   position: relative;
 
-  /*
-   * Larger than viewport.
-   * It appears at this size immediately.
-   */
+  width: 100vw;
 
-  height: 128vh;
+  height: 100vh;
 
-  width: auto;
-
-  max-width: none;
+  overflow: hidden;
 
   display: flex;
 
   align-items: center;
 
   justify-content: center;
-
-  opacity: 1;
-
-  animation: none;
-
-  transition: none;
-
-  transform: rotate(-4deg) scale(1.06);
 }
 
 /* =========================================
-   OPEN LETTER PNG
+   LETTER BACKGROUND
 ========================================= */
 
-.edit-letter-image {
-  display: block;
+.birthday-letter-background {
+  position: absolute;
 
-  height: 128vh;
+  inset: 0;
 
-  width: auto;
+  width: 100%;
 
-  max-width: none;
+  height: 100%;
 
-  object-fit: contain;
+  object-fit: cover;
+
+  object-position: center;
+
+  z-index: 0;
 
   user-select: none;
 
   pointer-events: none;
 
   -webkit-user-drag: none;
-
-  filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.4));
 }
 
 /* =========================================
-   VIDEO WINDOW
+   BIRTHDAY LETTER CONTENT
+========================================= */
+
+.birthday-letter-content {
+  position: absolute;
+
+  left: 50%;
+
+  top: 51%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(63vw, 1000px);
+
+  height: min(73vh, 720px);
+
+  z-index: 10;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition: opacity 0.55s ease;
+}
+
+.birthday-letter-content.is-visible {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+/* =========================================
+   LETTER TEXT
+========================================= */
+
+.birthday-letter-text {
+  transform: translateY(65px);
+  width: 106%;
+
+  height: calc(100% - 82px);
+
+  padding: 4px 12px;
+
+  overflow: hidden;
+
+  color: #241a1d;
+
+  font-family: "IM Fell English", Georgia, serif;
+
+  font-size: clamp(0.82rem, 1.02vw, 1.04rem);
+
+  font-weight: 400;
+
+  line-height: 1.16;
+
+  letter-spacing: 0.003em;
+
+  text-align: left;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  column-count: 2;
+
+  column-gap: 44px;
+
+  column-fill: balance;
+}
+
+/* =========================================
+   LETTER PARAGRAPHS
+========================================= */
+
+.birthday-letter-text p {
+  margin: 0 0 6px;
+
+  break-inside: avoid;
+}
+
+.birthday-letter-text p:last-child {
+  margin-bottom: 0;
+}
+
+.birthday-letter-text p:first-child {
+  font-weight: 500;
+}
+
+/* =========================================
+   FINAL CLOSING
+========================================= */
+
+.birthday-letter-ending {
+  flex-shrink: 0;
+
+  width: 100%;
+
+  margin-top: 2px;
+
+  text-align: center;
+
+  color: #2b1d20;
+
+  font-family: "IM Fell English", Georgia, serif;
+}
+
+.birthday-signoff {
+  font-size: clamp(0.9rem, 1.08vw, 1.08rem);
+
+  font-weight: 600;
+
+  margin-bottom: 2px;
+}
+
+.birthday-last-line {
+  font-size: clamp(0.82rem, 0.98vw, 0.98rem);
+
+  font-style: italic;
+
+  opacity: 0.88;
+}
+
+/* =========================================
+   VINTAGE "KYA?" BUTTON
+========================================= */
+
+.birthday-last-thing {
+  position: relative;
+
+  flex-shrink: 0;
+
+  margin-top: 7px;
+
+  min-width: 82px;
+  min-height: 40px;
+
+  padding: 8px 22px;
+
+  border: 1px solid rgba(74, 27, 40, 0.55);
+
+  border-radius: 5px;
+
+  background: linear-gradient(145deg, #a34662, #7d2947);
+
+  color: #fff8f0;
+
+  font-family: "IM Fell English", Georgia, serif;
+
+  font-size: 0.82rem;
+
+  font-weight: 400;
+
+  letter-spacing: 0.03em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 0 rgba(91, 36, 49, 0.3),
+    0 8px 16px rgba(73, 32, 43, 0.2);
+
+  text-shadow: 0 1px 2px rgba(59, 20, 31, 0.35);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* subtle paper/stamp highlight */
+
+.birthday-last-thing::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 3px;
+
+  border: 1px solid rgba(255, 231, 214, 0.25);
+
+  border-radius: 3px;
+
+  pointer-events: none;
+}
+
+/* tiny decorative marks */
+
+.birthday-last-thing::after {
+  content: "♡";
+
+  position: absolute;
+
+  right: 7px;
+
+  top: 5px;
+
+  color: rgba(255, 231, 214, 0.42);
+
+  font-size: 0.58rem;
+
+  pointer-events: none;
+}
+
+.birthday-last-thing:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.06);
+
+  box-shadow:
+    0 6px 0 rgba(91, 36, 49, 0.26),
+    0 11px 20px rgba(73, 32, 43, 0.25);
+}
+
+.birthday-last-thing:active {
+  transform: translateY(2px);
+
+  box-shadow:
+    0 2px 0 rgba(91, 36, 49, 0.28),
+    0 4px 9px rgba(73, 32, 43, 0.18);
+}
+
+/* =========================================
+   VOLUME BUTTON
+========================================= */
+
+.letter-volume-btn {
+  position: absolute;
+
+  top: 20px;
+
+  right: 22px;
+
+  z-index: 40;
+
+  width: 37px;
+
+  height: 37px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid rgba(77, 43, 44, 0.14);
+
+  border-radius: 50%;
+
+  background: rgba(255, 250, 242, 0.74);
+
+  color: #4b3035;
+
+  font-size: 0.88rem;
+
+  cursor: pointer;
+
+  box-shadow: 0 3px 10px rgba(60, 35, 40, 0.1);
+
+  backdrop-filter: blur(3px);
+
+  -webkit-backdrop-filter: blur(3px);
+
+  transition: transform 0.2s ease;
+}
+
+.letter-volume-btn:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================
+   FINAL VIDEO
+   SAME CANVAS
 ========================================= */
 
 .edit-video-window {
   position: absolute;
 
-  left: 15.5%;
+  left: 8%;
 
-  top: 29%;
+  top: 8%;
 
-  width: 69%;
+  width: 84%;
 
-  height: 43%;
+  height: 84%;
+
+  z-index: 20;
 
   display: flex;
 
@@ -1153,16 +1412,8 @@ button {
 
   background: transparent;
 
-  border: 0;
-
-  box-shadow: none;
-
-  z-index: 5;
+  pointer-events: none;
 }
-
-/* =========================================
-   VIDEO
-========================================= */
 
 .until-edit {
   display: block;
@@ -1173,7 +1424,7 @@ button {
 
   object-fit: cover;
 
-  object-position: center center;
+  object-position: center;
 
   background: transparent;
 
@@ -1181,10 +1432,19 @@ button {
 
   outline: 0;
 
-  transform: none;
+  opacity: 0;
 
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.32))
-    drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+  visibility: hidden;
+
+  transition: opacity 0.6s ease;
+
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.3));
+}
+
+.until-edit.is-visible {
+  opacity: 1;
+
+  visibility: visible;
 }
 
 /* =========================================
@@ -1256,32 +1516,52 @@ body.harandini-leaving .harandini-page {
     line-height: 1.65;
   }
 
-  /* FINAL EDIT */
+  /* =====================================
+     FINAL LETTER
+  ====================================== */
 
-  .edit-letter-frame {
-    height: 122vh;
+  .birthday-letter-content {
+    width: min(66vw, 840px);
 
-    transform: rotate(-3.5deg) scale(1.04);
+    height: min(75vh, 700px);
+
+    top: 51%;
   }
 
-  .edit-letter-image {
-    height: 122vh;
+  .birthday-letter-text {
+    height: calc(100% - 82px);
+
+    padding: 4px 16px;
+
+    font-size: clamp(0.7rem, 1.05vw, 0.88rem);
+
+    line-height: 1.14;
+
+    column-gap: 32px;
+  }
+
+  .birthday-signoff {
+    font-size: 0.95rem;
+  }
+
+  .birthday-last-line {
+    font-size: 0.84rem;
   }
 
   .edit-video-window {
-    left: 15%;
+    left: 7%;
 
-    top: 29%;
+    top: 7%;
 
-    width: 70%;
+    width: 86%;
 
-    height: 43%;
+    height: 86%;
   }
 
-  .until-edit {
-    width: 145%;
+  .letter-volume-btn {
+    top: 18px;
 
-    height: 145%;
+    right: 20px;
   }
 }
 
@@ -1290,10 +1570,6 @@ body.harandini-leaving .harandini-page {
 ========================================= */
 
 @media (max-width: 650px) {
-  /* =====================================
-     MEMORY HEADER
-  ====================================== */
-
   .memory-header h1 {
     font-size: 1.72rem;
   }
@@ -1302,19 +1578,11 @@ body.harandini-leaving .harandini-page {
     font-size: 0.68rem;
   }
 
-  /* =====================================
-     WARM LIGHTS
-  ====================================== */
-
   .light-wall {
     top: 3%;
 
     width: 195vw;
   }
-
-  /* =====================================
-     MEMORY WALL
-  ====================================== */
 
   .memory-grid {
     top: 20%;
@@ -1403,7 +1671,7 @@ body.harandini-leaving .harandini-page {
   }
 
   /* =====================================
-     LETTER
+     LETTER GATE
   ====================================== */
 
   .letter-intro {
@@ -1425,33 +1693,75 @@ body.harandini-leaving .harandini-page {
   }
 
   /* =====================================
+     FULL LETTER
+  ====================================== */
+
+  .birthday-letter-content {
+    left: 50%;
+
+    top: 51%;
+
+    width: 78vw;
+
+    height: 70vh;
+  }
+
+  .birthday-letter-text {
+    height: calc(100% - 78px);
+
+    padding: 3px 7px;
+
+    font-size: 0.62rem;
+
+    line-height: 1.12;
+
+    column-gap: 16px;
+  }
+
+  .birthday-letter-text p {
+    margin-bottom: 5px;
+  }
+
+  .birthday-signoff {
+    font-size: 0.78rem;
+  }
+
+  .birthday-last-line {
+    font-size: 0.68rem;
+  }
+
+  .birthday-last-thing {
+    margin-top: 4px;
+
+    padding: 7px 14px;
+
+    font-size: 0.62rem;
+  }
+
+  .letter-volume-btn {
+    top: 12px;
+
+    right: 12px;
+
+    width: 36px;
+
+    height: 36px;
+
+    font-size: 0.86rem;
+  }
+
+  /* =====================================
      FINAL EDIT
   ====================================== */
 
-  .edit-letter-frame {
-    height: 116vh;
-
-    transform: rotate(-2.5deg) scale(1.03);
-  }
-
-  .edit-letter-image {
-    height: 116vh;
-  }
-
   .edit-video-window {
-    left: 14%;
+    left: 5%;
 
-    top: 29%;
+    top: 5%;
 
-    width: 72%;
+    width: 90%;
 
-    height: 42%;
-  }
-
-  .until-edit {
-    width: 142%;
-
-    height: 142%;
+    height: 90%;
   }
 }
 
@@ -1476,31 +1786,71 @@ body.harandini-leaving .harandini-page {
     font-size: 0.75rem;
   }
 
-  /* FINAL EDIT */
+  /* =====================================
+     SMALL LETTER
+  ====================================== */
 
-  .edit-letter-frame {
-    height: 114vh;
+  .birthday-letter-content {
+    width: 82vw;
 
-    transform: rotate(-2deg) scale(1.02);
+    height: 71vh;
+
+    top: 51%;
   }
 
-  .edit-letter-image {
-    height: 114vh;
+  .birthday-letter-text {
+    height: calc(100% - 74px);
+
+    padding: 2px 5px;
+
+    font-size: 0.54rem;
+
+    line-height: 1.08;
+
+    column-gap: 12px;
   }
+
+  .birthday-letter-text p {
+    margin-bottom: 4px;
+  }
+
+  .birthday-signoff {
+    font-size: 0.7rem;
+  }
+
+  .birthday-last-line {
+    font-size: 0.6rem;
+  }
+
+  .birthday-last-thing {
+    padding: 6px 12px;
+
+    font-size: 0.57rem;
+  }
+
+  .letter-volume-btn {
+    top: 9px;
+
+    right: 9px;
+
+    width: 34px;
+
+    height: 34px;
+
+    font-size: 0.82rem;
+  }
+
+  /* =====================================
+     FINAL EDIT
+  ====================================== */
 
   .edit-video-window {
-    left: 13%;
+    left: 3%;
 
-    top: 29%;
+    top: 3%;
 
-    width: 74%;
+    width: 94%;
 
-    height: 41%;
-  }
-
-  .until-edit {
-    width: 140%;
-
-    height: 140%;
+    height: 94%;
   }
 }
